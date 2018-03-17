@@ -1,0 +1,38 @@
+{
+  "allowJS": false,
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2017"
+    ],
+    "types": [
+      "node"
+    ],
+    "mapRoot": "./dist",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "target": "ES6",
+    "typeRoots": [
+      ".",
+      "./types",
+      "./node_modules/@types",
+      "./node_modules/typescript/lib"
+    ]
+  },
+  "exclude": [
+    "**/*.tsx",
+    "node_modules",
+    "dist"
+  ]
+}
