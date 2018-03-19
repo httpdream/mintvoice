@@ -7,6 +7,9 @@ const app: express.Express = express();
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
+app.engine("html", require("ejs").renderFile);
+app.use(express.static("workspace"));
+
 app.use("/", indexRouter);
 
 export { app };
