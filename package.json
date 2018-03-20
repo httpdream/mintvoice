@@ -21,6 +21,7 @@
     "@types/request-promise": "^4.1.41",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "countup.js": "^1.9.3",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "html": "^1.0.0",

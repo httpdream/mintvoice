@@ -9,6 +9,7 @@
   <meta property="og:title" content="MintVoice - 성우 데이터베이스">
   <script src="src/lib/jquery/jquery-3.3.1.min.js"></script>
   <script src="src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.rawgit.com/inorganik/countUp.js/master/dist/countUp.min.js"></script>
   <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="src/css/main.css">
 </head>
@@ -17,27 +18,30 @@
   <div class="container-fluid">
 
     <!--상단바  -->
-    <header class="row col-md-1 col-md-offset-11 col-xs-offset-11 col-xs-1" id="headerbar">
-      <div class="dropdown pull-right">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    <header class="row" id="headerbar">
+      <div class=" col-md-1 col-md-offset-11 col-xs-offset-11 col-xs-1">
+        <div class="dropdown pull-right">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
       Language
       <span class="caret"></span>
     </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">한국어</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
-        </ul>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">한국어</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+          </ul>
+        </div>
       </div>
     </header>
 
     <!--메인 이미지-->
-    <div class="row col-md-12" id="mainImage">
-      <img src="images/index-main.png" class="img-responsive" alt="Responsive image">
+    <div class="row" id="mainImage">
+      <div class="col-md-12">
+        <img src="images/index_main.png" class="img-responsive" alt="Responsive image">
+      </div>
     </div>
 
-    <nav class="row col-md-12 container-fluid" id="mainNav">
-      <div>
-        <img src="images/navbar.png" class="img-responsive absolute" alt="Responsive image">
+    <nav class="row" id="mainNav">
+      <div class=" col-md-12">
         <div class="row" id="navBox">
           <div class="col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2" id="leftimg">
             <a href="#">
@@ -53,9 +57,13 @@
       </div>
     </nav>
 
-    <section class="row" id="#numbering">
-      <div class="col-md-12">
-        <span class="counter .numbers-with-commas">12,345.00</span>
+    <section class="row">
+      <div class=" col-md-12">
+        <p class="text-center h1">
+          <small>성우</small>
+          <span id="sourceUser"></span><small>명, 샘플</small>
+          <span id="sourceCount"></span><small>개가 준비되어 있습니다.</small>
+        </p>
       </div>
     </section>
 
@@ -72,17 +80,8 @@
 
     </footer>
   </div>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-  <script src="src/lib/counter/jquery.counterup.min.js"></script>
-  <script>
-    jQuery(document).ready(function($) {
-      $('.counter').counterUp({
-        delay: 10, // the delay time in ms
-        time: 1000 // the speed time in ms
-      });
-    });
-  </script>
 
+  <script src="src/js/index.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,16 @@
-$(document).ready(function($) {
-  $('.counter').counterUp({
-    delay: 10, // the delay time in ms
-    time: 1000 // the speed time in ms
-  });
-});
+var countOptions = {
+  useEasing: true,
+  useGrouping: true,
+  separator: ',',
+  decimal: '.',
+};
+var sourceCount = new CountUp('sourceCount', 0, 1234567890, 0, 2.5, countOptions);
+var sourceUser = new CountUp('sourceUser', 0, 1234567, 0, 2.5, countOptions);
+if (!sourceCount.error && !sourceUser.error) {
+  sourceCount.start();
+  sourceUser.start();
+} else if(sourceCount.error){
+  console.error(sourceCount.error);
+}else {
+  console.error(sourceUser.error);
+}
