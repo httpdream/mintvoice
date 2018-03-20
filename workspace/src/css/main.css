@@ -3,6 +3,7 @@
 body {
     font-family: "Spoqa Han Sans", "Nanum Gothic", "Sans-serif";
     margin-top:10px;
+    height:100%;
 }
 
 #headerbar {
@@ -15,4 +16,29 @@ body {
 
 #navbox{
   float:none;
+}
+
+body > .container-fluid{
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#mainImage{
+  padding:0px;
+}
+
+#mainNav{
+  padding:0px;
+}
+
+img.absolute{
+  position:absolute;
+}
+
+#navBox{
+  padding-top: 1.7%;
+}
+
+#leftimg{
+  margin-right: 17%;
 }
