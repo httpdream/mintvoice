@@ -19,6 +19,10 @@ body {
   margin-top:1%;
 }
 
+#headerbar>.col-md-offset-10{
+  padding-top:1%;
+}
+
 body > .container-fluid{
   padding-left: 15%;
   padding-right: 15%;
@@ -43,6 +47,8 @@ body > .container-fluid{
   margin-right: 17%;
 }
 
-#numbering{
+#countering{
+  padding:3% 0% 3% 0%;
+  margin:0px;
   background-color: rgb(133,212,217);
 }
