@@ -15,6 +15,144 @@
 </head>
 
 <body>
+  <!-- Modal -->
+  <div id="feels" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">원하는 느낌을 선택해주세요.</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <form>
+              <div class="row">
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">소심
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">당당
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">야비
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">뚱뚱
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">밝음
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">친절
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">나긋
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">음침
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">사악
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">능글
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">강함
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">거침
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">코믹
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">익살
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">냉정
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">괴물
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">자상
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">광기
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">유약
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">차분
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">슬픔
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">분노
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">느끼
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">여유
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">활발
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">푸근
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">듬직
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">강직
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">거만
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">터프
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">긴장
+                </div>
+                <div class="checkbox-inline col-md-1">
+                  <input type="checkbox" value="">멍청
+                </div>
+                <div class="checkbox-inline col-md-1-5">
+                  <input type="checkbox" value="">어두움
+                </div>
+                <div class="checkbox-inline col-md-1-5">
+                  <input type="checkbox" value="">겁쟁이
+                </div>
+                <div class="checkbox-inline col-md-1-5">
+                  <input type="checkbox" value="">히스테릭
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">선택 완료!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 메인 컨테이너 -->
   <div class="container-fluid">
 
     <!-- 상단바 -->
@@ -73,12 +211,66 @@
     </section>
 
     <section class="row" id="mainBox">
+      <div class="col-md-10" id="filterBox">
+        <form>
+          <label class="control-label">성별</label>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">남자
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">여자
+          </div>
+          <br />
 
-      <div class="row" id="filterBox">
+          <label class="control-label">분야</label>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">게임
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">애니
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">광고
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">나레이션
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">외화
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">교재
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">기타
+          </div>
+          <br />
 
+          <label class="control-label">음역대</label>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">고음
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">중고음
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">중음
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">중저음
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">저음
+          </div>
+          <br />
+
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#feels">
+            느낌 선택 <span class="badge">5</span>
+          </button>
+        </form>
       </div>
-      <div class="row" id="content">
-
+      <div class="col-md-2" id="submitButton">
+        <input type="submit" class="btn btn-info btn-primary btn-block" value="검색">
       </div>
     </section>
 
