@@ -17,7 +17,7 @@
   <div class="container-fluid">
 
     <!--상단바  -->
-    <header class="row col-md-1 col-md-offset-11 col-xs-offset-8" id="headerbar">
+    <header class="row col-md-1 col-md-offset-11 col-xs-offset-11 col-xs-1" id="headerbar">
       <div class="dropdown pull-right">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
       Language
@@ -53,6 +53,12 @@
       </div>
     </nav>
 
+    <section class="row" id="#numbering">
+      <div class="col-md-12">
+        <span class="counter .numbers-with-commas">12,345.00</span>
+      </div>
+    </section>
+
     <section class="row" id="mainBox">
 
       <div class="row" id="filterBox">
@@ -66,6 +72,17 @@
 
     </footer>
   </div>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+  <script src="src/lib/counter/jquery.counterup.min.js"></script>
+  <script>
+    jQuery(document).ready(function($) {
+      $('.counter').counterUp({
+        delay: 10, // the delay time in ms
+        time: 1000 // the speed time in ms
+      });
+    });
+  </script>
+
 </body>
 
 </html>
