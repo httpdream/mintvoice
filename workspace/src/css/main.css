@@ -2,7 +2,6 @@
 /* @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); */
 body {
     font-family: "Spoqa Han Sans", "Nanum Gothic", "Sans-serif";
-    height:100%;
 }
 
 .col-xs-1-5 {
@@ -11,10 +10,6 @@ body {
 
 .colorMint{
   color:rgb(133,212,217);
-}
-
-.glyphicon {
-    font-size: 30px;
 }
 
 #navbox{
@@ -32,7 +27,6 @@ body {
 body > .container-fluid{
   padding-left: 15%;
   padding-right: 15%;
-  height:100%;
 }
 
 #mainImage{
@@ -61,46 +55,10 @@ body > .container-fluid{
 }
 
 #mainBox{
-  padding:3% 0% 3% 0%;
   margin:0px;
   background-color : #D0CCCC;
-  height: 100%;
-}
-
-#mainBox>form{
-  height:100%;
 }
 
 #filterBox{
-  margin:0px;
-  height:100%;
-}
-
-#submitButton{
-  height:100%;
-}
-
-#searchButton{
-  height: 100%;
-}
-
-#contentBox{
-  padding:0%;
-  margin:0px;
-  background-color: rgb(133,212,217);
-}
-#card{
-  border:1px solid black;
-  background-color: white;
-}
-
-#cardTitle{
-  padding:0px;
-  margin:0px;
-  border-bottom: 1px solid black;
-}
-
-#cardInfo{
-  padding:0px;
-  margin:0px;
+  margin:0;
 }

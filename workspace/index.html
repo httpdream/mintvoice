@@ -156,7 +156,7 @@
   <div class="container-fluid">
 
     <!-- 상단바 -->
-    <header class="row row-eq-height" id="headerbar">
+    <header class="row" id="headerbar">
       <div class="col-md-1 col-xs-1">
         <img src="images/logo.png" class="img-responsive" alt="Responsive image">
       </div>
@@ -201,7 +201,7 @@
 
     <!-- Counter -->
     <section class="row" id="countering">
-      <div class="col-md-12">
+      <div class=" col-md-12">
         <p class="text-center h1">
           <small>성우</small>
           <span id="sourceUser"></span><small>명, 샘플</small>
@@ -210,343 +210,73 @@
       </div>
     </section>
 
-    <section class="row row-eq-height" id="mainBox">
-      <form>
-        <div class="col-md-10 h4" id="filterBox">
-
-          <div class="row">
-            <div class="col-md-1">
-              <label class="control-label">분야</label>
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">게임
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">애니
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">광고
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">나레이션
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">외화
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">교재
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">기타
-            </div>
+    <section class="row" id="mainBox">
+      <div class="col-md-10" id="filterBox">
+        <form>
+          <label class="control-label">성별</label>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">남자
           </div>
-          <br /><br />
-
-          <div class="row">
-            <div class="col-md-1">
-              <label class="control-label">성별</label>
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">남자
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">여자
-            </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">여자
           </div>
-          <br /><br />
+          <br />
 
-          <div class="row">
-            <div class="col-md-1">
-              <label class="control-label">나이</label>
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">아역
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">청소년
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">성인
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">중년
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">노년
-            </div>
+          <label class="control-label">분야</label>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">게임
           </div>
-          <br /><br />
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">애니
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">광고
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">나레이션
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">외화
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">교재
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">기타
+          </div>
+          <br />
 
-          <div class="row">
-            <div class="col-md-1">
-              <label class="control-label">음역</label>
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">고음
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">중고음
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">중음
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">중저음
-            </div>
-            <div class="checkbox-inline col-md-1-5">
-              <input type="checkbox" value="">저음
-            </div>
+          <label class="control-label">음역대</label>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">고음
           </div>
-          <br /><br />
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">중고음
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">중음
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">중저음
+          </div>
+          <div class="checkbox-inline">
+            <input type="checkbox" value="">저음
+          </div>
+          <br />
 
-          <div class="row">
-            <div class="col-md-1">
-              <label class="control-label">느낌</label>
-            </div>
-            <div class="col-md-1.5">
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#feels">
-                느낌 선택 <span class="badge">5</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2" id="submitButton">
-          <input type="submit" class="btn btn-info btn-primary btn-block" value="검색" id="searchButton">
-        </div>
-      </form>
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#feels">
+            느낌 선택 <span class="badge">5</span>
+          </button>
+        </form>
+      </div>
+      <div class="col-md-2" id="submitButton">
+        <input type="submit" class="btn btn-info btn-primary btn-block" value="검색">
+      </div>
     </section>
-
-    <!-- Main Contents -->
-    <section class="row row-eq-height" id="contentBox">
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <div id="card">
-        <div class="row row-eq-height col-md-12" id="cardTitle">
-          <div class="col-md-12 h3">
-            [게임]_남_청소년_중고음_소심
-          </div>
-        </div>
-        <div class="row row-eq-height" id="cardInfo">
-          <div class="col-md-3 h4">
-            OOO성우
-          </div>
-          <div class="col-md-1 col-md-offset-6">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-1">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-      <nav class="text-center" id="pagination">
-        <ul class="pagination pagination-lg">
-          <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-          <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-          <li class="disabled"><a href="#">2 <span class="sr-only"></span></a></li>
-          <li class="disabled"><a href="#">3 <span class="sr-only"></span></a></li>
-          <li class="disabled"><a href="#">4 <span class="sr-only"></span></a></li>
-          <li class="disabled"><a href="#">5 <span class="sr-only"></span></a></li>
-          <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-        </ul>
-      </nav>
-    </section>
-
 
     <footer class="row" id="footerBox">
 
     </footer>
-
-    <!-- Main Container End -->
   </div>
 
   <script src="src/js/index.js"></script>
