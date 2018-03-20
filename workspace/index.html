@@ -15,37 +15,30 @@
 
 <body>
   <div class="container-fluid">
-    <nav class="navbar navbar-custom colorMint" id="navContainer">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#" id="logoContainer">
-            <img alt="Brand" src="images/index-logo.png" id="logoImage" />
-          </a>
-        </div>
-        <ul class="nav navbar-nav navbar-right" id="langDropdown">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Language<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Korean</a></li>
-              <li><a href="#">English</a></li>
-            </ul>
-          </li>
+
+    <!--상단바  -->
+    <header class="row col-md-1 col-md-offset-10 col-xs-offset-8" id="headerbar">
+      <div class="dropdown pull-right">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+      Language
+      <span class="caret"></span>
+    </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">한국어</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
         </ul>
       </div>
-    </nav>
+    </header>
 
-    <div class="row" id="mainImage">
-
+    <!--메인 이미지-->
+    <div class="row col-md-10 col-md-offset-1" id="mainImage">
+      <img src="images/index-main.png" class="img-responsive" alt="Responsive image">
     </div>
+
     <nav class="row" id="navBox">
 
     </nav>
+
     <section class="row" id="mainBox">
 
       <div class="row" id="filterBox">

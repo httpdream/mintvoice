@@ -1,29 +1,10 @@
 
-
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 body {
     font-family: "Nanum Gothic", sans-serif;
+    margin-top:10px;
 }
 
-#logoImage {
-  width:70px;
-  height: 48px;
-}
-.colorMint {
-  background-color:#0faaaf;
-}
-
-#navContainer {
-  height:100%;
-}
-
-#dropContainer {
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-#langDropdown > li > a {
-  background-color: #0faaaf;
-  color:White;
+#headerbar {
+  margin-bottom: 10px;
 }
