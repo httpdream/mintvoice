@@ -4,8 +4,8 @@ var countOptions = {
   separator: ',',
   decimal: '.',
 };
-var sourceCount = new CountUp('sourceCount', 0, 1234567890, 0, 2.5, countOptions);
-var sourceUser = new CountUp('sourceUser', 0, 1234567, 0, 2.5, countOptions);
+var sourceCount = new CountUp('sourceCount', 0, 1234567890, 0, 3, countOptions);
+var sourceUser = new CountUp('sourceUser', 0, 1234567, 0, 3, countOptions);
 if (!sourceCount.error && !sourceUser.error) {
   sourceCount.start();
   sourceUser.start();
