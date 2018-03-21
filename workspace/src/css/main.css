@@ -63,16 +63,13 @@ body {
 	box-shadow: none;
 }
 
-#navbox{
-  float:none;
+.vertical-align{
+  display:flex;
+  align-items: center;
 }
 
 #headerbar{
   margin-top:1%;
-}
-
-#headerbar>.col-md-offset-10{
-  padding-top:1%;
 }
 
 body > .container-fluid{
@@ -86,7 +83,7 @@ body > .container-fluid{
 }
 
 #mainNav{
-  padding:3% 0% 3% 0%;
+  padding:0%;
   margin:0px;
 }
 
@@ -94,9 +91,16 @@ body > .container-fluid{
   padding:0px;
 }
 
-#leftimg{
-  margin-right: 17%;
+#navBox{
+  padding:3% 0% 3% 0%;
+  border:2px solid #007299;
+  margin:0px;
 }
+
+#navBox>div:first-child{
+  border-right:1px solid #007299;
+}
+
 
 #countering{
   padding:3% 0% 3% 0%;
