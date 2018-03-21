@@ -2,7 +2,6 @@
 /* @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); */
 body {
     font-family: "Spoqa Han Sans", "Nanum Gothic", "Sans-serif";
-    height:100%;
 }
 
 .col-xs-1-5 {
@@ -32,7 +31,6 @@ body {
 body > .container-fluid{
   padding-left: 15%;
   padding-right: 15%;
-  height:100%;
 }
 
 #mainImage{
@@ -64,20 +62,10 @@ body > .container-fluid{
   padding:3% 0% 3% 0%;
   margin:0px;
   background-color : #D0CCCC;
-  height: 100%;
-}
-
-#mainBox>form{
-  height:100%;
 }
 
 #filterBox{
   margin:0px;
-  height:100%;
-}
-
-#submitButton{
-  height:100%;
 }
 
 #searchButton{
