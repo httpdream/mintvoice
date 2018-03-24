@@ -1,7 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
-/* @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css); */
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+
 body {
-    font-family: "Spoqa Han Sans", "Nanum Gothic", "Sans-serif";
+    font-family: "Spoqa Han Sans", 'Nanum Gothic', 'Sans-serif' !important;
+    font-weight: 300;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+.bold{
+  font-weight: 500;
 }
 
 .col-xs-1-5 {
@@ -16,12 +26,18 @@ body {
     font-size: 30px;
 }
 
+.btn-info{
+  background-color:#0099cc;
+}
 .btn {
     padding: 14px 24px;
     border: 0 none;
-    font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.btnWeight{
+  font-weight: 700;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -63,10 +79,42 @@ body {
 	box-shadow: none;
 }
 
+/* Hiding the checkbox, but allowing it to be focused */
+.badgebox
+{
+    opacity: 0;
+}
+
+.badgebox + .badge
+{
+    /* Move the check mark away when unchecked */
+    text-indent: -999999px;
+    /* Makes the badge's width stay the same checked and unchecked */
+	width: 27px;
+}
+
+.badgebox:focus + .badge
+{
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+
+    /* Adding a light border */
+    box-shadow: inset 0px 0px 5px;
+    /* Taking the difference out of the padding */
+}
+
+.badgebox:checked + .badge
+{
+    /* Move the check mark back when checked */
+	text-indent: 0;
+}
+
+
 .vertical-align{
   display:flex;
   align-items: center;
 }
+
 
 #headerbar{
   margin-top:1%;
@@ -111,7 +159,12 @@ body > .container-fluid{
 #mainBox{
   padding:3% 0% 3% 0%;
   margin:0px;
-  background-color : #D0CCCC;
+  border-top:0px;
+  border-bottom: 2px;
+  border-right:2px;
+  border-left:2px;
+  border-style: solid;
+  border-color: #007299;
 }
 
 #filterBox{
@@ -148,4 +201,13 @@ body > .container-fluid{
   display: -webkit-flex;
   display: -ms-flexbox;
   display:         flex;
+}
+
+#filterBox>div>div{
+  padding:0px 1% 0px 1%;
+  margin:0px;
+}
+
+#filterBox>div>div.h3{
+  padding:0% 0% 2% 1%;
 }
