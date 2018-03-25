@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf dist/; tsc",
     "start": "NODE_ENV=development nodemon bin/mint.ts",
-    "start:dev": "git pull; npm run build; pm2 restart all",
+    "start:win": "nodemon bin/mint.ts",
     "test": "NODE_ENV=development mocha --watch --watch-extensions ts --reporter spec --require ts-node/register"
   },
   "keywords": [
