@@ -28,4 +28,12 @@ app.use("/", indexRouter);
 app.post("/upload", upload.single("sampleFile"), (req, res, next) => {
   res.send(req.file);
 });
+
+app.use((err: Error, req, res, next) => {
+  res.json({
+    status: 500,
+    message: err.message
+  });
+});
+
 export { app };
