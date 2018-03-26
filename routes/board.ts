@@ -45,6 +45,22 @@ boardRouter.get("/:id", (req, res, next) => {
 });
 
 boardRouter.post("/", (req, res, next) => {
+  if (!req.body.name || req.body.name.length === 0) {
+    throw new Error("이름을 넣어주세요");
+  }
+  if (!req.body.password || req.body.password.length === 0) {
+    throw new Error("비밀번호를 넣어주세요");
+  }
+  if (!req.body.phone || req.body.phone.length === 0) {
+    throw new Error("연락처를 넣어주세요");
+  }
+  if (!req.body.title || req.body.title.length === 0) {
+    throw new Error("제목을 넣어주세요");
+  }
+  if (!req.body.content || req.body.content.length === 0) {
+    throw new Error("내용을 넣어주세요");
+  }
+
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
   sql.exec(`
   INSERT INTO board (name, password, title, content, phone)
