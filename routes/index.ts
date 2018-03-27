@@ -42,13 +42,13 @@ indexRouter.post("/count", (req, res, next) => {
   .then(rows=> {
     countIdData = rows[0]["c"];
     sql.exec(`
-    SELECT COUNT(name) AS c
+    SELECT COUNT(distinct name) AS c
     FROM voice`)
     .then(rows=> {
       res.json({
         status: 200,
         idcount : countIdData,
-        namecount: rows[0]["c"],
+        namecount: rows[0]["c"]
       });
     })
     .catch(err => {
