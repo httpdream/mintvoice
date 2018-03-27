@@ -3,6 +3,7 @@ import { sql } from "../libs/db";
 import boardRouter from "./board";
 
 const indexRouter = Router();
+let countIdData = 0;
 
 indexRouter.get("/", (req, res, next) => {
   console.log("hihi");
@@ -30,6 +31,37 @@ indexRouter.get("/", (req, res, next) => {
 
     return res.render("../workspace/main.ejs", {
       tags: tags
+    });
+  });
+});
+
+indexRouter.post("/count", (req, res, next) => {
+  sql.exec(`
+  SELECT COUNT(id) AS c
+  FROM voice`)
+  .then(rows=> {
+    countIdData = rows[0]["c"];
+    sql.exec(`
+    SELECT COUNT(name) AS c
+    FROM voice`)
+    .then(rows=> {
+      res.json({
+        status: 200,
+        idcount : countIdData,
+        namecount: rows[0]["c"],
+      });
+    })
+    .catch(err => {
+      res.json({
+        status: err.status,
+        message: err.message
+      });
+    });
+  })
+  .catch(err => {
+    res.json({
+      status: err.status,
+      message: err.message
     });
   });
 });
