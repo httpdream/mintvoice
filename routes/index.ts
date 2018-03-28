@@ -1,12 +1,12 @@
 import { Router, Request, Response } from "express";
 import { sql } from "../libs/db";
 import boardRouter from "./board";
+import voiceRouter from "./voice";
 
 const indexRouter = Router();
 let countIdData = 0;
 
 indexRouter.get("/", (req, res, next) => {
-  console.log("hihi");
   sql.exec(`
   SELECT *
   FROM tag`)
@@ -27,8 +27,6 @@ indexRouter.get("/", (req, res, next) => {
       tags[row.type].push(row);
     });
 
-    console.log(tags);
-
     return res.render("../workspace/main.ejs", {
       tags: tags
     });
@@ -39,12 +37,12 @@ indexRouter.post("/count", (req, res, next) => {
   sql.exec(`
   SELECT COUNT(id) AS c
   FROM voice`)
-  .then(rows=> {
+  .then(rows => {
     countIdData = rows[0]["c"];
     sql.exec(`
     SELECT COUNT(distinct name) AS c
     FROM voice`)
-    .then(rows=> {
+    .then(rows => {
       res.json({
         status: 200,
         idcount : countIdData,
@@ -102,5 +100,6 @@ indexRouter.get("/view", (req, res, next) => {
 });
 
 indexRouter.use("/board", boardRouter);
+indexRouter.use("/voice", voiceRouter);
 
 export { indexRouter };
