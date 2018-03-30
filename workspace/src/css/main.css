@@ -260,3 +260,22 @@ body > .container-fluid{
 #filterBox>div>div.h3{
   padding:0% 0% 2% 1%;
 }
+
+#footerBox{
+  margin:0px;
+}
+
+#footerBox>div{
+  padding:1% 0% 1% 0%;
+  background-color:black;
+  color:white;
+}
+
+#footerBox>div>div{
+  padding:0px;
+  margin:0px;
+}
+
+#reserved{
+  padding:2% 0% 0% 0%;
+}
