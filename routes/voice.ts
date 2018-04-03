@@ -118,6 +118,16 @@ voiceRouter.get("/search", (req, res, next) => {
   from tag_voice
   inner join voice
   on voice.id = tag_voice.voice_id
+  where
+    category in (?)
+  AND
+    gender in (?)
+  AND
+    age in (?)
+  AND
+    octave in (?)
+  AND
+    ?
   )`)
   .then (rows => {
     res.json({
