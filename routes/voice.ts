@@ -10,31 +10,72 @@ let storage = multer.diskStorage({
     cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    let keys = [req.body.category, req.body.gender, req.bod.octave];
-    keys = keys.concat(req.body.feels);
-    let t = file.originalname.split(".");
-    let extension = t[t.length - 1];
-    let fileName = keys.join("_") + extension;
+    let category = file.originalname.substring(file.originalname.indexOf("[") + 1, file.originalname.indexOf("]"));
+    let remain = file.originalname.substring(file.originalname.indexOf("]") + 2).split(".")[0].split("_");
+    let gender = "";
+    let age = "";
+    let octave = "";
+    let feels: any[] = [];
 
-    sql.exec(`INSERT INTO voice (filename, original_filename) VALUES (?, ?)
-    `, [fileName, file.originalname])
-    .then (voice => {
-      console.log("insert voice", voice);
-      sql.exec(`
-      SELECT id, type
-      FROM tag
-      WHERE
-      key in ?
-      `, [keys]).then (async rows => {
-        for (let row of rows) {
-          await sql.exec(`INSERT INTO tag_voice (tag_id, tag_type, voice_id) VALUES (?, ?, ?)
-          `, [row.id, row.type, voice.id]);
+    return sql.exec(`
+    SELECT id, type, name
+    FROM tag
+    WHERE name IN (?);
+    `, [remain])
+    .then (tags => {
+      tags.forEach(tag => {
+        switch (tag.type) {
+          case "gender":
+            gender = tag.id;
+          case "age":
+            age = tag.id;
+          case "octave":
+            octave = tag.id;
+          case "feels":
+            feels.push(String(tag.id));
         }
       });
+
+      sql.exec(`
+      INSERT INTO voice (name, filename, original_filename)
+      VALUES
+      (?, ?, ?)
+      `, ["name", file.originalname, file.originalname])
+      .then (row => {
+        sql.exec(`
+        INSERT INTO tag_voice (voice_id, category, gender, age, octave, feels)
+        VALUES
+        (?, ?, ?, ?, ?, ?)
+        `, [row.insertId, category, gender, age, octave, JSON.stringify(feels)]);
+      });
     })
-    .then(() => {
-      cb(null, fileName);
+    .then (() => {
+      cb(null, file.originalname);
     });
+
+    // let ids = [req.body.category, req.body.gender, req.body.octave];
+    // ids = ids.concat(req.body.feels);
+    // let t = file.originalname.split(".");
+    // let extension = t[t.length - 1];
+    // let fileName = "undefined." + extension;
+
+    // return sql.exec(`
+    // SELECT id, type, name
+    // FROM tag
+    // WHERE id IN (?)
+    // `, [ids])
+    // .then (tags => {
+    //   fileName = tags.map(tag => tag.name).join("_") + "." + extension;
+    //   return sql.exec(`INSERT INTO voice (filename, name, original_filename) VALUES (?, ?, ?)
+    //   `, [fileName, "최장진", file.originalname]);
+    // })
+    // .then (voice => {
+    //   return sql.exec(`INSERT INTO tag_voice (voice_id, category, gender, age, octave, feels) VALUES (?, ?, ?, ?, ?, ?)
+    //   `, [voice.insertId, req.body.category, req.body.gender, req.body.age, req.body.octave, JSON.stringify(req.body.feels, null, "  ")]);
+    // })
+    // .then(() => {
+    //   cb(null, fileName);
+    // });
   }
 });
 
@@ -42,6 +83,33 @@ let upload = multer({ storage: storage });
 
 voiceRouter.post("/upload", upload.single("voiceFile"), (req, res, next) => {
   res.send(req["file"]);
+});
+
+voiceRouter.get("/upload", (req, res, next) => {
+  sql.exec(`
+  SELECT *
+  FROM tag`)
+  .then (rows => {
+    if (rows.length === 0) {
+      return res.render("../workspace/uploadFile.html");
+    }
+
+    let tags = {
+      category: [],
+      gender: [],
+      age: [],
+      octave: [],
+      feels: []
+    };
+
+    rows.forEach(row => {
+      tags[row.type].push(row);
+    });
+
+    return res.render("../workspace/uploadFile.ejs", {
+      tags: tags
+    });
+  });
 });
 
 voiceRouter.get("/search", (req, res, next) => {

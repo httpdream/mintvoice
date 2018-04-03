@@ -5,61 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta property="og:type" content="website">
         <meta property="og:title" content="MintVoice - 성우 데이터베이스">
-        <script src="src/lib/jquery/jquery-3.3.1.min.js"></script>
-        <script src="src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+        <script src="../src/lib/jquery/jquery-3.3.1.min.js"></script>
+        <script src="../src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.rawgit.com/inorganik/countUp.js/master/dist/countUp.min.js"></script>
-        <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="src/css/main.css">
+        <link rel="stylesheet" href="../src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../src/css/main.css">
       </head>
 
     <body>
       <form ref='uploadForm' 
         id='uploadForm' 
-        action='/upload' 
+        action='/voice/upload' 
         method='post' 
         encType="multipart/form-data">
-  
-        <div class="row">
-          <% tags.category.forEach(function (tag) { %>
-            <div class="checkbox-inline col-md-1-5">
-              <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>" name="category"><span class="badge">&check;</span></label>
-            </div>
-          <% }) %>
-        </div>
-
-        <div class="row">
-          <% tags.gender.forEach(function (tag) { %>
-            <div class="checkbox-inline col-md-1-5">
-              <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>" name="gender"><span class="badge">&check;</span></label>
-            </div>
-          <% }) %>
-        </div>
-
-        <div class="row">
-          <% tags.age.forEach(function (tag) { %>
-            <div class="checkbox-inline col-md-1-5">
-              <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>" name="age"><span class="badge">&check;</span></label>
-            </div>
-          <% }) %>
-        </div>
-
-        <div class="row">
-          <% tags.octave.forEach(function (tag) { %>
-            <div class="checkbox-inline col-md-1-5">
-              <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>" name="octave"><span class="badge">&check;</span></label>
-            </div>
-          <% }) %>
-        </div>
-
-        <div class="row">
-          <% tags.feels.forEach(function (tag) { %>
-            <div class="checkbox-inline col-md-1-5">
-              <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>" name="feels"><span class="badge">&check;</span></label>
-            </div>
-          <% }) %>
-        </div>
-          
-          <input type="file" name="sampleFile" />
+          <input type="file" name="voiceFile" />
           <input type='submit' value='Upload!' />
       </form>     
     </body>
