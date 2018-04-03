@@ -37,16 +37,16 @@ indexRouter.post("/count", (req, res, next) => {
   sql.exec(`
   SELECT COUNT(id) AS c
   FROM voice`)
-  .then(rows => {
-    countIdData = rows[0]["c"];
+  .then(voiceCount => {
+    countIdData = voiceCount[0]["c"];
     sql.exec(`
     SELECT COUNT(distinct name) AS c
     FROM voice`)
-    .then(rows => {
+    .then(nameCount => {
       res.json({
         status: 200,
         idcount : countIdData,
-        namecount: rows[0]["c"]
+        namecount: nameCount[0]["c"]
       });
     })
     .catch(err => {
@@ -60,35 +60,6 @@ indexRouter.post("/count", (req, res, next) => {
     res.json({
       status: err.status,
       message: err.message
-    });
-  });
-});
-
-indexRouter.get("/upload", (req, res, next) => {
-  sql.exec(`
-  SELECT *
-  FROM tag`)
-  .then (rows => {
-    if (rows.length === 0) {
-      return res.render("../workspace/main.html");
-    }
-
-    let tags = {
-      category: [],
-      gender: [],
-      age: [],
-      octave: [],
-      feels: []
-    };
-
-    rows.forEach(row => {
-      tags[row.type].push(row);
-    });
-
-    console.log(tags);
-
-    return res.render("../workspace/uploadFile.ejs", {
-      tags: tags
     });
   });
 });
