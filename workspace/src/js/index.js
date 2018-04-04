@@ -13,8 +13,8 @@ $(document).ready(function() {
         separator: ',',
         decimal: '.',
       };
-      let sourceCount = new CountUp('sourceCount', 0, response.idcount, 0, 3, countOptions);
-      let sourceUser = new CountUp('sourceUser', 0, response.namecount, 0, 3, countOptions);
+      let sourceCount = new CountUp('sourceCount', 0, response.idcount, 0, 5, countOptions);
+      let sourceUser = new CountUp('sourceUser', 0, response.namecount, 0, 5, countOptions);
       if (!sourceCount.error && !sourceUser.error) {
         sourceCount.start();
         sourceUser.start();

@@ -4,6 +4,7 @@
 body {
     font-family: "Spoqa Han Sans", 'Nanum Gothic', 'Sans-serif' !important;
     font-weight: 300;
+    overflow-x:hidden;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -45,8 +46,8 @@ body {
 }
 
 .btn-primary {
-    background: #0099cc;
-    color: #ffffff;
+    background: black;
+    color: black;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
@@ -54,7 +55,7 @@ body {
 }
 
 .btn-primary:active, .btn-primary.active {
-    background: #007299;
+    background: black;
     box-shadow: none;
 }
 
@@ -64,18 +65,18 @@ body {
 }
 
 .btn-primary.outline {
-	border: 2px solid #0099cc;
-	color: #0099cc;
+	border: 2px solid black;
+	color: black;
 }
 
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
-	color: #33a6cc;
-	border-color: #33a6cc;
+	color: black;
+	border-color: black;
 }
 
 .btn-primary.outline:active, .btn-primary.outline.active {
-	border-color: #007299;
-	color: #007299;
+	border-color: black;
+	color: black;
 	box-shadow: none;
 }
 
@@ -149,7 +150,7 @@ body {
   /*color:#707070;*/
 }
 .pagination li:first-child a, .pagination li:last-child a {
-  border: 2px solid #143361 !important;
+  border: 2px solid black !important;
   border-radius: 6px;
   margin: 0px;
   padding: 6px 12px;
@@ -160,19 +161,26 @@ body {
 .pagination li:first-child a:hover, .pagination li:last-child a:hover {
   text-decoration: none !important;
   color: #fff;
-  background-color: #143361;
+  background-color: black;
 }
 .pagination li:first-child a:focus, .pagination li:last-child a:focus {
   outline: none;
 }
 
+#countering>div>div>.bold{
+  color:white;
+}
+
+#userImage{
+  align:center;
+}
 #headerbar{
   margin-top:1%;
 }
 
 body > .container-fluid{
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 0%;
+  padding-right:0%;
 }
 
 #mainImage{
@@ -191,19 +199,19 @@ body > .container-fluid{
 
 #navBox{
   padding:3% 0% 3% 0%;
-  border:2px solid #007299;
+  border-bottom: 1px solid black;
   margin:0px;
 }
 
 #navBox>div:first-child{
-  border-right:1px solid #007299;
+  border-right:2px solid black;
 }
 
 
 #countering{
   padding:3% 0% 3% 0%;
   margin:0px;
-  background-color: rgb(133,212,217);
+  background-color: black;
 }
 
 #mainBox{
