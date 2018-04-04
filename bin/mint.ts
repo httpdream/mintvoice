@@ -10,7 +10,7 @@ import { app } from "../app";
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(4444);
+const port = normalizePort(80);
 app.set("port", port);
 
 /**

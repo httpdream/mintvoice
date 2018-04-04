@@ -3,3 +3,4 @@ uploads
 config
 yarn-error.log
 yarn.lock
+bin/mint.ts
