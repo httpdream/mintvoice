@@ -32,6 +32,10 @@ label{
   width: 12.49995%;
 }
 
+.col-md-1-5 {
+  width: 12.49995%;
+}
+
 .colorMint{
   color:rgb(133,212,217);
 }
@@ -365,19 +369,17 @@ body > .container-fluid{
   display:         flex;
 }
 
-#filterBox>div:last-child{
-  margin-left:0px;
-}
 
 #filterBox>div>div h4{
   padding:0px 1% 0px 1%;
 }
 
 #searchButtonWrap{
-  padding:0px;
+  padding-left:15px;
+  padding-right:0px;
 }
 
-#filterBox>div>div:nth-child(1){
+.margin4{
   margin-left:4.16666666%;
 }
 
