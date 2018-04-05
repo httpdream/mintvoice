@@ -12,10 +12,10 @@ let storage = multer.diskStorage({
   filename: (req, file, cb) => {
     let category = file.originalname.substring(file.originalname.indexOf("[") + 1, file.originalname.indexOf("]"));
     let remain = file.originalname.substring(file.originalname.indexOf("]") + 2).split(".")[0].split("_");
+    let feels = remain[remain.length - 1].split(",")
     let gender = "";
     let age = "";
     let octave = "";
-    let feels: any[] = [];
 
     return sql.exec(`
     SELECT id, type, name
@@ -40,7 +40,7 @@ let storage = multer.diskStorage({
       INSERT INTO voice (name, filename, original_filename)
       VALUES
       (?, ?, ?)
-      `, ["name", file.originalname, file.originalname])
+      `, [req.body.name, file.originalname, file.originalname])
       .then (row => {
         sql.exec(`
         INSERT INTO tag_voice (voice_id, category, gender, age, octave, feels)
