@@ -134,78 +134,86 @@
 
       <form>
         <section class="row row-eq-height" id="mainBox">
-          <div class="col-md-10 h4" id="filterBox">
+          <div class="col-md-12" id="filterBox">
             <div class="row vertical-align">
-              <div class="col-md-12 h3">
+              <div class="col-md-2 col-md-offset-1 h4">
                 분야
               </div>
-            </div>
-            <div class="row vertical-align">
-              <% tags.category.forEach(function (tag) { %>
-                <div class="checkbox-inline col-md-1-5">
-                  <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>"><span class="badge">&check;</span></label>
-                </div>
-                <% }) %>
-            </div>
-            <br /><br />
-
-            <div class="row vertical-align">
-              <div class="col-md-12 h3">
+              <div class="col-md-2 col-md-offset-1 h4">
                 성별
               </div>
-            </div>
-            <div class="row vertical-align">
-              <% tags.gender.forEach(function (tag) { %>
-                <div class="checkbox-inline col-md-1-5">
-                  <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>"><span class="badge">&check;</span></label>
-                </div>
-                <% }) %>
-            </div>
-            <br /><br />
-
-            <div class="row vertical-align">
-              <div class="col-md-12 h3">
+              <div class="col-md-2 col-md-offset-1 h4">
                 나이
               </div>
-            </div>
-            <div class="row vertical-align">
-              <% tags.age.forEach(function (tag) { %>
-                <div class="checkbox-inline col-md-1-5">
-                  <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>"><span class="badge">&check;</span></label>
-                </div>
-                <% }) %>
-            </div>
-            <br /><br />
-
-            <div class="row vertical-align">
-              <div class="col-md-12 h3">
+              <div class="col-md-2 col-md-offset-1 h4">
                 음역
               </div>
             </div>
-            <div class="row vertical-align">
-              <% tags.octave.forEach(function (tag) { %>
-                <div class="checkbox-inline col-md-1-5">
-                  <label class="btn btn-info"><%= tag.name %> <input type="checkbox" class="badgebox" value="<%= tag.key %>"><span class="badge">&check;</span></label>
+            <div class="row row-eq-height" id="checkboxContent">
+              <div class="col-md-2 col-md-offset-1">
+                <div class="funkyradio">
+                  <% tags.category.forEach(function (tag) { %>
+                    <div class="funkyradio-info">
+                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
+                    </div>
+                    <% }) %>
                 </div>
-                <% }) %>
-            </div>
-            <br /><br />
-
-            <div class="row vertical-align">
-              <div class="col-md-12 h3">
-                느낌
+              </div>
+              <div class="col-md-2 col-md-offset-1">
+                <div class="funkyradio">
+                  <% tags.gender.forEach(function (tag) { %>
+                    <div class="funkyradio-info">
+                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
+                    </div>
+                    <% }) %>
+                </div>
+              </div>
+              <div class="col-md-2 col-md-offset-1">
+                <div class="funkyradio">
+                  <% tags.age.forEach(function (tag) { %>
+                    <div class="funkyradio-info">
+                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
+                    </div>
+                    <% }) %>
+                </div>
+              </div>
+              <div class="col-md-2 col-md-offset-1">
+                <div class="funkyradio">
+                  <% tags.octave.forEach(function (tag) { %>
+                    <div class="funkyradio-info">
+                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
+                    </div>
+                    <% }) %>
+                </div>
               </div>
             </div>
-            <div class="row vertical-align">
-              <div class="col-md-1.5">
+            <div class="row vertical-align row-eq-height">
+              <div class="col-md-2 col-md-offset-2 h4">
+                느낌을 선택해주세요.
+              </div>
+              <div class="col md-2 col-md-offset-1 h4">
+                성우 이름
+              </div>
+            </div>
+            <div class="row row-eq-height">
+              <div class="col-md-2 col-md-offset-2 h4">
                 <button type="button" class="btn btn-primary outline" data-toggle="modal" data-target="#feels">
-                  SELECT FEELS<span class="badge" id="selectNumber">0</span>
-                </button>
+                 Show List<span class="badge" id="selectNumber">0</span>
+               </button>
+              </div>
+              <div class="col md-2 col-md-offset-1 h4">
+                <input type="text" class="form-control" placeholder="성우의 이름을 입력해주세요.">
               </div>
             </div>
-          </div>
-          <div class="col-md-2" id="submitButton">
-            <input type="submit" class="btn btn-primary btn-block outline btnWeight" value="search" id="searchButton">
+            <div class="row vertical-align">
+              <div class="col-md-11 col-md-offset-2">
+                <input type="submit" class="btn btn-primary btn-block outline btnWeight" value="search" id="searchButton">
+              </div>
+            </div>
           </div>
         </section>
       </form>

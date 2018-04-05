@@ -15,6 +15,19 @@ body {
   font-weight: 500;
 }
 
+.badge{
+  font-weight: 300;
+}
+
+.btn-primary .badge{
+  color:black;
+}
+
+label{
+  margin-bottom: 0px;
+  font-weight: normal;
+}
+
 .col-xs-1-5 {
   width: 12.49995%;
 }
@@ -167,6 +180,71 @@ body {
   outline: none;
 }
 
+.funkyradio div {
+  clear: both;
+  overflow: hidden;
+}
+
+.funkyradio label {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4;
+  font-weight: normal;
+}
+
+.funkyradio input[type="checkbox"]:empty {
+  display: none;
+}
+
+.funkyradio input[type="checkbox"]:empty ~ label {
+  position: relative;
+  line-height: 2.5em;
+  text-indent: 3.25em;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 2.5em;
+  background: lightgrey;
+  border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+  color: black;
+}
+
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  text-indent: .9em;
+  color: black;
+}
+
+.funkyradio input[type="checkbox"]:checked ~ label {
+  color: black;
+}
+
+.funkyradio input[type="checkbox"]:checked ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio input[type="checkbox"]:focus ~ label:before {
+  box-shadow: 0 0 0 3px #999;
+}
+
+.funkyradio-info input[type="checkbox"]:checked ~ label:before {
+  color: black;
+  background-color: lightgrey;
+}
+
 #countering>div>div>.bold{
   color:white;
 }
@@ -217,16 +295,14 @@ body > .container-fluid{
 #mainBox{
   padding:3% 0% 3% 0%;
   margin:0px;
-  border-top:0px;
-  border-bottom: 2px;
-  border-right:2px;
-  border-left:2px;
-  border-style: solid;
-  border-color: #007299;
 }
 
 #filterBox{
   margin:0px;
+}
+
+#filterBox>div:nth-child(2n+1){
+  margin-top:2%;
 }
 
 #searchButton{
@@ -262,7 +338,10 @@ body > .container-fluid{
 
 #filterBox>div>div{
   padding:0px 1% 0px 1%;
-  margin:0px;
+}
+
+#filterBox>div>div:nth-child(1){
+  margin-left:4.16666666%;
 }
 
 #filterBox>div>div.h3{
