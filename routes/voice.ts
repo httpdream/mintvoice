@@ -86,30 +86,7 @@ voiceRouter.post("/upload", upload.single("voiceFile"), (req, res, next) => {
 });
 
 voiceRouter.get("/upload", (req, res, next) => {
-  sql.exec(`
-  SELECT *
-  FROM tag`)
-  .then (rows => {
-    if (rows.length === 0) {
-      return res.render("../workspace/uploadFile.html");
-    }
-
-    let tags = {
-      category: [],
-      gender: [],
-      age: [],
-      octave: [],
-      feels: []
-    };
-
-    rows.forEach(row => {
-      tags[row.type].push(row);
-    });
-
-    return res.render("../workspace/uploadFile.ejs", {
-      tags: tags
-    });
-  });
+  return res.render("../workspace/uploadFile.html");
 });
 
 voiceRouter.get("/search", (req, res, next) => {
