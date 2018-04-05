@@ -373,7 +373,7 @@ body > .container-fluid{
   padding:0px 1% 0px 1%;
 }
 
-#filterBox>div>div:last-child{
+#searchButtonWrap{
   padding:0px;
 }
 
@@ -403,4 +403,51 @@ body > .container-fluid{
 
 #reserved{
   padding:2% 0% 0% 0%;
+}
+
+@media (max-width: 767px) {
+  #navBox>div{
+    font-size:14px;
+  }
+  .btn{
+    font-size:10px;
+  }
+  #card{
+    padding:0px;
+  }
+  #cardHeader{
+    padding:0px;
+  }
+  #cardHeader>.h3{
+    margin-top:5%;
+    font-size:18px;
+  }
+  #cardHeader>.h4{
+    font-size:14px;
+  }
+  #contentBox>div:first-child{
+    padding:0px 15px 0px 15px;
+  }
+  .funkyradio-info{
+    font-size:10px;
+  }
+  #checkboxContent>div{
+    padding-right: 10px;
+  }
+  .pagination{
+    display:none;
+  }
+  #footerBox{
+    margin-top:5%;
+  }
+  #filterBox>div>div:nth-child(1){
+    margin-left:0px;
+  }
+  #searchBar{
+    margin:0px;
+  }
+  .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+    color: black;
+    font-size:10px;
+  }
 }

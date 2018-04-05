@@ -89,26 +89,26 @@
       <section class="row" id="countering">
         <div class="col-md-12">
           <div class="row row-eq-height">
-            <div class="text-center h3 bold col-md-3 col-md-offset-3">
+            <div class="text-center h3 bold col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
               <img src="images/users-icon.png" class="img-responsive center-block" alt="Responsive image" />
             </div>
-            <div class="text-center h3 bold col-md-3">
+            <div class="text-center h3 bold col-md-3 col-md-offset-3 col-xs-3">
               <img src="images/datas-icon.png" class="img-responsive center-block" alt="Responsive image" />
             </div>
           </div>
           <div class="row row-eq-height">
-            <div class="text-center h1 bold col-md-3 col-md-offset-3">
+            <div class="text-center h1 bold col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
               <span id="sourceUser"></span>
             </div>
-            <div class="text-center h1 bold col-md-3">
+            <div class="text-center h1 bold col-md-3 col-xs-3">
               <span id="sourceCount"></span>
             </div>
           </div>
           <div class="row row-eq-height">
-            <div class="text-center h3 bold col-md-3 col-md-offset-3">
+            <div class="text-center h3 bold col-md-3 col-md-offset-3 col-xs-4 col-xs-offset-2">
               VoiceActor
             </div>
-            <div class="text-center h3 bold col-md-3">
+            <div class="text-center h3 bold col-md-3 col-xs-4">
               Voice
             </div>
           </div>
@@ -117,7 +117,7 @@
 
       <!-- 메인 네비게이션. Notice, Contact 이동 -->
       <nav class="row" id="mainNav">
-        <div class="col-md-12">
+        <div class="col-md-12 col-xs-12">
           <div class="row" id="navBox">
             <div class="col-md-6 col-xs-6 text-center h2">
               MintVoice의 새 소식을 전해 드립니다!
@@ -135,23 +135,23 @@
 
       <form>
         <section class="row row-eq-height" id="mainBox">
-          <div class="col-md-12" id="filterBox">
+          <div class="col-md-12 col-xs-12" id="filterBox">
             <div class="row vertical-align">
-              <div class="col-md-2 col-md-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
                 분야
               </div>
-              <div class="col-md-2 col-md-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
                 성별
               </div>
-              <div class="col-md-2 col-md-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
                 나이
               </div>
-              <div class="col-md-2 col-md-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
                 음역
               </div>
             </div>
             <div class="row row-eq-height" id="checkboxContent">
-              <div class="col-md-2 col-md-offset-1">
+              <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <div class="funkyradio">
                   <% tags.category.forEach(function (tag) { %>
                     <div class="funkyradio-info">
@@ -161,7 +161,7 @@
                     <% }) %>
                 </div>
               </div>
-              <div class="col-md-2 col-md-offset-1">
+              <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <div class="funkyradio">
                   <% tags.gender.forEach(function (tag) { %>
                     <div class="funkyradio-info">
@@ -171,7 +171,7 @@
                     <% }) %>
                 </div>
               </div>
-              <div class="col-md-2 col-md-offset-1">
+              <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <div class="funkyradio">
                   <% tags.age.forEach(function (tag) { %>
                     <div class="funkyradio-info">
@@ -181,7 +181,7 @@
                     <% }) %>
                 </div>
               </div>
-              <div class="col-md-2 col-md-offset-1">
+              <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <div class="funkyradio">
                   <% tags.octave.forEach(function (tag) { %>
                     <div class="funkyradio-info">
@@ -193,25 +193,25 @@
               </div>
             </div>
             <div class="row vertical-align row-eq-height">
-              <div class="col-md-2 col-md-offset-2 h4">
-                느낌을 선택해주세요.
+              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h4">
+                느낌 선택
               </div>
-              <div class="col-md-2 col-md-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h4">
                 성우 이름
               </div>
             </div>
             <div class="row row-eq-height">
-              <div class="col-md-2 col-md-offset-2 h4">
+              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h4">
                 <button type="button" class="btn btn-primary outline" data-toggle="modal" data-target="#feels">
                  Show List<span class="badge" id="selectNumber">0</span>
                </button>
               </div>
-              <div class="col md-2 col-md-offset-1 h4">
+              <div class="col md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h4">
                 <input type="text" class="form-control" placeholder="특정 성우의 이름으로 검색">
               </div>
             </div>
-            <div class="row vertical-align">
-              <div class="col-md-11 col-md-offset-2">
+            <div class="row vertical-align" id="searchBar">
+              <div class="col-md-11 col-md-offset-1 col-xs-12 col-xs-offset-1" id="searchButtonWrap">
                 <input type="submit" class="btn btn-primary btn-block outline btnWeight" value="search" id="searchButton">
               </div>
             </div>
@@ -221,12 +221,12 @@
 
       <!-- Main Contents -->
       <section class="row" id="contentBox">
-        <div class="col-md-11">
-          <div class="col-md-3 col-md-offset-9 h4 text-right">
+        <div class="col-md-11 col-xs-11">
+          <div class="col-md-3 col-md-offset-9 col-xs-9 col-xs-offset-3 h4 text-right">
             00개의 DB가 검색되었습니다.
           </div>
           <div class="row row-eq-height" id="card">
-            <div class="col-md-6" id="cardHeader">
+            <div class="col-md-6 col-xs-4" id="cardHeader">
               <div id="cardTitle" class="h3">
                 제목
               </div>
@@ -234,7 +234,7 @@
                 성우
               </div>
             </div>
-            <div class="col-md-6" id="cardAudio">
+            <div class="col-md-6 col-xs-8" id="cardAudio">
               <audio src="src/audio/sampleaudio.mp3" preload="auto" controls></audio>
             </div>
           </div>
