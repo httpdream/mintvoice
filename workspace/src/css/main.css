@@ -218,6 +218,7 @@ label{
 
 .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
   color: black;
+  font-size:15px;
 }
 
 .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
@@ -282,7 +283,7 @@ body > .container-fluid{
 }
 
 #navBox>div:first-child{
-  border-right:2px solid black;
+  border-right:1px solid black;
 }
 
 
@@ -301,7 +302,11 @@ body > .container-fluid{
   margin:0px;
 }
 
-#filterBox>div:nth-child(2n+1){
+#filterBox>div:nth-child(3){
+  margin-top:2%;
+}
+
+#filterBox>div:nth-child(5){
   margin-top:2%;
 }
 
