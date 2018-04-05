@@ -318,6 +318,11 @@ body > .container-fluid{
   padding:0%;
   margin:0px;
 }
+
+#contentBox>div:first-child{
+  float:none;
+}
+
 #card{
   border:1px solid black;
   border-radius: 4px;
