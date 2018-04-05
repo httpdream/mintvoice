@@ -294,7 +294,7 @@ body > .container-fluid{
 }
 
 #mainBox{
-  padding:3% 0% 3% 0%;
+  padding:3% 0% 2% 0%;
   margin:0px;
 }
 
@@ -324,23 +324,36 @@ body > .container-fluid{
 }
 
 #card{
-  border:1px solid black;
-  border-radius: 4px;
+
 }
 
 #cardTitle{
-  padding:0px;
+  padding:2%;
   margin:0px;
 }
 
 #userName{
-  padding:0px;
+  padding:0% 0% 2% 2%;
   margin-top:2%;
-  margin-bottom:0px;
+  margin-bottom: 0px;
 }
 
-#cardHeader{
+#card{
+  border:1px solid black;
+  border-radius: 4px;
+  margin-left:0px;
+}
+#contentBox>div:first-child{
   padding:1%;
+  margin-left:4.16666666%;
+}
+
+#cardAudio{
+  padding:1%;
+}
+
+.text-right{
+  padding-right:0px;
 }
 
 .row-eq-height {
@@ -350,13 +363,22 @@ body > .container-fluid{
   display:         flex;
 }
 
-#filterBox>div>div{
+#filterBox>div:last-child{
+  margin-left:0px;
+}
+
+#filterBox>div>div h4{
   padding:0px 1% 0px 1%;
+}
+
+#filterBox>div>div:last-child{
+  padding:0px;
 }
 
 #filterBox>div>div:nth-child(1){
   margin-left:4.16666666%;
 }
+
 
 #filterBox>div>div.h3{
   padding:0% 0% 2% 1%;
