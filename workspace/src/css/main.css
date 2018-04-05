@@ -320,18 +320,22 @@ body > .container-fluid{
 }
 #card{
   border:1px solid black;
-  background-color: white;
+  border-radius: 4px;
 }
 
 #cardTitle{
   padding:0px;
   margin:0px;
-  border-bottom: 1px solid black;
 }
 
-#cardInfo{
+#userName{
   padding:0px;
-  margin:0px;
+  margin-top:2%;
+  margin-bottom:0px;
+}
+
+#cardHeader{
+  padding:1%;
 }
 
 .row-eq-height {

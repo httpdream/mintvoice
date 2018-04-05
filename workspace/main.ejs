@@ -12,6 +12,7 @@
   <script src="https://cdn.rawgit.com/inorganik/countUp.js/master/dist/countUp.min.js"></script>
   <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/audioplayer.css">
 </head>
 
 <body>
@@ -220,24 +221,21 @@
 
       <!-- Main Contents -->
       <section class="row" id="contentBox">
-        <div id="card">
-          <div class="row col-md-12" id="cardTitle">
-            <div class="col-md-12 h3">
-              [게임]_남_청소년_중고음_소심
+        <div class="col-md-3 col-md-offset-9 h4 text-right">
+          00개의 DB가 검색되었습니다.
+        </div>
+        <div class="col-md-12" id="card">
+          <div class="row row-eq-height vertical-align">
+            <div class="col-md-8" id="cardHeader">
+              <div id="cardTitle" class="h3">
+                제목
+              </div>
+              <div id="userName" class="h4">
+                성우
+              </div>
             </div>
-          </div>
-          <div class="row" id="cardInfo">
-            <div class="col-md-3 h4">
-              OOO성우
-            </div>
-            <div class="col-md-1 col-md-offset-6">
-              <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-            </div>
-            <div class="col-md-1">
-              <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-            </div>
-            <div class="col-md-1">
-              <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+            <div class="col-md-4" id="cardAudio">
+              <audio src="src/audio/sampleaudio.mp3" preload="auto" controls></audio>
             </div>
           </div>
         </div>
@@ -486,6 +484,12 @@
 
     <script src="src/js/index.js"></script>
     <script src="src/js/checknum.js"></script>
+    <script src="src/js/audioplayer.min.js"></script>
+    <script>
+      $(function() {
+        $('audio').audioPlayer();
+      });
+    </script>
 </body>
 
 </html>

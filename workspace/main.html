@@ -10,8 +10,10 @@
   <script src="src/lib/jquery/jquery-3.3.1.min.js"></script>
   <script src="src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.rawgit.com/inorganik/countUp.js/master/dist/countUp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelement.min.js"></script>
   <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.min.css">
 </head>
 
 <body>
@@ -356,7 +358,9 @@
         </div>
         <div class="row" id="cardInfo">
           <div class="col-md-3 h4">
-            OOO성우
+            <audio id="player2" preload="none" controls style="max-width:100%;">
+                    <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
+              </audio>
           </div>
           <div class="col-md-1 col-md-offset-6">
             <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
