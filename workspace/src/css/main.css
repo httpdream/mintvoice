@@ -407,7 +407,10 @@ body > .container-fluid{
   padding:2% 0% 0% 0%;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
+  #searchButtonWrap{
+    padding-left: 0px;
+  }
   #navBox>div{
     font-size:14px;
   }
@@ -416,6 +419,7 @@ body > .container-fluid{
   }
   #card{
     padding:0px;
+    margin-right:0px;
   }
   #cardHeader{
     padding:0px;
@@ -428,7 +432,7 @@ body > .container-fluid{
     font-size:14px;
   }
   #contentBox>div:first-child{
-    padding:0px 15px 0px 15px;
+    padding:0px 0px 0px 0px;
   }
   .funkyradio-info{
     font-size:10px;
@@ -451,5 +455,8 @@ body > .container-fluid{
   .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
     color: black;
     font-size:10px;
+  }
+  .h4{
+    font-size:13px;
   }
 }
