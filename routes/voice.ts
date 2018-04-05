@@ -90,22 +90,41 @@ voiceRouter.get("/upload", (req, res, next) => {
 });
 
 voiceRouter.get("/search", (req, res, next) => {
+  if (typeof req.query.category !== "object") {
+    req.query.category = [req.query.category]
+  }
+
+  if (typeof req.query.gender !== "object") {
+    req.query.gender = [req.query.gender]
+  }
+  if (typeof req.query.age !== "object") {
+    req.query.age = [req.query.age]
+  }
+  if (typeof req.query.octave !== "object") {
+    req.query.octave = [req.query.octave]
+  }
+  if (typeof req.query.feels !== "object") {
+    req.query.feels = [req.query.feels]
+  }
+  
+  let feels = req.query.feels.map(feel => `"${feel}"`);
+
   sql.exec(`
-  select voice.*, tag_voice.*
+  select voice.*
   from tag_voice
   inner join voice
   on voice.id = tag_voice.voice_id
   where
-    category in (?)
+    category in (${req.query.category.join()})
   AND
-    gender in (?)
+    gender in (${req.query.gender.join()})
   AND
-    age in (?)
+    age in (${req.query.age.join()})
   AND
-    octave in (?)
+    octave in (${req.query.octave.join()})
   AND
-    ?
-  )`)
+    feels REGEXP '${feels.join("|")}'
+  `)
   .then (rows => {
     res.json({
       status: 200,

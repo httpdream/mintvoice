@@ -32,6 +32,7 @@
                   <div class="row">
                     <% } %>
 
+                      <% if (tag.name.trim().length > 2) { %>
                         <div class="checkbox-inline col-md-1-5">
                           <% } else { %>
                             <div class="checkbox-inline col-md-1">
@@ -154,7 +155,7 @@
                 <div class="funkyradio">
                   <% tags.category.forEach(function (tag) { %>
                     <div class="funkyradio-info">
-                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
                       <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
                     </div>
                     <% }) %>
@@ -164,7 +165,7 @@
                 <div class="funkyradio">
                   <% tags.gender.forEach(function (tag) { %>
                     <div class="funkyradio-info">
-                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
                       <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
                     </div>
                     <% }) %>
@@ -174,7 +175,7 @@
                 <div class="funkyradio">
                   <% tags.age.forEach(function (tag) { %>
                     <div class="funkyradio-info">
-                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
                       <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
                     </div>
                     <% }) %>
@@ -184,7 +185,7 @@
                 <div class="funkyradio">
                   <% tags.octave.forEach(function (tag) { %>
                     <div class="funkyradio-info">
-                      <input type="checkbox" name="checkbox" id="checkbox_<%= tag.key %>" value="<%= tag.key %>">
+                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
                       <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
                     </div>
                     <% }) %>
