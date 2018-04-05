@@ -32,14 +32,13 @@
                   <div class="row">
                     <% } %>
 
-                      <% if (tag.name.length > 2) { %>
                         <div class="checkbox-inline col-md-1-5">
                           <% } else { %>
                             <div class="checkbox-inline col-md-1">
                               <% } %>
 
-                                <input type="checkbox" value="<%= tag.key %>" id="modalCheckBox">
-                                <%= tag.name %>
+                                <input type="checkbox" name="<%= tag.category %>" value="<%= tag.id %>" id="<%= tag.key %>" class="modalCheckBox">
+                                <label for="<%= tag.key %>"><%= tag.name.trim() %></label>
                             </div>
                             <% if (index % 10 == 9 || tags.feels.length-1 == index) { %>
                         </div>
