@@ -47,15 +47,14 @@ label{
 .btn-info{
   background-color:#0099cc;
 }
+
 .btn {
     padding: 14px 24px;
     border: 0 none;
-    letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
 .btnWeight{
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -63,16 +62,17 @@ label{
 }
 
 .btn-primary {
-    background: black;
-    color: black;
+    background: rgb(48,56,66);
+    color: white;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: none;
+  background: white;
+  color: black;
 }
 
 .btn-primary:active, .btn-primary.active {
-    background: black;
+    background: rgb(48,56,66);
     box-shadow: none;
 }
 
@@ -82,17 +82,17 @@ label{
 }
 
 .btn-primary.outline {
-	border: 2px solid black;
+	border: 2px solid rgb(114,203,177);
 	color: black;
 }
 
 .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
 	color: black;
-	border-color: black;
+	border-color: rgb(114,203,177);
 }
 
 .btn-primary.outline:active, .btn-primary.outline.active {
-	border-color: black;
+	border-color: rgb(114,203,177);
 	color: black;
 	box-shadow: none;
 }
@@ -167,7 +167,7 @@ label{
   /*color:#707070;*/
 }
 .pagination li:first-child a, .pagination li:last-child a {
-  border: 2px solid black !important;
+  border: 2px solid rgb(48,56,66) !important;
   border-radius: 6px;
   margin: 0px;
   padding: 6px 12px;
@@ -178,77 +178,182 @@ label{
 .pagination li:first-child a:hover, .pagination li:last-child a:hover {
   text-decoration: none !important;
   color: #fff;
-  background-color: black;
+  background-color: rgb(48,56,66);
 }
 .pagination li:first-child a:focus, .pagination li:last-child a:focus {
   outline: none;
 }
 
-.funkyradio div {
-  clear: both;
-  overflow: hidden;
+
+.audioContainer { position:relative; margin:0 auto; max-width:800px; width:100%; }
+.column { width:inherit; }
+
+
+/* Typography / Links
+================================================== */
+
+p { color:#fff; display:block; font-size:.9rem; font-weight:400; margin:0 0 2px; }
+
+a,a:visited { color:#8cc3e6; outline:0; text-decoration:underline; }
+a:hover,a:focus { color:#bbdef5; }
+p a,p a:visited { line-height:inherit; }
+
+
+/* Misc.
+================================================== */
+
+.add-bottom { margin-bottom:2rem !important; }
+.left { float:left; }
+.right { float:right; }
+.center { text-align:center; }
+
+
+/* Audio Player Styles
+================================================== */
+
+audio {
+margin:0 15px 0 14px;
+width:670px;
 }
 
-.funkyradio label {
-  width: 100%;
-  border-radius: 3px;
-  border: 1px solid #D1D3D4;
-  font-weight: normal;
+#mainwrap {}
+
+#audiowrap,
+#plwrap {
+margin:0 auto;
 }
 
-.funkyradio input[type="checkbox"]:empty {
-  display: none;
+#tracks {
+position:relative;
+text-align:center;
 }
 
-.funkyradio input[type="checkbox"]:empty ~ label {
-  position: relative;
-  line-height: 2.5em;
-  text-indent: 3.25em;
-  margin-top: 1%;
-  cursor: pointer;
+#nowPlay {
+display:inline;
 }
 
-.funkyradio input[type="checkbox"]:empty ~ label:before {
-  position: absolute;
-  display: block;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  content: '';
-  width: 2.5em;
-  background: lightgrey;
-  border-radius: 3px 0 0 3px;
+#npAction {
+padding:21px;
+position:absolute;
 }
 
-.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
-  color: black;
-  font-size:15px;
+#npTitle {
+padding:21px;
 }
 
-.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
-  text-indent: .9em;
-  color: black;
+#plList li {
+cursor:pointer;
+display:block;
+margin:0;
+padding:21px 0;
 }
 
-.funkyradio input[type="checkbox"]:checked ~ label {
-  color: black;
+#plList li:hover {
+background-color:rgba(0,0,0,.1);
 }
 
-.funkyradio input[type="checkbox"]:checked ~ label:before {
-  content: '\2714';
-  text-indent: .9em;
-  color: #333;
-  background-color: #ccc;
+.plItem {
+position:relative;
 }
 
-.funkyradio input[type="checkbox"]:focus ~ label:before {
-  box-shadow: 0 0 0 3px #999;
+.plTitle {
+left:50px;
+overflow:hidden;
+position:absolute;
+right:65px;
+text-overflow:ellipsis;
+top:0;
+white-space:nowrap;
 }
 
-.funkyradio-info input[type="checkbox"]:checked ~ label:before {
-  color: black;
-  background-color: lightgrey;
+.plNum {
+padding-left:21px;
+width:25px;
 }
+
+.plLength {
+padding-left:21px;
+position:absolute;
+right:21px;
+top:0;
+}
+
+.plSel,
+.plSel:hover {
+background-color:rgba(0,0,0,.1);
+color:#fff;
+cursor:default !important;
+}
+
+a[id^="btn"] {
+border-radius:3px;
+color:#fff;
+cursor:pointer;
+display:inline-block;
+font-size:2rem;
+height:35px;
+line-height:.8;
+margin:0 20px 20px;
+padding:5px 10px;
+text-decoration:none;
+transition:background .3s ease;
+width:35px;
+}
+
+a[id^="btn"]:last-child {
+margin-left:-4px;
+}
+
+a[id^="btn"]:hover,
+a[id^="btn"]:active {
+background-color:rgba(0,0,0,.1);
+color:#fff;
+}
+
+a[id^="btn"]::-moz-focus-inner {
+border:0;
+padding:0;
+}
+
+
+/* Plyr Overrides
+================================================== */
+
+.plyr--audio .plyr__controls {
+background-color:transparent;
+border:none;
+color:#fff;
+padding:20px 20px 20px 13px;
+width:100%;
+}
+
+.plyr--audio .plyr__controls button.tab-focus:focus,
+.plyr--audio .plyr__controls button:hover,
+.plyr__play-large {
+background:rgba(0,0,0,.1);
+}
+
+.plyr__progress--played, .plyr__volume--display {
+color:rgba(0,0,0,.1);
+}
+
+.plyr--audio .plyr__progress--buffer,
+.plyr--audio .plyr__volume--display {
+background:rgba(0,0,0,.1);
+}
+
+.plyr--audio .plyr__progress--buffer {
+color:rgba(0,0,0,.1);
+}
+
+
+/* Media Queries
+================================================== */
+
+@media only screen and (max-width:850px) {
+    #nowPlay { display:none; }
+}
+
 
 #countering>div>div>.bold{
   color:white;
@@ -294,7 +399,7 @@ body > .container-fluid{
 #countering{
   padding:3% 0% 3% 0%;
   margin:0px;
-  background-color: black;
+  background-color: rgb(48,56,66);
 }
 
 #mainBox{
@@ -316,6 +421,8 @@ body > .container-fluid{
 
 #searchButton{
   height: 100%;
+  background-color:rgb(48,56,66);
+  color:white;
 }
 
 #contentBox{
@@ -373,11 +480,6 @@ body > .container-fluid{
   display:         flex;
 }
 
-
-#filterBox>div>div h4{
-  padding:0px 1% 0px 1%;
-}
-
 #searchButtonWrap{
   padding-left:15px;
   padding-right:0px;
@@ -389,7 +491,7 @@ body > .container-fluid{
 
 
 #filterBox>div>div.h3{
-  padding:0% 0% 2% 1%;
+  padding:0% 0% 1% 1%;
 }
 
 #footerBox{
@@ -398,7 +500,7 @@ body > .container-fluid{
 
 #footerBox>div{
   padding:1% 0% 1% 0%;
-  background-color:black;
+  background-color:rgb(48,56,66);
   color:white;
 }
 
@@ -455,10 +557,6 @@ body > .container-fluid{
   }
   #searchBar{
     margin:0px;
-  }
-  .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
-    color: black;
-    font-size:10px;
   }
   .h4{
     font-size:13px;

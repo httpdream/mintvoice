@@ -10,9 +10,13 @@
   <script src="src/lib/jquery/jquery-3.3.1.min.js"></script>
   <script src="src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.rawgit.com/inorganik/countUp.js/master/dist/countUp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.1.0/plyr.min.js"></script>
+  <script src="src/js/audio.js"></script>
   <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="src/css/main.css">
-  <link rel="stylesheet" href="src/css/audioplayer.css">
+  <link rel="stylesheet" href="//cdn.plyr.io/3.1.0/plyr.css">
+
 </head>
 
 <body>
@@ -22,7 +26,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">원하는 느낌을 선택해주세요.</h4>
+          <h4 class="modal-title ">원하는 느낌을 선택해주세요.</h4>
         </div>
         <div class="modal-body">
           <div class="container-fluid">
@@ -38,7 +42,8 @@
                             <div class="checkbox-inline col-md-1 col-xs-1">
                               <% } %>
 
-                                <input type="checkbox" name="<%= tag.category %>" value="<%= tag.id %>" id="<%= tag.key %>" class="modalCheckBox">
+                                <input type="checkbox" name="<%=tag.category %>" value="<%=
+                                tag.id %>" id=" <%= tag.key %>" class="modalCheckBox">
                                 <label for="<%= tag.key %>"><%= tag.name.trim() %></label>
                             </div>
                             <% if (index % 10 == 9 || tags.feels.length-1 == index) { %>
@@ -67,7 +72,7 @@
         <div class=" col-md-1 col-md-offset-10 col-xs-offset-10 col-xs-1">
           <div class="dropdown pull-right">
             <button class="btn btnWeight dropdown-toggle btn-primary outline" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-      Language
+      LANGUAGE
       <span class="caret"></span>
     </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -122,12 +127,12 @@
             <div class="col-md-6 col-xs-6 text-center h2">
               MintVoice의 새 소식을 전해 드립니다!
               <br /><br/>
-              <button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">Notice</button>
+              <button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">NOTICE</button>
             </div>
             <div class="col-md-6 col-xs-6 text-center h2">
               녹음 작업이나 스튜디오 대여를 원하시나요?
               <br/><br/>
-              <button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">Contact Us</button>
+              <button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">CONTACT US</button>
             </div>
           </div>
         </div>
@@ -137,16 +142,16 @@
         <section class="row row-eq-height" id="mainBox">
           <div class="col-md-12 col-xs-12" id="filterBox">
             <div class="row vertical-align">
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4 margin4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3 margin4">
                 분야
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
                 성별
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
                 나이대
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
                 음역대
               </div>
             </div>
@@ -181,10 +186,10 @@
               </div>
             </div>
             <div class="row vertical-align row-eq-height">
-              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h4 margin4">
+              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h3 margin4">
                 느낌 선택
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h4">
+              <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h3">
                 통합 검색
               </div>
             </div>
@@ -195,14 +200,14 @@
                </button>
               </div>
               <div class="col md-2 col-md-offset-1 col-xs-3 col-xs-offset-2">
-                <div class="col-xs-8" id="textWrap">
+                <div id="textWrap">
                   <input type="text" class="form-control" placeholder="검색어를 입력해주세요.">
                 </div>
               </div>
             </div>
             <div class="row vertical-align" id="searchBar">
-              <div class="col-md-11 col-xs-12 col-xs-offset-1 margin4" id="searchButtonWrap">
-                <input type="submit" class="btn btn-primary btn-block outline btnWeight" value="search" id="searchButton">
+              <div class="col-md-4 col-md-offset-4 col-xs-12 col-xs-offset-1" id="searchButtonWrap">
+                <input type="submit" class="btn btn-block btnWeight" value="보이스 검색" id="searchButton">
               </div>
             </div>
           </div>
@@ -213,19 +218,33 @@
       <section class="row" id="contentBox">
         <div class="col-md-11 col-xs-11" id="dataWrap">
           <div class="col-md-3 col-md-offset-9 col-xs-9 col-xs-offset-3 h4 text-right">
-            00개의 DB가 검색되었습니다.
+            0개의 DB가 검색되었습니다.
           </div>
           <div class="row row-eq-height" id="card">
-            <div class="col-md-6 col-xs-4" id="cardHeader">
-              <div id="cardTitle" class="h3">
-                제목
+            <div class="col-md-12">
+              <div class="auidoContainer">
+                <div class="column add-bottom">
+                  <div id="mainwrap">
+                    <div id="nowPlay">
+                      <span class="left" id="npAction">Paused...</span>
+                      <span class="right" id="npTitle"></span>
+                    </div>
+                    <div id="audiowrap">
+                      <div id="audio0">
+                        <audio preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+                      </div>
+                      <div id="tracks">
+                        <a id="btnPrev">&larr;</a>
+                        <a id="btnNext">&rarr;</a>
+                      </div>
+                    </div>
+                    <div id="plwrap">
+                      <ul id="plList"></ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div id="userName" class="h4">
-                성우
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-8" id="cardAudio">
-              <audio src="src/audio/sampleaudio.mp3" preload="auto" controls></audio>
+
             </div>
           </div>
         </div>
@@ -286,12 +305,7 @@
 
     <script src="src/js/index.js"></script>
     <script src="src/js/checknum.js"></script>
-    <script src="src/js/audioplayer.min.js"></script>
-    <script>
-      $(function() {
-        $('audio').audioPlayer();
-      });
-    </script>
+
 </body>
 
 </html>
