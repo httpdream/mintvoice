@@ -144,52 +144,40 @@
                 성별
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
-                나이
+                나이대
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h4">
-                음역
+                음역대
               </div>
             </div>
             <div class="row row-eq-height" id="checkboxContent">
               <div class="col-md-2 col-md-offset-1 col-xs-3 margin4">
-                <div class="funkyradio">
-                  <% tags.category.forEach(function (tag) { %>
-                    <div class="funkyradio-info">
-                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
-                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
-                    </div>
+                <select class="form-control">
+                    <% tags.category.forEach(function (tag) { %>
+                    <option value="<%= tag.category %>" id="select_<%= tag.key %>"><%= tag.name %></option>
                     <% }) %>
-                </div>
+                </select>
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
-                <div class="funkyradio">
-                  <% tags.gender.forEach(function (tag) { %>
-                    <div class="funkyradio-info">
-                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
-                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
-                    </div>
+                <select class="form-control">
+                    <% tags.gender.forEach(function (tag) { %>
+                    <option value="<%= tag.category %>" id="select_<%= tag.key %>"><%= tag.name %></option>
                     <% }) %>
-                </div>
+                </select>
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
-                <div class="funkyradio">
-                  <% tags.age.forEach(function (tag) { %>
-                    <div class="funkyradio-info">
-                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
-                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
-                    </div>
+                <select class="form-control">
+                    <% tags.age.forEach(function (tag) { %>
+                    <option value="<%= tag.category %>" id="select_<%= tag.key %>"><%= tag.name %></option>
                     <% }) %>
-                </div>
+                </select>
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
-                <div class="funkyradio">
-                  <% tags.octave.forEach(function (tag) { %>
-                    <div class="funkyradio-info">
-                      <input type="checkbox" name="<%= tag.category %>" id="checkbox_<%= tag.key %>" value="<%= tag.id %>">
-                      <label for="checkbox_<%= tag.key %>"><%= tag.name %></label>
-                    </div>
+                <select class="form-control">
+                    <% tags.octave.forEach(function (tag) { %>
+                    <option value="<%= tag.category %>" id="select_<%= tag.key %>"><%= tag.name %></option>
                     <% }) %>
-                </div>
+                </select>
               </div>
             </div>
             <div class="row vertical-align row-eq-height">
@@ -197,17 +185,19 @@
                 느낌 선택
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h4">
-                성우 이름
+                통합 검색
               </div>
             </div>
-            <div class="row row-eq-height">
+            <div class="row vertical-align row-eq-height">
               <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h4 margin4">
                 <button type="button" class="btn btn-primary outline" data-toggle="modal" data-target="#feels">
                  Show List<span class="badge" id="selectNumber">0</span>
                </button>
               </div>
-              <div class="col md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h4">
-                <input type="text" class="form-control" placeholder="특정 성우의 이름으로 검색">
+              <div class="col md-2 col-md-offset-1 col-xs-3 col-xs-offset-2">
+                <div class="col-xs-8" id="textWrap">
+                  <input type="text" class="form-control" placeholder="검색어를 입력해주세요.">
+                </div>
               </div>
             </div>
             <div class="row vertical-align" id="searchBar">

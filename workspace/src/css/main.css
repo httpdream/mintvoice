@@ -327,6 +327,10 @@ body > .container-fluid{
   float:none;
 }
 
+#textWrap{
+  padding:0px;
+  width:63.34%
+}
 #card{
 
 }
