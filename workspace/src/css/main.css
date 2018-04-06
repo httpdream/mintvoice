@@ -185,14 +185,14 @@ label{
 }
 
 
-.audioContainer { position:relative; margin:0 auto; max-width:800px; width:100%; }
+.audioContainer { position:relative; margin:0; width:100%;}
 .column { width:inherit; }
 
 
 /* Typography / Links
 ================================================== */
 
-p { color:#fff; display:block; font-size:.9rem; font-weight:400; margin:0 0 2px; }
+p { color:#fff; display:block; font-size:.9rem; font-weight:400; margin:0 0 2px;}
 
 a,a:visited { color:#8cc3e6; outline:0; text-decoration:underline; }
 a:hover,a:focus { color:#bbdef5; }
@@ -216,6 +216,9 @@ margin:0 15px 0 14px;
 width:670px;
 }
 
+.column.add-bottom{
+  width:100%;
+}
 #mainwrap {}
 
 #audiowrap,
@@ -238,7 +241,11 @@ position:absolute;
 }
 
 #npTitle {
-padding:21px;
+padding:10px 0px 10px 10px;
+}
+
+#plList{
+  padding-left:0px;
 }
 
 #plList li {
@@ -281,7 +288,7 @@ top:0;
 .plSel,
 .plSel:hover {
 background-color:rgba(0,0,0,.1);
-color:#fff;
+font-weight: bold;
 cursor:default !important;
 }
 
@@ -438,13 +445,14 @@ body > .container-fluid{
   padding:0px;
   width:63.34%
 }
-#card{
-
-}
 
 #cardTitle{
   padding:2%;
   margin:0px;
+}
+
+#dbText{
+    padding-right:15px;
 }
 
 #userName{
@@ -454,11 +462,9 @@ body > .container-fluid{
 }
 
 #card{
-  border:1px solid black;
-  border-radius: 4px;
   margin-left:0px;
-  padding-right:2%;
-  padding-left:2%;
+  padding-right:1%;
+  padding-left:1%;
 }
 #contentBox>div:first-child{
   padding:1%;
