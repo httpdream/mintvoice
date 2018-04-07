@@ -10,10 +10,10 @@ function setVoiceAudio(voice) {
     console.log("babo", voice);
     var tracks = voice.map((item, i) => {
         return {
-            track: i,
+            track: i + 1,
             name: item.filename,
             file: item.filename,
-            duration: "1:00"
+            duration: item.name
         }
     });
     var index = 0,
