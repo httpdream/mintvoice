@@ -13,6 +13,7 @@ app.engine("html", require("ejs").renderFile);
 app.use(express.static("workspace"));
 
 app.use("/", indexRouter);
+app.use("/voice", express.static("uploads"));
 
 app.use((err: Error, req, res, next) => {
   res.json({
