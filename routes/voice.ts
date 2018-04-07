@@ -93,6 +93,9 @@ voiceRouter.get("/search", (req, res, next) => {
     req.query.feels = [req.query.feels]
   }
 
+  req.query.offset = +req.query.offset || 0;
+  req.query.limit = +req.query.limit || 10;
+
   let feels = req.query.feels.map(feel => `"${feel}"`);
   query = `
   where
@@ -116,6 +119,7 @@ voiceRouter.get("/search", (req, res, next) => {
   from tag_voice
   inner join voice
   on voice.id = tag_voice.voice_id
+  LIMIT ${req.query.offset}, ${req.query.limit}
   `)
   .then (rows => {
     res.json({
