@@ -12,27 +12,36 @@ let storage = multer.diskStorage({
   filename: (req, file, cb) => {
     let category = file.originalname.substring(file.originalname.indexOf("[") + 1, file.originalname.indexOf("]"));
     let remain = file.originalname.substring(file.originalname.indexOf("]") + 2).split(".")[0].split("_");
-    let feels = remain[remain.length - 1].split(",")
+    let feels_split = remain[remain.length - 1].split(",")
     let gender = "";
     let age = "";
     let octave = "";
+    let feels: string[] = [];
+    remain.push(category);
 
     return sql.exec(`
     SELECT id, type, name
     FROM tag
-    WHERE name IN (?);
-    `, [remain])
+    WHERE name IN (?)
+    `, [remain.concat(feels_split)])
     .then (tags => {
       tags.forEach(tag => {
         switch (tag.type) {
+          case "category":
+            category = tag.id;
+            break;
           case "gender":
             gender = tag.id;
+            break;
           case "age":
             age = tag.id;
+            break;
           case "octave":
             octave = tag.id;
+            break;
           case "feels":
             feels.push(String(tag.id));
+            break;
         }
       });
 
@@ -52,30 +61,6 @@ let storage = multer.diskStorage({
     .then (() => {
       cb(null, file.originalname);
     });
-
-    // let ids = [req.body.category, req.body.gender, req.body.octave];
-    // ids = ids.concat(req.body.feels);
-    // let t = file.originalname.split(".");
-    // let extension = t[t.length - 1];
-    // let fileName = "undefined." + extension;
-
-    // return sql.exec(`
-    // SELECT id, type, name
-    // FROM tag
-    // WHERE id IN (?)
-    // `, [ids])
-    // .then (tags => {
-    //   fileName = tags.map(tag => tag.name).join("_") + "." + extension;
-    //   return sql.exec(`INSERT INTO voice (filename, name, original_filename) VALUES (?, ?, ?)
-    //   `, [fileName, "최장진", file.originalname]);
-    // })
-    // .then (voice => {
-    //   return sql.exec(`INSERT INTO tag_voice (voice_id, category, gender, age, octave, feels) VALUES (?, ?, ?, ?, ?, ?)
-    //   `, [voice.insertId, req.body.category, req.body.gender, req.body.age, req.body.octave, JSON.stringify(req.body.feels, null, "  ")]);
-    // })
-    // .then(() => {
-    //   cb(null, fileName);
-    // });
   }
 });
 
@@ -131,19 +116,6 @@ voiceRouter.get("/search", (req, res, next) => {
       items: rows
     });
   });
-
-  // where
-  // category in (1, 2, 3)
-  // and
-  // gender in (2, 3, 4, 5,6)
-  // and
-  // age in (6, 7, 8, 9)
-  // and
-  // octave in (7,8,9,10,12)
-  // and
-  // (feels like "%6%"
-  // or
-  // feels like "%7%"
 });
 
 export default voiceRouter;
