@@ -98,20 +98,30 @@ function setVoiceAudio(voice) {
     loadTrack(index);
 }
 
-jQuery(function ($) {
-    'use strict'
+function getVoices(data = {}) {
     var supportsAudio = !!document.createElement('audio').canPlayType;
     if (supportsAudio) {
         $.ajax({
-            url: "/voice/search",
+            url: "/voice/search?" + data,
             type: "GET",
-            data: {},
             json: true,
             success: response => {
+                console.log("/voice/search" + data, response.items);
                 setVoiceAudio(response.items);
             }
         });
     }
+}
+
+jQuery(function ($) {
+    'use strict'
+    getVoices();
+
+    $('#searchButton').click(element => {
+        let data = $('#searchForm').serialize() + $('#feelsForm').serialize();
+        console.log(data);
+        getVoices(data);
+    });
 });
 
 // initialize plyr
