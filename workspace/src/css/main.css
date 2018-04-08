@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
 
+
 body {
     font-family: "Spoqa Han Sans", 'Nanum Gothic', 'Sans-serif' !important;
     font-weight: 300;
@@ -194,7 +195,7 @@ label{
 
 p { color:#fff; display:block; font-size:.9rem; font-weight:400; margin:0 0 2px;}
 
-a,a:visited { color:#8cc3e6; outline:0; text-decoration:underline; }
+a,a:visited { color:#8cc3e6; outline:0; }
 a:hover,a:focus { color:#bbdef5; }
 p a,p a:visited { line-height:inherit; }
 
@@ -433,7 +434,7 @@ body > .container-fluid{
 }
 
 #showListWrap{
-  margin-top:0px;
+  margin-top:0px; !important
   margin-bottom:0px;
 }
 

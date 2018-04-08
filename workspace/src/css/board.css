@@ -1,0 +1,29 @@
+#mainTable{
+  margin-left:15%;
+  margin-right:15%;
+}
+
+a,a:visited,a:hover,a:focus{
+    text-decoration: none;
+    color:black;
+}
+a:hover{
+  color:black;
+  text-decoration: none;
+}
+
+td{
+  text-align:right;
+}
+
+td:first-child{
+  text-align:justify;
+}
+
+th{
+  text-align:right;
+}
+
+th:first-child{
+  text-align: justify;
+}
