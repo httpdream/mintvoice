@@ -5,8 +5,6 @@ $(document).ready(function(){
     type: "GET",
     dataType: "JSON",
     success: response => {
-      console.log(response);
-      console.log(response.items[1].name);
       response.items.forEach(function(item, index){
         let createDate = item.created_at.substring(0,10);
         $("#tableMain").append(
