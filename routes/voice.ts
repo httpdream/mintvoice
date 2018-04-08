@@ -119,6 +119,7 @@ voiceRouter.get("/search", (req, res, next) => {
   from tag_voice
   inner join voice
   on voice.id = tag_voice.voice_id
+  ${query}
   LIMIT ${req.query.offset}, ${req.query.limit}
   `)
   .then (rows => {
