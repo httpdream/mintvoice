@@ -27,3 +27,11 @@ th{
 th:first-child{
   text-align: justify;
 }
+
+.table{
+  margin-top:3%;
+}
+
+#languageButton{
+  margin-right:1%;
+}

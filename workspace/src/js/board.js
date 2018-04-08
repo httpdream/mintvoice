@@ -1,3 +1,4 @@
+let boardSrc="#";
 $(document).ready(function(){
   $.ajax({
     url: "/board/list",
@@ -5,9 +6,11 @@ $(document).ready(function(){
     dataType: "JSON",
     success: response => {
       console.log(response);
-      boardIndex.forEach(function(item, index){
+      console.log(response.items[1].name);
+      response.items.forEach(function(item, index){
+        let createDate = item.created_at.substring(0,10);
         $("#tableMain").append(
-          "<tr><td><a href=\"" + boardSrc + "\">" + boardTitle + "</a></td><td>MintMedia</td><td>" + boardDate + "</td><td>" + boardView + "</td></tr>"
+          "<tr><td><a href=\"" + boardSrc + "\">" + item.title + "</a></td><td>MintMedia</td><td>" + createDate + "</td><td>" + item.view + "</td></tr>"
         );
       });
     }
