@@ -6,9 +6,9 @@ $(document).ready(function(){
     dataType: "JSON",
     success: response => {
       response.items.forEach(function(item, index){
-        let createDate = item.created_at.substring(0,10);
+        let createDate = item.created_at.substring(5,10);
         $("#tableMain").append(
-          "<tr><td><a href=\"" + boardSrc + "\">" + item.name + "</a></td><td>" + item.password + "</td><td>" + createDate + "</td><td>" + item.view + "</td></tr>"
+          "<tr><td><a href=\"" + boardSrc + "\">" + item.title + "</a></td><td>" + item.name + "</td><td>" + createDate + "</td><td>" + item.view + "</td></tr>"
         );
       });
     }

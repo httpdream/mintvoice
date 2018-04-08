@@ -1,6 +1,16 @@
-#mainTable{
+#mainTable,#writeButtonWrap{
   margin-left:15%;
   margin-right:15%;
+}
+
+#writeButtonWrap>div{
+  padding:0px;
+}
+
+#writeButton{
+    height: 100%;
+    background-color:rgb(48,56,66);
+    color:white;
 }
 
 a,a:visited,a:hover,a:focus{
@@ -29,9 +39,28 @@ th:first-child{
 }
 
 .table{
-  margin-top:3%;
+  margin-top:1%;
 }
 
 #languageButton{
   margin-right:1%;
+}
+
+@media screen and (max-width: 767px) {
+  .h3{
+    font-size:8px;
+  }
+  th{
+    width:20%;
+  }
+  th:first-child{
+    width:40%;
+  }
+  #footerBox{
+    display:none;
+  }
+  #headerbar{
+    margin-top:10px;
+    margin-bottom:10px;
+  }
 }
