@@ -7,7 +7,7 @@ const indexRouter = Router();
 let countIdData = 0;
 
 indexRouter.get("/", (req, res, next) => {
-  sql.exec(`
+  return sql.exec(`
   SELECT *
   FROM tag`)
   .then (rows => {
@@ -30,16 +30,22 @@ indexRouter.get("/", (req, res, next) => {
     return res.render("../workspace/main.ejs", {
       tags: tags
     });
+  })
+  .catch(err => {
+    res.json({
+      status: err.status,
+      message: err.message
+    });
   });
 });
 
 indexRouter.post("/count", (req, res, next) => {
-  sql.exec(`
+  return sql.exec(`
   SELECT COUNT(id) AS c
   FROM voice`)
   .then(voiceCount => {
     countIdData = voiceCount[0]["c"];
-    sql.exec(`
+    return sql.exec(`
     SELECT COUNT(distinct name) AS c
     FROM voice`)
     .then(nameCount => {
