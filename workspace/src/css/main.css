@@ -432,6 +432,11 @@ body > .container-fluid{
   color:white;
 }
 
+#showListWrap{
+  margin-top:0px;
+  margin-bottom:0px;
+}
+
 #contentBox{
   padding:0%;
   margin:0px;
