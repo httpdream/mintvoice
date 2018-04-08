@@ -1,7 +1,7 @@
 let boardSrc="#";
 $(document).ready(function(){
   $.ajax({
-    url: "/board/list",
+    url: "/board/list?type=notice",
     type: "GET",
     dataType: "JSON",
     success: response => {
