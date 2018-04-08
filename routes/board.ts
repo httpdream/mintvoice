@@ -4,18 +4,24 @@ import * as crypto from "crypto";
 
 const boardRouter = Router();
 
-boardRouter.get("/", (req, res, next) => {
-  return res.render("../workspace/board.html");
+boardRouter.get("/notice", (req, res, next) => {
+  return res.render("../workspace/notice.html");
+});
+
+boardRouter.get("/contact", (req, res, next) => {
+  return res.render("../workspace/contact.html");
 });
 
 boardRouter.get("/list", (req, res, next) => {
   let offset = req.query.offset || 0;
   let limit = req.query.limit || 10;
+  let type = req.query.type || "";
 
   sql.exec(`SELECT *
   FROM board
+  WHERE type = ?
   LIMIT ?, ?
-  `, [offset, limit])
+  `, [type, offset, limit])
   .then(rows => {
     res.json({
       status: 200,
