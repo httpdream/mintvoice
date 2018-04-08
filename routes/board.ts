@@ -5,6 +5,10 @@ import * as crypto from "crypto";
 const boardRouter = Router();
 
 boardRouter.get("/", (req, res, next) => {
+  return res.render("../workspace/board.html");
+});
+
+boardRouter.get("/list", (req, res, next) => {
   let offset = req.query.offset || 0;
   let limit = req.query.limit || 10;
 

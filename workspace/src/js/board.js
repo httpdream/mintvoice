@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $.ajax({
-    url: "/board",
+    url: "/board/list",
     type: "GET",
     dataType: "JSON",
     success: response => {
@@ -10,6 +10,6 @@ $(document).ready(function(){
           "<tr><td><a href=\"" + boardSrc + "\">" + boardTitle + "</a></td><td>MintMedia</td><td>" + boardDate + "</td><td>" + boardView + "</td></tr>"
         );
       });
-    };
+    }
   });
 });
