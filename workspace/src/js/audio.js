@@ -98,7 +98,7 @@ function setVoiceAudio(voice) {
     loadTrack(index);
 }
 
-function getVoices(data = {}) {
+function getVoices(data = "") {
     var supportsAudio = !!document.createElement('audio').canPlayType;
     if (supportsAudio) {
         $.ajax({

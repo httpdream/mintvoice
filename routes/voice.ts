@@ -76,43 +76,39 @@ voiceRouter.get("/upload", (req, res, next) => {
 
 voiceRouter.get("/search", (req, res, next) => {
   let query = "";
-  if (typeof req.query.category !== "object") {
-    req.query.category = [req.query.category]
-  }
+  if (Object.keys(req.query).length > 0) {
+    if (typeof req.query.category !== "object") {
+      req.query.category = [req.query.category]
+    }
 
-  if (typeof req.query.gender !== "object") {
-    req.query.gender = [req.query.gender]
+    if (typeof req.query.gender !== "object") {
+      req.query.gender = [req.query.gender]
+    }
+    if (typeof req.query.age !== "object") {
+      req.query.age = [req.query.age]
+    }
+    if (typeof req.query.octave !== "object") {
+      req.query.octave = [req.query.octave]
+    }
+    if (typeof req.query.feels !== "object") {
+      req.query.feels = [req.query.feels]
+    }
+    let feels = req.query.feels.map(feel => `"${feel}"`);
+    query = `
+    where
+    category in (${req.query.category.join()})
+    AND
+      gender in (${req.query.gender.join()})
+    AND
+      age in (${req.query.age.join()})
+    AND
+      octave in (${req.query.octave.join()})
+    AND
+      feels REGEXP '${feels.join("|")}'
+    `;
   }
-  if (typeof req.query.age !== "object") {
-    req.query.age = [req.query.age]
-  }
-  if (typeof req.query.octave !== "object") {
-    req.query.octave = [req.query.octave]
-  }
-  if (typeof req.query.feels !== "object") {
-    req.query.feels = [req.query.feels]
-  }
-
   req.query.offset = +req.query.offset || 0;
   req.query.limit = +req.query.limit || 10;
-
-  let feels = req.query.feels.map(feel => `"${feel}"`);
-  query = `
-  where
-  category in (${req.query.category.join()})
-  AND
-    gender in (${req.query.gender.join()})
-  AND
-    age in (${req.query.age.join()})
-  AND
-    octave in (${req.query.octave.join()})
-  AND
-    feels REGEXP '${feels.join("|")}'
-  `;
-
-  if (req.query === {}) {
-    query = "";
-  }
 
   sql.exec(`
   select voice.*, tag_voice.*
