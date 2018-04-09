@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>MintVoice</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MintVoice - 성우 데이터베이스">
+  <script src="src/lib/jquery/jquery-3.3.1.min.js"></script>
+  <script src="src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.rawgit.com/inorganik/countUp.js/master/dist/countUp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.js"></script>
+  <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.css">
+
+
+</head>
+
+<body>
+  <!-- Modal -->
+  <div id="feels" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title ">Select a desired feeling</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <form id="feelsForm">
+              <% tags.feels.forEach(function (tag, index) { %>
+                <% if (index % 10 == 0) { %>
+                  <div class="row">
+                    <% } %>
+
+                      <% if (tag.name.trim().length > 2) { %>
+                        <div class="checkbox-inline col-md-1-5 col-xs-1-5">
+                          <% } else { %>
+                            <div class="checkbox-inline col-md-1 col-xs-1">
+                              <% } %>
+
+                                <input type="checkbox" name="feels" value="<%=
+                                tag.id %>" id=" <%= tag.key %>" class="modalCheckBox">
+                                <label for="<%= tag.key %>"><%= tag.name.trim() %></label>
+                            </div>
+                            <% if (index % 10 == 9 || tags.feels.length-1 == index) { %>
+                        </div>
+                        <br />
+                        <% } %>
+                          <% }) %>
+            </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal" id="modalButton">Selection complete!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="container-fluid">
+
+      <!-- 상단바 -->
+      <header class="row row-eq-height vertical-align" id="headerbar">
+        <div class="col-md-1 col-xs-1">
+
+        </div>
+        <div class=" col-md-1 col-md-offset-10 col-xs-offset-10 col-xs-1">
+          <div class="dropdown pull-right">
+            <button class="btn btnWeight dropdown-toggle btn-primary outline" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+      LANGUAGE
+      <span class="caret"></span>
+    </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">한국어</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- 메인 이미지 -->
+      <div class="row" id="mainImage">
+        <div class="col-md-12">
+          <img src="images/index_main.png" class="img-responsive" alt="Responsive image">
+        </div>
+      </div>
+
+      <!-- Counter -->
+      <section class="row" id="countering">
+        <div class="col-md-12">
+          <div class="row row-eq-height">
+            <div class="text-center h3 bold col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
+              <img src="images/users-icon.png" class="img-responsive center-block" alt="Responsive image" />
+            </div>
+            <div class="text-center h3 bold col-md-3 col-xs-3">
+              <img src="images/datas-icon.png" class="img-responsive center-block" alt="Responsive image" />
+            </div>
+          </div>
+          <div class="row row-eq-height">
+            <div class="text-center h1 bold col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
+              <span id="sourceUser"></span>
+            </div>
+            <div class="text-center h1 bold col-md-3 col-xs-3">
+              <span id="sourceCount"></span>
+            </div>
+          </div>
+          <div class="row row-eq-height">
+            <div class="text-center h3 bold col-md-3 col-md-offset-3 col-xs-4 col-xs-offset-2">
+              VoiceActor
+            </div>
+            <div class="text-center h3 bold col-md-3 col-xs-4">
+              Voice
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 메인 네비게이션. Notice, Contact 이동 -->
+      <nav class="row" id="mainNav">
+        <div class="col-md-12 col-xs-12">
+          <div class="row" id="navBox">
+            <div class="col-md-6 col-xs-6 text-center h2">
+              The Fresh news about Mintvoice
+              <br /><br/>
+              <button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">NOTICE</button>
+            </div>
+            <div class="col-md-6 col-xs-6 text-center h2">
+              Rent a studio or record
+              <br/><br/>
+              <button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">CONTACT US</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <form id="searchForm">
+        <section class="row row-eq-height" id="mainBox">
+          <div class="col-md-12 col-xs-12" id="filterBox">
+            <div class="row vertical-align">
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3 margin4">
+                Field
+              </div>
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
+                Gender
+              </div>
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
+                Age
+              </div>
+              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
+                Octave
+              </div>
+            </div>
+            <div class="row row-eq-height" id="checkboxContent">
+              <div class="col-md-2 col-md-offset-1 col-xs-3 margin4">
+                <select class="form-control" name="category">
+                    <% tags.category.forEach(function (tag) { %>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <% }) %>
+                </select>
+              </div>
+              <div class="col-md-2 col-md-offset-1 col-xs-3">
+                <select class="form-control" name="gender">
+                    <% tags.gender.forEach(function (tag) { %>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <% }) %>
+                </select>
+              </div>
+              <div class="col-md-2 col-md-offset-1 col-xs-3">
+                <select class="form-control" name="age">
+                    <% tags.age.forEach(function (tag) { %>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <% }) %>
+                </select>
+              </div>
+              <div class="col-md-2 col-md-offset-1 col-xs-3">
+                <select class="form-control" name="octave">
+                    <% tags.octave.forEach(function (tag) { %>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <% }) %>
+                </select>
+              </div>
+            </div>
+            <div class="row vertical-align row-eq-height">
+              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h3 margin4">
+                Select Feels
+              </div>
+              <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h3">
+                Search
+              </div>
+            </div>
+            <div class="row row-eq-height">
+              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h4 margin4" id="showListWrap">
+                <button type="button" class="btn btn-primary outline" data-toggle="modal" data-target="#feels">
+                 Show List<span class="badge" id="selectNumber">0</span>
+               </button>
+              </div>
+              <div class="col md-2 col-md-offset-1 col-xs-3 col-xs-offset-2">
+                <div id="textWrap">
+                  <input type="text" class="form-control" placeholder="Enter search term.">
+                </div>
+              </div>
+            </div>
+            <div class="row vertical-align" id="searchBar">
+              <div class="col-md-4 col-md-offset-4 col-xs-12 col-xs-offset-1" id="searchButtonWrap">
+                <input type="button" class="btn btn-block btnWeight" value="Search Voice" id="searchButton">
+              </div>
+            </div>
+          </div>
+        </section>
+      </form>
+
+      <!-- Main Contents -->
+      <section class="row" id="contentBox">
+        <div class="col-md-11 col-xs-11" id="dataWrap">
+          <div class="col-md-3 col-md-offset-9 col-xs-9 col-xs-offset-3 h4 text-right" id="dbText">
+            0 Voice DB detected.
+          </div>
+          <div class="row row-eq-height" id="card">
+            <div class="col-md-12">
+              <div class="audioContainer">
+                <div class="column add-bottom">
+                  <div id="mainwrap">
+                    <div id="nowPlay">
+                      <span class="left" id="npAction">Paused...</span>
+                      <span class="right h4" id="npTitle"></span>
+                    </div>
+                    <div id="audiowrap">
+                      <div id="audio0">
+                        <audio preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+                      </div>
+                      <div id="tracks">
+                        <a id="btnPrev">&larr;</a>
+                        <a id="btnNext">&rarr;</a>
+                      </div>
+                    </div>
+                    <div id="plwrap">
+                      <ul id="plList"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <nav class="text-center" aria-label="Page navigation">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+                <span class="bold" aria-hidden="true">&#xE000;</span>
+              </a>
+          </li>
+          <li class="active"><a href="#">01</a></li>
+          <li><a href="#">02</a></li>
+          <li><a href="#">03</a></li>
+          <li><a href="#">04</a></li>
+          <li><a href="#">05</a></li>
+          <li><a href="#">06</a></li>
+          <li><a href="#">07</a></li>
+          <li><a href="#">08</a></li>
+          <li><a href="#">09</a></li>
+          <li><a href="#">10</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+                <span class="bold" aria-hidden="true">&#xE001;</span>
+              </a>
+          </li>
+        </ul>
+      </nav>
+
+
+
+      <footer class="row row-eq-height" id="footerBox">
+        <div class="col-md-12 col-xs-12">
+          <div class="row">
+            <div class="col-md-2 col-md-offset-3">
+              <div class="bold h3">Address</div>
+              <p class="contact-meta">B1, Fine Bld. 8401, Yangjae-dong, Seocho-gu, Seoul, South Korea</p>
+            </div>
+            <div class="col-md-2">
+              <div class="bold h3">Email</div>
+              <p class="contact-meta">mint@mintsound.co.kr</p>
+            </div>
+            <div class="col-md-2">
+              <div class="bold h3">Phone</div>
+              <p class="contact-meta">+82-2-579-1640</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center h4" id="reserved">
+              2018 © mintsound, some rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Main Container End -->
+    </div>
+
+    <script src="src/js/index.js"></script>
+    <script src="src/js/checknum.js"></script>
+    <script src="src/js/audio.js"></script>
+
+</body>
+
+</html>
