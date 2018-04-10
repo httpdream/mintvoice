@@ -295,27 +295,24 @@ cursor:default !important;
 
 a[id^="btn"] {
 border-radius:3px;
-color:#fff;
+color:black;
 cursor:pointer;
 display:inline-block;
 font-size:2rem;
-height:35px;
+height:28px;
 line-height:.8;
-margin:0 20px 20px;
+margin:20px;
 padding:5px 10px;
 text-decoration:none;
 transition:background .3s ease;
 width:35px;
 }
-
-a[id^="btn"]:last-child {
-margin-left:-4px;
-}
+x
 
 a[id^="btn"]:hover,
 a[id^="btn"]:active {
 background-color:rgba(0,0,0,.1);
-color:#fff;
+color:black;
 }
 
 a[id^="btn"]::-moz-focus-inner {
@@ -353,15 +350,6 @@ background:rgba(0,0,0,.1);
 .plyr--audio .plyr__progress--buffer {
 color:rgba(0,0,0,.1);
 }
-
-
-/* Media Queries
-================================================== */
-
-@media only screen and (max-width:850px) {
-    #nowPlay { display:none; }
-}
-
 
 #countering>div>div>.bold{
   color:white;
@@ -472,10 +460,6 @@ body > .container-fluid{
   padding-right:1%;
   padding-left:1%;
 }
-#contentBox>div:first-child{
-  padding:1%;
-  margin-left:4.16666666%;
-}
 
 #cardAudio{
   padding:2%;
@@ -535,10 +519,6 @@ body > .container-fluid{
   .btn{
     font-size:10px;
   }
-  #card{
-    padding:0px;
-    margin-right:0px;
-  }
   #cardHeader{
     padding:0px;
   }
@@ -557,6 +537,19 @@ body > .container-fluid{
   }
   #checkboxContent>div{
     padding-right: 10px;
+    padding-left:10px;
+  }
+  #showListWrap{
+    padding-left:10px;
+  }
+  #showListWrap>.btn{
+    padding:8px 14px;
+  }
+  #textWrap{
+    width:250%;
+  }
+  #textListWrap{
+    padding-left:10px;
   }
   .pagination{
     display:none;
@@ -564,13 +557,34 @@ body > .container-fluid{
   #footerBox{
     margin-top:5%;
   }
+  #filterBox>div>div.h3{
+    padding-left:10px;
+  }
   #filterBox>div>div:nth-child(1){
     margin-left:0px;
   }
   #searchBar{
     margin:0px;
   }
-  .h4{
+  #dropdownMenu1{
+    padding:10px 14px;
+    margin-right:8px;
+  }
+  .h4,.h3{
     font-size:13px;
+  }
+  .h1{
+    font-size:20px;
+    margin-top:5px;
+    margin-bottom: 5px;
+  }
+  #countering{
+    padding:5px 0px 5px 0px;
+  }
+  #npAction{
+    display:none;
+  }
+  #plList>li{
+    font-size:12px;
   }
 }

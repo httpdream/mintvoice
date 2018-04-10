@@ -11,6 +11,8 @@
     height: 100%;
     background-color:rgb(48,56,66);
     color:white;
+    margin-top:5%;
+    margin-bottom:1.5%;
 }
 
 a,a:visited,a:hover,a:focus{
@@ -57,10 +59,22 @@ th:first-child{
     width:40%;
   }
   #footerBox{
-    display:none;
+    display:flex;
   }
   #headerbar{
     margin-top:10px;
     margin-bottom:10px;
+  }
+  .pagination{
+    display:inline-block;
+    margin:10px 0px;
+  }
+  ul>li{
+    font-size:10px;
+  }
+  #writeButton{
+    padding:10px 0px;
+    margin-top:20px;
+    margin-bottom:5px;
   }
 }
