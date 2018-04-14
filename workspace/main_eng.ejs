@@ -44,7 +44,7 @@
 
                                 <input type="checkbox" name="feels" value="<%=
                                 tag.id %>" id=" <%= tag.key %>" class="modalCheckBox">
-                                <label for="<%= tag.key %>"><%= tag.name.trim() %></label>
+                                <label for="<%= tag.key %>"><%= tag.key.trim() %></label>
                             </div>
                             <% if (index % 10 == 9 || tags.feels.length-1 == index) { %>
                         </div>
@@ -76,8 +76,8 @@
       <span class="caret"></span>
     </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">한국어</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/ko">한국어</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/en">English</a></li>
             </ul>
           </div>
         </div>
@@ -159,28 +159,28 @@
               <div class="col-md-2 col-md-offset-1 col-xs-3 margin4">
                 <select class="form-control" name="category">
                     <% tags.category.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
                 </select>
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <select class="form-control" name="gender">
                     <% tags.gender.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
                 </select>
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <select class="form-control" name="age">
                     <% tags.age.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
                 </select>
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <select class="form-control" name="octave">
                     <% tags.octave.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
+                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
                 </select>
               </div>

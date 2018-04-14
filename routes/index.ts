@@ -27,9 +27,18 @@ indexRouter.get("/", (req, res, next) => {
       tags[row.type].push(row);
     });
 
-    return res.render("../workspace/main.ejs", {
-      tags: tags
-    });
+    if (req.session.language && req.session.language === "en") {
+      return res.render("../workspace/main_eng.ejs", {
+        tags: tags
+      });
+    }
+    else {
+      return res.render("../workspace/main.ejs", {
+        tags: tags
+      });
+    }
+
+    
   })
   .catch(err => {
     res.json({
@@ -74,6 +83,11 @@ indexRouter.get("/view", (req, res, next) => {
   res.render("../workspace/view.ejs", {
     "abc": "def"
   });
+});
+
+indexRouter.get("/lang/:language", function (req, res) {
+  req.session.language = req.params.language;
+  res.redirect("/");
 });
 
 indexRouter.use("/board", boardRouter);
