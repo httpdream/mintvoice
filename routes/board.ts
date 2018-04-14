@@ -12,6 +12,29 @@ boardRouter.get("/contact", (req, res, next) => {
   return res.render("../workspace/contact.html");
 });
 
+boardRouter.get("/write", (req, res, next) => {
+  if (!req.query.type) {
+    return res.json({
+      status: 400
+    });
+  }
+
+  if (req.query.type === "notice") {
+    // notice authorization
+    // if (req["session"].admin) {
+    // return res.render("../workspace/authorization_admin.html");
+    return res.render("../workspace/write_notice.html");
+  }
+  else if (req.query.type === "contact") {
+    return res.render("../workspace/write_contact.html");
+  }
+  else {
+    return res.json({
+      status: 400
+    });
+  }
+})
+
 boardRouter.get("/list", (req, res, next) => {
   let offset = req.query.offset || 0;
   let limit = req.query.limit || 10;
