@@ -8,6 +8,7 @@
 function setVoiceAudio(voice) {
     console.log(voice.map(item => item.id));
     console.log("babo", voice);
+    $('#plList li').remove();
     var tracks = voice.map((item, i) => {
         return {
             track: i + 1,
@@ -118,7 +119,7 @@ jQuery(function ($) {
     getVoices();
 
     $('#searchButton').click(element => {
-        let data = $('#searchForm').serialize() + $('#feelsForm').serialize();
+        let data = $('#searchForm').serialize() + "&" + $('#feelsForm').serialize();
         console.log(data);
         getVoices(data);
     });
