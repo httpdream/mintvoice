@@ -118,10 +118,20 @@ voiceRouter.get("/search", (req, res, next) => {
   ${query}
   LIMIT ${req.query.offset}, ${req.query.limit}
   `)
-  .then (rows => {
-    res.json({
-      status: 200,
-      items: rows
+  .then (items => {
+    sql.exec(`
+    SELECT count(*) as c
+    from tag_voice
+    inner join voice
+    on voice.id = tag_voice.voice_id
+    ${query}
+    `)
+    .then (count => {
+      res.json({
+        status: 200,
+        count: count[0].c,
+        items: items
+      });
     });
   });
 });
