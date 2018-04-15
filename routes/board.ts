@@ -5,11 +5,21 @@ import * as crypto from "crypto";
 const boardRouter = Router();
 
 boardRouter.get("/notice", (req, res, next) => {
-  return res.render("../workspace/notice.html");
+  if (req.session.language && req.session.language === "en") {
+    return res.render("../workspace/notice_eng.html");
+  }
+  else {
+    return res.render("../workspace/notice.html");
+  }
 });
 
 boardRouter.get("/contact", (req, res, next) => {
-  return res.render("../workspace/contact.html");
+  if (req.session.language && req.session.language === "en") {
+    return res.render("../workspace/contact_eng.html");
+  }
+  else {
+    return res.render("../workspace/contact.html");
+  }
 });
 
 boardRouter.get("/write", (req, res, next) => {
@@ -64,9 +74,16 @@ boardRouter.get("/:id", (req, res, next) => {
   FROM board
   WHERE id = ?`, [req.params.id])
   .then(rows => {
-    return res.render("../workspace/writingView.ejs", {
-      id: req.params.id
-    })
+    if (req.session.language && req.session.language === "en") {
+      return res.render("../workspace/writingView_eng.ejs", {
+        id: req.params.id
+      });
+    }
+    else {
+      return res.render("../workspace/writingView.ejs", {
+        id: req.params.id
+      });
+    }
   });
 });
 

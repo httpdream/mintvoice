@@ -81,7 +81,8 @@ indexRouter.post("/count", (req, res, next) => {
 
 indexRouter.get("/lang/:language", function (req, res) {
   req.session.language = req.params.language;
-  res.redirect("/");
+  req.query.next = req.query.next || "/";
+  res.redirect(req.query.next);
 });
 
 indexRouter.use("/board", boardRouter);
