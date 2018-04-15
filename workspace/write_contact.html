@@ -8,66 +8,67 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="MintVoice - 성우 데이터베이스">
   <script src="/src/lib/jquery/jquery-3.3.1.min.js"></script>
-	<script src="/src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
-	<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.1/classic/ckeditor.js"></script>
-	<script src="/src/js/write.js"></script>
+  <script src="/src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.1/classic/ckeditor.js"></script>
+  <script src="/src/js/write.js"></script>
   <link rel="stylesheet" href="/src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
-	<style>
-		.ck-content {
-			min-height: 300px;
-		}
-	</style>
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <style>
+    .ck-content {
+      min-height: 300px;
+    }
+  </style>
 </head>
 
 <body>
-	<div class="col-md-6 col-md-offset-3">
-		<form id="write" class="form-horizontal" role="form" method="post">
-				<div class="form-group">
-					<label for="name" class="col-sm-2 control-label">이름</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="name" name="name" placeholder="ex) 최창진" value="">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="phone" class="col-sm-2 control-label">연락처</label>
-					<div class="col-sm-10">
-						<input type="tel" class="form-control" id="phone" name="phone" placeholder="ex) 010-0000-0000" value="">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="title" class="col-sm-2 control-label">제목</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="title" name="title" placeholder="제목" value="">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="message" class="col-sm-2 control-label">내용</label>
-					<div class="col-sm-10">
-						<textarea name="content" id="editor">
+  <div class="col-md-6 col-md-offset-3">
+    <form id="write" class="form-horizontal" role="form" method="post">
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">이름</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name" name="name" placeholder="ex) 최창진" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone" class="col-sm-2 control-label">연락처</label>
+        <div class="col-sm-10">
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="ex) 010-0000-0000" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">제목</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="title" name="title" placeholder="제목" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message" class="col-sm-2 control-label">내용</label>
+        <div class="col-sm-10">
+          <textarea name="content" id="editor">
 						</textarea>
-						<script>
-								ClassicEditor
-										.create( document.querySelector( '#editor' ) )
-										.catch( error => {
-												console.error( error );
-										} );
-						</script>
-						<!-- <textarea class="form-control" rows="4" name="message"></textarea> -->
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="password" class="col-sm-2 control-label">비밀번호</label>
-					<div class="col-sm-10">
-						<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-10 col-sm-offset-2">
-						<input id="submit" value="Send" class="btn btn-primary">
-					</div>
-				</div>
-			</form>
-		</div>
+          <script>
+            ClassicEditor
+              .create(document.querySelector('#editor'))
+              .catch(error => {
+                console.error(error);
+              });
+          </script>
+          <!-- <textarea class="form-control" rows="4" name="message"></textarea> -->
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">비밀번호</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+          <input id="submit" value="Send" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>
