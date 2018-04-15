@@ -7,20 +7,26 @@
 // Mythium Archive: https://archive.org/details/mythium/
 
 let audio = "";
+let current_page = 1;
 
 function changePage(page) {
+    let data = "";
+    if (audio == "") {
+        data = `offset=${(page-1) * 10}&limit=10`;
+    }
     $.ajax({
-        url: "/voice/search?" + audio,
+        url: "/voice/search?" + data,
         type: "GET",
         json: true,
         success: response => {
+            current_page = page;
             setVoiceAudio(response.items, response.count);
         }
     });
 }
 
 function setVoiceAudio(voice, count) {
-    setPagination(Math.ceil(count / 10), 1);
+    setPagination(Math.ceil(count / 10), current_page);
     $('#plList li').remove();
     var tracks = voice.map((item, i) => {
         return {
@@ -42,7 +48,7 @@ function setVoiceAudio(voice, count) {
             if (trackNumber.toString().length === 1) {
                 trackNumber = '0' + trackNumber;
             }
-            $('#plList').append('<li><div class="plItem"><span class="plNum">' + trackNumber + '.</span><span class="plTitle">' + trackName + '</span><span class="plLength">' + trackDuration + '</span></div></li>');
+            $('#plList').append('<li><div class="plItem"><span class="plNum">' + ((current_page - 1)*10 + +trackNumber) + '.</span><span class="plTitle">' + trackName + '</span><span class="plLength">' + trackDuration + '</span></div></li>');
         }),
         trackCount = tracks.length,
         npAction = $('#npAction'),
