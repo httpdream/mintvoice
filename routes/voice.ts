@@ -49,8 +49,8 @@ let storage = multer.diskStorage({
       INSERT INTO voice (name, filename, original_filename)
       VALUES
       (?, ?, ?)
-      `, [req.body.name, file.originalname, file.originalname])
-      .then (row => {
+      `, [req.body.name, file.originalname, req.body.name + "_" +file.originalname])
+      .then (row => { 
         sql.exec(`
         INSERT INTO tag_voice (voice_id, category, gender, age, octave, feels)
         VALUES
@@ -71,44 +71,40 @@ voiceRouter.post("/upload", upload.single("voiceFile"), (req, res, next) => {
 });
 
 voiceRouter.get("/upload", (req, res, next) => {
-  return res.render("../workspace/uploadFile.html");
+  return res.render("../workspace/uploadFile.ejs");
 });
 
 voiceRouter.get("/search", (req, res, next) => {
-  let query = "";
+  let query = "where voice.id > 0 ";
   if (Object.keys(req.query).length > 2) {
-    if (typeof req.query.category !== "object") {
-      req.query.category = [req.query.category]
+    console.log(req.query);
+    if (typeof req.query.category !== "object" && req.query.category !== "") {
+      req.query.category = [req.query.category];
+      query += `AND category in (${req.query.category.join()})`;
     }
 
-    if (typeof req.query.gender !== "object") {
-      req.query.gender = [req.query.gender]
+    if (typeof req.query.gender !== "object" && req.query.gender !== "") {
+      req.query.gender = [req.query.gender];
+      query += `AND gender in (${req.query.gender.join()})`;
     }
-    if (typeof req.query.age !== "object") {
-      req.query.age = [req.query.age]
+    if (typeof req.query.age !== "object" && req.query.age !== "") {
+      req.query.age = [req.query.age];
+      query += `AND age in (${req.query.age.join()})`;
     }
-    if (typeof req.query.octave !== "object") {
-      req.query.octave = [req.query.octave]
+    if (typeof req.query.octave !== "object" && req.query.octave !== "") {
+      req.query.octave = [req.query.octave];
+      query += `AND octave in (${req.query.octave.join()})`;
     }
-    if (typeof req.query.feels !== "object") {
-      req.query.feels = [req.query.feels]
+    if (typeof req.query.feels !== "object" && req.query.feels !== undefined) {
+      console.log(req.query.feels)
+      req.query.feels = [req.query.feels];
+      let feels = req.query.feels.map(feel => `"${feel}"`);
+      query += `AND feels REGEXP '${feels.join("|")}'`;
     }
-    let feels = req.query.feels.map(feel => `"${feel}"`);
-    query = `
-    where
-    category in (${req.query.category.join()})
-    AND
-      gender in (${req.query.gender.join()})
-    AND
-      age in (${req.query.age.join()})
-    AND
-      octave in (${req.query.octave.join()})
-    AND
-      feels REGEXP '${feels.join("|")}'
-    `;
   }
   req.query.offset = +req.query.offset || 0;
   req.query.limit = +req.query.limit || 10;
+  console.log("hi", query);
 
   sql.exec(`
   select voice.*, tag_voice.*
