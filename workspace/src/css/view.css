@@ -1,4 +1,4 @@
-#mainTable,#writeButtonWrap,#viewTable{
+#writeButtonWrap,#viewTable{
   margin-left:15%;
   margin-right:15%;
 }
@@ -15,10 +15,15 @@
     margin-bottom:1.5%;
 }
 
+.marginTop{
+  margin-top:3%;
+}
+
 td>p{
   color:black;
   font-size:16px;
   font-weight: 300;
+  width:70vw;
 }
 
 a,a:visited,a:hover,a:focus{
@@ -41,10 +46,12 @@ th:nth-child(2n+1){
 
 .table{
   margin-top:1%;
+  height:100%;
 }
 
-#languageButton{
-  margin-right:1%;
+#viewMain{
+  height: 45vh;
+  overflow: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -71,9 +78,5 @@ th:nth-child(2n+1){
   ul>li{
     font-size:10px;
   }
-  #writeButton{
-    padding:10px 0px;
-    margin-top:20px;
-    margin-bottom:5px;
-  }
+
 }

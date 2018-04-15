@@ -19,7 +19,7 @@
   <div class="container-fluid">
 
     <!-- 메인  -->
-    <section class="row row-eq-height vertical-align" id="viewTable">
+    <section class="row row-eq-height vertical-align marginTop" id="viewTable">
       <table class="table">
         <thead class="h3">
           <tr>
@@ -49,8 +49,24 @@
 
             </td>
           </tr>
+          <tr>
+            <td colspan="6" id="viewPre">
+              &and;&nbsp;&nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6" id="viewNext">
+              &or;&nbsp;&nbsp;
+            </td>
+          </tr>
         </tbody>
       </table>
+    </section>
+
+    <section class="row" id="writeButtonWrap">
+      <div class="col-md-2 col-md-offset-10 col-xs-4 col-xs-offset-8">
+        <a href="/board/contact"><button type="button" class="btn btn-block btnWeight" id="writeButton">글 작성</button></a>
+      </div>
     </section>
 
     <footer class="row row-eq-height navbar-fixed-bottom" id="footerBox">
