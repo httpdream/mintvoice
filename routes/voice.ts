@@ -76,7 +76,7 @@ voiceRouter.get("/upload", (req, res, next) => {
 
 voiceRouter.get("/search", (req, res, next) => {
   let query = "";
-  if (Object.keys(req.query).length > 0) {
+  if (Object.keys(req.query).length > 2) {
     if (typeof req.query.category !== "object") {
       req.query.category = [req.query.category]
     }
