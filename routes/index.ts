@@ -79,12 +79,6 @@ indexRouter.post("/count", (req, res, next) => {
   });
 });
 
-indexRouter.get("/view", (req, res, next) => {
-  res.render("../workspace/view.ejs", {
-    "abc": "def"
-  });
-});
-
 indexRouter.get("/lang/:language", function (req, res) {
   req.session.language = req.params.language;
   res.redirect("/");
