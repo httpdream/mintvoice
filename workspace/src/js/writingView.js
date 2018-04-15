@@ -1,22 +1,28 @@
 let boardSrc="#";
 let createDate=0;
+let responseTitle = 0;
+let responseName = 0;
 
 $(document).ready(function(){
   $.ajax({
     url: "/board/view/"+board_id,
     type: "GET",
     dataType: "JSON",
+    async:false,
     success: response => {
       console.log(response.item);
+      responseTitle = response.item.title;
+      responseName = response.item.name;
       createDate = response.item.created_at.substring(5,10);
-      $("#viewTitle").html(response.item.title);
-      $("#viewWriter").html(response.item.name);
+      $("#viewTitle").html(responseTitle);
+      $("#viewWriter").html(responseName);
       $("#viewDate").html(createDate);
       $("#viewMain").html(response.item.content);
     }
   });
   preBoard();
   nextBoard();
+  mobileSize();
 });
 
 function preBoard(){
@@ -55,4 +61,16 @@ function nextBoard(){
       }
     }
   });
+}
+
+function mobileSize(){
+  console.log(responseTitle);
+  console.log("view.js ready!");
+  if ($(window).width() <= 767){
+    console.log("width size ready!");
+    $("thead tr th").remove();
+    $("thead tr").append(
+      "<th colspan=\"5\">"+ responseTitle +"</th><th colspan=\"1\">" + responseName + "</th>"
+    );
+  }
 }
