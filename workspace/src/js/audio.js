@@ -14,6 +14,9 @@ function changePage(page) {
     if (audio == "") {
         data = `offset=${(page-1) * 10}&limit=10`;
     }
+    else {
+        data = `${audio}&offset=${(page-1) * 10}&limit=10`;
+    }
     $.ajax({
         url: "/voice/search?" + data,
         type: "GET",
