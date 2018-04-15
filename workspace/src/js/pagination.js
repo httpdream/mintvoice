@@ -1,9 +1,9 @@
 function leadingZeros(n, digits) {
-    var zero = '';
+    let zero = '';
     n = n.toString();
 
     if (n.length < digits) {
-        for (var i = 0; i < digits - n.length; i++)
+        for (let i = 0; i < digits - n.length; i++)
         zero += '0';
     }
     return zero + n;

@@ -551,9 +551,6 @@ body > .container-fluid{
   #textListWrap{
     padding-left:10px;
   }
-  .pagination{
-    display:none;
-  }
   #footerBox{
     margin-top:5%;
   }
