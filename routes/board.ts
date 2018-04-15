@@ -64,6 +64,17 @@ boardRouter.get("/:id", (req, res, next) => {
   FROM board
   WHERE id = ?`, [req.params.id])
   .then(rows => {
+    return res.render("../workspace/writingView.ejs", {
+      id: req.params.id
+    })
+  });
+});
+
+boardRouter.get("/view/:id", (req, res, next) => {
+  sql.exec(`SELECT *
+  FROM board
+  WHERE id = ?`, [req.params.id])
+  .then(rows => {
     res.json({
       status: 200,
       item: rows[0] || {}
