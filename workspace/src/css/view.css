@@ -15,8 +15,10 @@
     margin-bottom:1.5%;
 }
 
-.marginTop{
-  margin-top:3%;
+td>p{
+  color:black;
+  font-size:16px;
+  font-weight: 300;
 }
 
 a,a:visited,a:hover,a:focus{
@@ -28,24 +30,13 @@ a:hover{
   text-decoration: none;
 }
 
-td{
-  text-align:right;
-}
-
-td:first-child{
-  text-align:justify;
-}
-
 th{
-  text-align:right;
+  text-align:center;
+  font-weight:300;
 }
 
-th:first-child{
-  text-align: justify;
-}
-
-#viewTable>table>thead>tr>th:nth-child(2n+1){
-  text-align:justify;
+th:nth-child(2n+1){
+  font-weight: 400;
 }
 
 .table{

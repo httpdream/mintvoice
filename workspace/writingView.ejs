@@ -11,54 +11,49 @@
   <script src="/src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/src/css/main.css">
-  <link rel="stylesheet" href="/src/css/board.css">
+  <link rel="stylesheet" href="/src/css/view.css">
   <link rel="shortcut icon" href="/images/favicon.ico">
 </head>
 
 <body>
   <div class="container-fluid">
-    <%= id %>
 
     <!-- 메인  -->
     <section class="row row-eq-height vertical-align" id="viewTable">
-      <table class="table table-hover">
+      <table class="table">
         <thead class="h3">
           <tr>
             <th width="10%">
               제목
             </th>
-            <th class="text-left" width="50%">
+            <th class="text-left" width="50%" id="viewTitle">
               아아아아
             </th>
             <th width="10%">
               글쓴이
             </th>
-            <th width="10%">
+            <th width="10%" id="viewWriter">
               MintVoice
             </th>
             <th width="10%">
               날짜
             </th>
-            <th width="10%">
+            <th width="10%" id="viewDate">
               03-20
             </th>
           </tr>
+        </thead>
+        <tbody class="h4">
           <tr>
-            <td colspan="6">
-              내용
+            <td colspan="6" id="viewMain">
+
             </td>
           </tr>
-          <tr>
-
-          </tr>
-        </thead>
-        <tbody class="h4" id="tableMain">
-
         </tbody>
       </table>
     </section>
 
-    <footer class="row row-eq-height" id="footerBox">
+    <footer class="row row-eq-height navbar-fixed-bottom" id="footerBox">
       <div class="col-md-12 col-xs-12">
         <div class="row">
           <div class="col-md-2 col-md-offset-3">
@@ -84,7 +79,9 @@
 
     <!-- Main Container End -->
   </div>
-  <script>var board_id = +"<%= id %>";</script>
+  <script>
+    var board_id = +"<%= id %>";
+  </script>
   <script src="/src/js/writingView.js"></script>
 </body>
 
