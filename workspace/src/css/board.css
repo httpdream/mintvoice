@@ -1,4 +1,4 @@
-#mainTable,#writeButtonWrap{
+#mainTable,#writeButtonWrap,#viewTable{
   margin-left:15%;
   margin-right:15%;
 }
@@ -38,6 +38,10 @@ th{
 
 th:first-child{
   text-align: justify;
+}
+
+#viewTable>table>thead>tr>th:nth-child(2n+1){
+  text-align:justify;
 }
 
 .table{
