@@ -5,9 +5,22 @@
 
 // Inspiration: http://jonhall.info/how_to/create_a_playlist_for_html5_audio
 // Mythium Archive: https://archive.org/details/mythium/
-function setVoiceAudio(voice) {
-    console.log(voice.map(item => item.id));
-    console.log("babo", voice);
+
+let audio = "";
+
+function changePage(page) {
+    $.ajax({
+        url: "/voice/search?" + audio,
+        type: "GET",
+        json: true,
+        success: response => {
+            setVoiceAudio(response.items, response.count);
+        }
+    });
+}
+
+function setVoiceAudio(voice, count) {
+    setPagination(Math.ceil(count / 10), 1);
     $('#plList li').remove();
     var tracks = voice.map((item, i) => {
         return {
@@ -107,8 +120,7 @@ function getVoices(data = "") {
             type: "GET",
             json: true,
             success: response => {
-                console.log("/voice/search" + data, response.items);
-                setVoiceAudio(response.items);
+                setVoiceAudio(response.items, response.count);
             }
         });
     }
@@ -120,7 +132,7 @@ jQuery(function ($) {
 
     $('#searchButton').click(element => {
         let data = $('#searchForm').serialize() + "&" + $('#feelsForm').serialize();
-        console.log(data);
+        audio = data;
         getVoices(data);
     });
 });
