@@ -2,7 +2,7 @@ let boardSrc="#";
 let createDate=0;
 $(document).ready(function(){
   $.ajax({
-    url: "/board/list?type=contact",
+    url: "/board/contact/list",
     type: "GET",
     dataType: "JSON",
     success: response => {
