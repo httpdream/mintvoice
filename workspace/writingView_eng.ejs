@@ -16,6 +16,25 @@
 </head>
 
 <body>
+  <div class="modal fade" tabindex="-1" role="dialog" id="passwordCheck">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Input your password.</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <input type="password" class="form-control" />
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info">Input</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container-fluid">
 
     <!-- 메인  -->
@@ -54,13 +73,13 @@
 
             </td>
             <td colspan="1">
-              <a href="/board/contact">List</a>
+              <a href="/board/<%= type %>">List</a>
             </td>
             <td colspan="1">
-              <a href="/board/passwordCheck">Modify</a>
+              <a href="#" data-toggle="modal" data-target="#passwordCheck" data-whatever="modify" data-lang="eng">Modify</a>
             </td>
             <td colspan="1">
-              <a href="/board/passwordCheck">Delete</a>
+              <a href="#" data-toggle="modal" data-target="#passwordCheck" data-whatever="delete" data-lang="eng">Delete</a>
             </td>
           </tr>
           <tr>

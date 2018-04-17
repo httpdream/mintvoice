@@ -74,3 +74,27 @@ function mobileSize(){
     );
   }
 }
+
+$('#passwordCheck').on('show.bs.modal', function (event) {
+  let button = $(event.relatedTarget);
+  let recipient = button.data('whatever');
+  let lang = button.data('lang');
+  let modal = $(this);
+  console.log(lang);
+  if(recipient == "delete"){
+    if(lang == "eng"){
+      modal.find('.modal-body input').attr("placeholder", "Are you sure you want to delete it?");
+    }
+    else{
+      modal.find('.modal-body input').attr("placeholder", "정말 삭제하시겠습니까?");
+    }
+  }
+  else{
+    if(lang == "eng"){
+      modal.find('.modal-body input').attr("placeholder", "Enter Password");
+    }
+    else{
+      modal.find('.modal-body input').attr("placeholder", "비밀번호 입력");
+    }
+  }
+});
