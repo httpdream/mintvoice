@@ -12,7 +12,7 @@ function leadingZeros(n, digits) {
 function setPagination(count, current) {
     $(".pagination li").remove();
     $(".pagination").append('<li><a href="#plList" aria-label="Previous"><span class="bold" aria-hidden="true">&#xE000;</span></a></li>')
-    for (i = 1; i <= count; i++) {
+    for (let i = 1; i <= count; i++) {
         if (i == current) {
             $(".pagination").append('<li class="active"><a href="#plList">' + leadingZeros(i, 2) + '</a></li>');
         }
