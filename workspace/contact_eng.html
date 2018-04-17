@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
   <title>MintVoice</title>
@@ -18,28 +18,9 @@
 <body>
   <div class="container-fluid">
 
-    <!-- 상단바 -->
-    <header class="row row-eq-height vertical-align" id="headerbar">
-      <div class="col-md-1 col-xs-1">
-
-      </div>
-      <div class=" col-md-1 col-md-offset-10 col-xs-offset-10 col-xs-1" id="languageButton">
-        <div class="dropdown pull-right">
-          <button class="btn btnWeight dropdown-toggle btn-primary outline" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    LANGUAGE
-    <span class="caret"></span>
-  </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">한국어</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
-          </ul>
-        </div>
-      </div>
-    </header>
-
     <section class="row" id="writeButtonWrap">
-      <div class="col-md-1 col-md-offset-11 col-xs-4 col-xs-offset-8">
-        <button type="button" class="btn btn-block btnWeight" id="writeButton">글 작성</button>
+      <div class="col-md-2 col-md-offset-10 col-xs-4 col-xs-offset-8">
+        <a href="/board/write?type=contact"><button type="button" class="btn btn-block btnWeight" id="writeButton">Write</button></a>
       </div>
     </section>
 
@@ -48,16 +29,16 @@
       <table class="table table-hover">
         <thead class="h3">
           <tr>
-            <th>
+            <th width="50%">
               Title
             </th>
-            <th>
+            <th width="20%">
               Writer
             </th>
-            <th>
+            <th width="20%">
               Date
             </th>
-            <th>
+            <th width="10%">
               View
             </th>
           </tr>
@@ -68,31 +49,13 @@
       </table>
     </section>
 
+    <section class="row">
+      <nav class="text-center" aria-label="Page navigation">
+        <ul class="pagination">
 
-    <nav class="text-center" aria-label="Page navigation">
-      <ul class="pagination">
-        <li>
-          <a href="#" aria-label="Previous">
-              <span class="bold" aria-hidden="true">&#xE000;</span>
-          </a>
-        </li>
-        <li class="active"><a href="#">01</a></li>
-        <li><a href="# ">02</a></li>
-        <li><a href="# ">03</a></li>
-        <li><a href="# ">04</a></li>
-        <li><a href="# ">05</a></li>
-        <li><a href="# ">06</a></li>
-        <li><a href="# ">07</a></li>
-        <li><a href="# ">08</a></li>
-        <li><a href="# ">09</a></li>
-        <li><a href="# ">10</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-              <span class="bold" aria-hidden="true">&#xE001;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+        </ul>
+      </nav>
+    </section>
 
     <footer class="row row-eq-height navbar-fixed-bottom" id="footerBox">
       <div class="col-md-12 col-xs-12">

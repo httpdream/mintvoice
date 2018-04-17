@@ -1,4 +1,14 @@
-#mainTable,#writeButtonWrap,#viewTable{
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+
+
+body {
+    font-family: "Spoqa Han Sans", 'Nanum Gothic', 'Sans-serif' !important;
+    font-weight: 300;
+    overflow-x:hidden;
+}
+
+#writeButtonWrap,#viewTable{
   margin-left:15%;
   margin-right:15%;
 }
@@ -11,14 +21,17 @@
     height: 100%;
     background-color:rgb(48,56,66);
     color:white;
-    margin-top:5%;
-    margin-bottom:1.5%;
+}
+
+.marginTop{
+  margin-top:3%;
 }
 
 td>p{
   color:black;
   font-size:16px;
   font-weight: 300;
+  width:70vw;
 }
 
 a,a:visited,a:hover,a:focus{
@@ -41,10 +54,16 @@ th:nth-child(2n+1){
 
 .table{
   margin-top:1%;
+  height:100%;
 }
 
-#languageButton{
-  margin-right:1%;
+#viewMain{
+  height: 45vh;
+  overflow: auto;
+}
+
+#viewPre:hover,#viewNext:hover{
+  background-color:rgb(245,245,245);
 }
 
 @media screen and (max-width: 767px) {
@@ -53,12 +72,17 @@ th:nth-child(2n+1){
   }
   th{
     width:20%;
+    text-align: justify;
+    font-size:15px;
   }
   th:first-child{
     width:40%;
   }
+  th:last-child{
+    text-align:right;
+  }
   #footerBox{
-    display:flex;
+    display:none;
   }
   #headerbar{
     margin-top:10px;
@@ -71,9 +95,7 @@ th:nth-child(2n+1){
   ul>li{
     font-size:10px;
   }
-  #writeButton{
-    padding:10px 0px;
-    margin-top:20px;
-    margin-bottom:5px;
+  td>p{
+    font-size:13px;
   }
 }

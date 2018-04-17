@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
   <title>MintVoice</title>
@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="src/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.css">
   <link rel="shortcut icon" href="/images/favicon.ico">
-
-
 </head>
 
 <body>
@@ -159,6 +157,7 @@
             <div class="row row-eq-height" id="checkboxContent">
               <div class="col-md-2 col-md-offset-1 col-xs-3 margin4">
                 <select class="form-control" name="category">
+                    <option value="" id="select_none">No selection</option>
                     <% tags.category.forEach(function (tag) { %>
                     <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
@@ -166,6 +165,7 @@
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <select class="form-control" name="gender">
+                    <option value="" id="select_none">No selection</option>
                     <% tags.gender.forEach(function (tag) { %>
                     <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
@@ -173,6 +173,7 @@
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <select class="form-control" name="age">
+                    <option value="" id="select_none">No selection</option>
                     <% tags.age.forEach(function (tag) { %>
                     <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
@@ -180,6 +181,7 @@
               </div>
               <div class="col-md-2 col-md-offset-1 col-xs-3">
                 <select class="form-control" name="octave">
+                    <option value="" id="select_none">No selection</option>
                     <% tags.octave.forEach(function (tag) { %>
                     <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.key %></option>
                     <% }) %>
@@ -245,38 +247,15 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
       <nav class="text-center" aria-label="Page navigation">
         <ul class="pagination">
-          <li>
-            <a href="#" aria-label="Previous">
-                <span class="bold" aria-hidden="true">&#xE000;</span>
-              </a>
-          </li>
-          <li class="active"><a href="#">01</a></li>
-          <li><a href="#">02</a></li>
-          <li><a href="#">03</a></li>
-          <li><a href="#">04</a></li>
-          <li><a href="#">05</a></li>
-          <li><a href="#">06</a></li>
-          <li><a href="#">07</a></li>
-          <li><a href="#">08</a></li>
-          <li><a href="#">09</a></li>
-          <li><a href="#">10</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-                <span class="bold" aria-hidden="true">&#xE001;</span>
-              </a>
-          </li>
+
         </ul>
       </nav>
-
-
-
       <footer class="row row-eq-height" id="footerBox">
         <div class="col-md-12 col-xs-12">
           <div class="row">
