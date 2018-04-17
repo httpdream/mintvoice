@@ -129,6 +129,7 @@ function getVoices(data = "") {
             type: "GET",
             json: true,
             success: response => {
+                $("#voiceCount").html(response.count);
                 setVoiceAudio(response.items, response.count);
             }
         });
