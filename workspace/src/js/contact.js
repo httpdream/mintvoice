@@ -8,7 +8,7 @@ $(document).ready(function(){
       response.items.forEach(function(item, index){
         createDate = item.created_at.substring(5,10);
         $("#tableMain").append(
-          "<tr><td><a href=\"/board/" + item.id + "\">" + item.title + "</a></td><td>" + item.name + "</td><td>" + createDate + "</td><td>" + item.view + "</td></tr>"
+          "<tr><td><a href=\"/board/contact/" + item.id + "\">" + item.title + "</a></td><td>" + item.name + "</td><td>" + createDate + "</td><td>" + item.view + "</td></tr>"
         );
       });
     }
