@@ -3,7 +3,7 @@ import { sql } from "../libs/db";
 import * as crypto from "crypto";
 
 const noticeRouter = Router();
-  
+
 noticeRouter.get("/", (req, res, next) => {
   if (req.session.language && req.session.language === "en") {
     return res.render("../workspace/notice_eng.html");
@@ -12,17 +12,18 @@ noticeRouter.get("/", (req, res, next) => {
     return res.render("../workspace/notice.html");
   }
 });
-  
+
 noticeRouter.get("/write", (req, res, next) => {
   return res.render("../workspace/write_notice.html");
 });
-  
+
 noticeRouter.get("/list", (req, res, next) => {
   let offset = req.query.offset || 0;
   let limit = req.query.limit || 10;
 
   sql.exec(`SELECT *
   FROM notice
+  ORDER BY id DESC
   LIMIT ?, ?
   `, [offset, limit])
   .then(rows => {
@@ -38,7 +39,7 @@ noticeRouter.get("/list", (req, res, next) => {
     });
   });
 });
-  
+
 noticeRouter.get("/:id", (req, res, next) => {
   sql.exec(`SELECT *
   FROM notice
@@ -58,7 +59,7 @@ noticeRouter.get("/:id", (req, res, next) => {
     }
   });
 });
-  
+
 noticeRouter.get("/view/:id", (req, res, next) => {
   sql.exec(`SELECT *
   FROM notice
@@ -76,7 +77,7 @@ noticeRouter.get("/view/:id", (req, res, next) => {
     });
   });
 });
-  
+
 noticeRouter.post("/", (req, res, next) => {
   if (!req.body.name || req.body.name.length === 0) {
     throw new Error("이름을 넣어주세요");
@@ -113,7 +114,7 @@ noticeRouter.post("/", (req, res, next) => {
     });
   });
 });
-  
+
 noticeRouter.delete("/:id", (req, res, next) => {
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
   sql.exec(`
@@ -145,7 +146,7 @@ noticeRouter.delete("/:id", (req, res, next) => {
     });
   });
 });
-  
+
 noticeRouter.put("/:id", (req, res, next) => {
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
   sql.exec(`

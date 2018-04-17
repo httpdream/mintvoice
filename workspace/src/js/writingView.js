@@ -27,17 +27,17 @@ $(document).ready(function(){
 
 function preBoard(){
   $.ajax({
-    url: "/board/" + type + "/view/"+(board_id-1),
+    url: "/board/" + type + "/view/"+(board_id+1),
     type: "GET",
     dataType: "JSON",
     success: response => {
       console.log(response.item);
       if(!response.item.title){
-        $("#viewPre").html("&and;&nbsp;&nbsp;이전 글이 없습니다.");
+        $("#viewPre").html("&and;&nbsp;&nbsp;다음 글이 없습니다.");
       }
       else{
         $("#viewPre").append(
-          "<a href=\"/board/" + type + "/"+ (board_id-1) + "\">" + response.item.title + "</a>"
+          "<a href=\"/board/" + type + "/"+ (board_id+1) + "\">" + response.item.title + "</a>"
         );
       }
     }
@@ -46,17 +46,17 @@ function preBoard(){
 
 function nextBoard(){
   $.ajax({
-    url: "/board/" + type + "/view/"+(board_id+1),
+    url: "/board/" + type + "/view/"+(board_id-1),
     type: "GET",
     dataType: "JSON",
     success: response => {
       console.log(response.item);
       if(!response.item.title){
-        $("#viewNext").html("&or;&nbsp;&nbsp;다음 글이 없습니다.");
+        $("#viewNext").html("&or;&nbsp;&nbsp;이전 글이 없습니다.");
       }
       else{
         $("#viewNext").append(
-          "<a href=\"/board/"+ type + "/" + (board_id+1) + "\">" + response.item.title + "</a>"
+          "<a href=\"/board/"+ type + "/" + (board_id-1) + "\">" + response.item.title + "</a>"
         )
       }
     }
