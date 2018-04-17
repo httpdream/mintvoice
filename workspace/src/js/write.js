@@ -1,18 +1,22 @@
 $(() => {
-  $("#write #submit").click(element => {
-    let data = $("#write").serializeArray();
+  $("#submit").click(() => {
+    let data = $("#write_contact").serializeArray();
     data = data.concat({
       name: "content",
       value: CKEDITOR.instances.editor.getData()
     });
-    console.log(data);
     $.ajax({
-      url: "/board",
+      url: "/board/contact",
       type: "POST",
       data: data,
       json: true,
       success: response => {
-        console.log(response);
+        if (response.message === "success") {
+          location.href = "."
+        }
+        else {
+          alert(response.message);
+        }
       }
     });
   });
