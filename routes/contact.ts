@@ -23,12 +23,16 @@ contactRouter.get("/list", (req, res, next) => {
 
   sql.exec(`SELECT *
   FROM contact
-  LIMIT ?, ?
-  `, [offset, limit])
+  LIMIT ${offset}, ${limit}
+  `)
   .then(rows => {
-    res.json({
-    status: 200,
-    items: rows
+    return sql.exec("SELECT count(*) as c FROM contact")
+    .then(count => {
+      res.json({
+        status: 200,
+        items: rows,
+        count: count[0].c
+      });
     });
   })
   .catch(err => {
