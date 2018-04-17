@@ -5,7 +5,7 @@ let responseName = 0;
 
 $(document).ready(function(){
   $.ajax({
-    url: "/board/view/"+board_id,
+    url: "/board/" + type + "/view/"+board_id,
     type: "GET",
     dataType: "JSON",
     async:false,
@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 function preBoard(){
   $.ajax({
-    url: "/board/view/"+(board_id-1),
+    url: "/board/" + type + "/view/"+(board_id-1),
     type: "GET",
     dataType: "JSON",
     success: response => {
@@ -37,7 +37,7 @@ function preBoard(){
       }
       else{
         $("#viewPre").append(
-          "<a href=\"/board/"+ (board_id-1) + "\">" + response.item.title + "</a>"
+          "<a href=\"/board/" + type + "/"+ (board_id-1) + "\">" + response.item.title + "</a>"
         );
       }
     }
@@ -46,7 +46,7 @@ function preBoard(){
 
 function nextBoard(){
   $.ajax({
-    url: "/board/view/"+(board_id+1),
+    url: "/board/" + type + "/view/"+(board_id+1),
     type: "GET",
     dataType: "JSON",
     success: response => {
@@ -56,7 +56,7 @@ function nextBoard(){
       }
       else{
         $("#viewNext").append(
-          "<a href=\"/board/"+ (board_id+1) + "\">" + response.item.title + "</a>"
+          "<a href=\"/board/"+ type + "/" + (board_id+1) + "\">" + response.item.title + "</a>"
         )
       }
     }
