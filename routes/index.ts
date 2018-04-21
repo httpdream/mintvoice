@@ -38,7 +38,7 @@ indexRouter.get("/", (req, res, next) => {
       });
     }
 
-    
+
   })
   .catch(err => {
     res.json({
