@@ -14,7 +14,12 @@ noticeRouter.get("/", (req, res, next) => {
 });
 
 noticeRouter.get("/write", (req, res, next) => {
-  return res.render("../workspace/write_notice.html");
+  if (req.session.language && req.session.language === "en") {
+    return res.render("../workspace/write_notice_eng.html");
+  }
+  else {
+    return res.render("../workspace/write_notice.html");
+  }
 });
 
 noticeRouter.get("/list", (req, res, next) => {
@@ -23,13 +28,18 @@ noticeRouter.get("/list", (req, res, next) => {
 
   sql.exec(`SELECT *
   FROM notice
+  WHERE deleted_at IS NULL
   ORDER BY id DESC
-  LIMIT ?, ?
-  `, [offset, limit])
+  LIMIT ${offset}, ${limit}
+  `)
   .then(rows => {
-    res.json({
-    status: 200,
-    items: rows
+    return sql.exec("SELECT count(*) as c FROM notice WHERE deleted_at IS NULL")
+    .then(count => {
+      res.json({
+        status: 200,
+        items: rows,
+        count: count[0].c
+      });
     });
   })
   .catch(err => {
@@ -43,7 +53,8 @@ noticeRouter.get("/list", (req, res, next) => {
 noticeRouter.get("/:id", (req, res, next) => {
   sql.exec(`SELECT *
   FROM notice
-  WHERE id = ?`, [req.params.id])
+  WHERE id = ?
+  `, [req.params.id])
   .then(rows => {
     if (req.session.language && req.session.language === "en") {
       return res.render("../workspace/writingView_eng.ejs", {
@@ -61,14 +72,22 @@ noticeRouter.get("/:id", (req, res, next) => {
 });
 
 noticeRouter.get("/view/:id", (req, res, next) => {
-  sql.exec(`SELECT *
+  return sql.exec(`SELECT *
   FROM notice
-  WHERE id = ?`, [req.params.id])
+  WHERE id = ?
+    AND deleted_at IS NULL`, [req.params.id])
   .then(rows => {
     res.json({
       status: 200,
       item: rows[0] || {}
     });
+    
+    if (req.query.update) {
+      return sql.exec(`UPDATE notice
+      SET view = view + 1
+      WHERE id = ?
+        AND deleted_at IS NULL`, [req.params.id]);
+    }
   })
   .catch(err => {
     res.json({
@@ -96,19 +115,19 @@ noticeRouter.post("/", (req, res, next) => {
   }
 
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
-  sql.exec(`
+  return sql.exec(`
   INSERT INTO notice (name, password, title, content, phone)
   VALUES
     (?, ?, ?, ?, ?)
   `, [req.body.name, password, req.body.title, req.body.content, req.body.phone])
   .then(rows => {
-    res.json({
+    return res.json({
       status: 200,
       message: "success"
     });
   })
   .catch(err => {
-    res.json({
+    return res.json({
       status: 500,
       message: err.message
     });
@@ -117,7 +136,7 @@ noticeRouter.post("/", (req, res, next) => {
 
 noticeRouter.delete("/:id", (req, res, next) => {
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
-  sql.exec(`
+  return sql.exec(`
   SELECT *
   FROM notice
   WHERE id = ?
@@ -125,22 +144,23 @@ noticeRouter.delete("/:id", (req, res, next) => {
   `, [req.params.id, password])
   .then(rows => {
     if (rows.length === 0) {
-      throw new Error("Board Not Found or Not Matching Password");
+      throw new Error("비밀번호가 맞지 않습니다.");
     }
-    sql.exec(`
-    DELETE notice
-    WHERE id = ?
+    return sql.exec(`
+    UPDATE notice
+    SET deleted_at = NOW()
+      WHERE id = ?
       AND password = ?
     `, [req.params.id, password]);
   })
   .then(rows => {
-    res.json({
+    return res.json({
       status: 200,
       message: "success"
     });
   })
   .catch(err => {
-    res.json({
+    return res.json({
       status: 500,
       message: err.message
     });
@@ -148,8 +168,12 @@ noticeRouter.delete("/:id", (req, res, next) => {
 });
 
 noticeRouter.put("/:id", (req, res, next) => {
-  const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
-  sql.exec(`
+  const exist = req.body.name && req.body.phone && req.body.title && req.body.content;
+  let password = req.body.password;
+  if (!exist) {
+    password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
+  }
+  return sql.exec(`
   SELECT *
   FROM notice
   WHERE id = ?
@@ -157,23 +181,63 @@ noticeRouter.put("/:id", (req, res, next) => {
   `, [req.params.id, password])
   .then(rows => {
     if (rows.length === 0) {
-      throw new Error("Board Not Found or Not Matching Password");
+      throw new Error("비밀번호가 맞지 않습니다.");
     }
-    sql.exec(`
-    UPDATE notice
-    SET name = ?, phone = ? title = ?, content = ?
-    WHERE id = ?
-      AND password = ?
-    `, [req.body.name, req.body.phone, req.body.title, req.body.content, req.params.id, password]);
+    if (exist) {
+      return sql.exec(`
+      UPDATE notice
+      SET name = ?, phone = ?, title = ?, content = ?
+      WHERE id = ?
+        AND password = ?
+      `, [req.body.name, req.body.phone, req.body.title, req.body.content, req.params.id, password]);
+    }
   })
   .then(rows => {
-    res.json({
+    return res.json({
       status: 200,
+      password: password,
       message: "success"
     });
   })
   .catch(err => {
-    res.json({
+    return res.json({
+      status: 500,
+      message: err.message
+    });
+  });
+});
+
+noticeRouter.post("/edit/:id", (req, res, next) => {
+  return sql.exec(`
+  SELECT *
+  FROM notice
+  WHERE id = ?
+    AND password = ?
+  `, [req.params.id, req.body.password])
+  .then(rows => {
+    if (rows.length === 0) {
+      return res.send("비밀번호가 맞지 않습니다.");
+    }
+    
+    if (req.session.language && req.session.language === "en") {
+      return res.render("../workspace/edit_notice_eng.ejs", {
+        id: req.params.id,
+        type: "notice",
+        password: req.body.password,
+        board: rows[0]
+      });
+    }
+    else {
+      return res.render("../workspace/edit_notice.ejs", {
+        id: req.params.id,
+        type: "notice",
+        password: req.body.password,
+        board: rows[0]
+      });
+    }
+  })
+  .catch(err => {
+    return res.json({
       status: 500,
       message: err.message
     });
