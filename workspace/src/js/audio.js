@@ -29,9 +29,11 @@ function changePage(page) {
 }
 
 function setVoiceAudio(voice, count) {
-    voice.forEach(function(voice, index){
-      voice.original_filename = translateList(voice);
-    });
+    if (language === "en") {
+        voice.forEach(function(voice, index){
+        voice.original_filename = translateList(voice);
+        });
+    }
     setPagination(Math.ceil(count / 10), current_page);
     $('#plList li').remove();
     var tracks = voice.map((item, i) => {

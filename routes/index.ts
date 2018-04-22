@@ -29,12 +29,14 @@ indexRouter.get("/", (req, res, next) => {
 
     if (req.session.language && req.session.language === "en") {
       return res.render("../workspace/main_eng.ejs", {
-        tags: tags
+        tags: tags,
+        language: req.session.language
       });
     }
     else {
       return res.render("../workspace/main.ejs", {
-        tags: tags
+        tags: tags,
+        language: req.session.language
       });
     }
 
