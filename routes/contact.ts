@@ -67,7 +67,7 @@ contactRouter.get("/:id", (req, res, next) => {
 });
 
 contactRouter.get("/view/:id", (req, res, next) => {
-  sql.exec(`SELECT *
+  return sql.exec(`SELECT *
   FROM contact
   WHERE id = ?
     AND deleted_at IS NULL`, [req.params.id])
@@ -76,6 +76,13 @@ contactRouter.get("/view/:id", (req, res, next) => {
       status: 200,
       item: rows[0] || {}
     });
+    
+    if (req.query.update) {
+      return sql.exec(`UPDATE contact
+      SET view = view + 1
+      WHERE id = ?
+        AND deleted_at IS NULL`, [req.params.id]);
+    }
   })
   .catch(err => {
     res.json({
@@ -223,6 +230,12 @@ contactRouter.post("/edit/:id", (req, res, next) => {
         board: rows[0]
       });
     }
+  })
+  .catch(err => {
+    return res.json({
+      status: 500,
+      message: err.message
+    });
   });
 });
 

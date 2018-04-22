@@ -5,7 +5,7 @@ let responseName = 0;
 
 $(document).ready(function(){
   $.ajax({
-    url: "/board/" + type + "/view/"+board_id,
+    url: `/board/${type}/view/${board_id}?update=true`,
     type: "GET",
     dataType: "JSON",
     async:false,
