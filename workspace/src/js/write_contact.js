@@ -6,13 +6,13 @@ $(() => {
       value: CKEDITOR.instances.editor.getData()
     });
     $.ajax({
-      url: `/board/${type}`,
+      url: `/board/contact`,
       type: "POST",
       data: data,
       json: true,
       success: response => {
         if (response.message === "success") {
-          location.href = "/board/${type}"
+          location.href = "/board/contact"
         }
         else {
           alert(response.message);
