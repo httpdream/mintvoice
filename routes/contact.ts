@@ -103,19 +103,19 @@ contactRouter.post("/", (req, res, next) => {
   }
 
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
-  sql.exec(`
+  return sql.exec(`
   INSERT INTO contact (name, password, title, content, phone)
   VALUES
     (?, ?, ?, ?, ?)
   `, [req.body.name, password, req.body.title, req.body.content, req.body.phone])
   .then(rows => {
-    res.json({
+    return res.json({
       status: 200,
       message: "success"
     });
   })
   .catch(err => {
-    res.json({
+    return res.json({
       status: 500,
       message: err.message
     });
@@ -134,7 +134,7 @@ contactRouter.delete("/:id", (req, res, next) => {
     if (rows.length === 0) {
       throw new Error("비밀번호가 맞지 않습니다.");
     }
-    sql.exec(`
+    return sql.exec(`
     UPDATE contact
     SET deleted_at = NOW()
       WHERE id = ?
@@ -142,13 +142,13 @@ contactRouter.delete("/:id", (req, res, next) => {
     `, [req.params.id, password]);
   })
   .then(rows => {
-    res.json({
+    return res.json({
       status: 200,
       message: "success"
     });
   })
   .catch(err => {
-    res.json({
+    return res.json({
       status: 500,
       message: err.message
     });
