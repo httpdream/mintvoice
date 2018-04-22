@@ -24,8 +24,8 @@
           <h4 class="modal-title">Input your password.</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <input type="password" class="form-control" />
+          <form method="POST" action="/board/<%= type %>/edit/<%= id %>">
+            <input type="password" name="password" class="form-control" />
           </form>
         </div>
         <div class="modal-footer">

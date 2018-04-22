@@ -10,7 +10,6 @@ $(document).ready(function(){
     dataType: "JSON",
     async:false,
     success: response => {
-      console.log(response.item);
       responseTitle = response.item.title;
       responseName = response.item.name;
       createDate = response.item.created_at.substring(5,10);
@@ -80,8 +79,8 @@ $('#passwordCheck').on('show.bs.modal', function (event) {
   let recipient = button.data('whatever');
   let lang = button.data('lang');
   let modal = $(this);
-  console.log(lang);
   if(recipient == "delete"){
+    modal.find('.modal-footer .btn-info').click(removeBoard);
     if(lang == "eng"){
       modal.find('.modal-body input').attr("placeholder", "Are you sure you want to delete it?");
     }
@@ -90,6 +89,7 @@ $('#passwordCheck').on('show.bs.modal', function (event) {
     }
   }
   else{
+    modal.find('.modal-footer .btn-info').click(editBoard);
     if(lang == "eng"){
       modal.find('.modal-body input').attr("placeholder", "Enter Password");
     }
@@ -98,3 +98,43 @@ $('#passwordCheck').on('show.bs.modal', function (event) {
     }
   }
 });
+
+function removeBoard() {
+  $.ajax({
+    url: `/board/${type}/${board_id}`,
+    type: "DELETE",
+    dataType: "JSON",
+    data: {
+      password: $("#passwordCheck input").val()
+    },
+    success: response => {
+      if (response.status === 200) {
+        alert("삭제가 완료되었습니다.");
+        location.href = `/board/${type}`
+      }
+      else {
+        alert(response.message);
+      }
+    }
+  });
+}
+
+function editBoard() {
+  $.ajax({
+    url: `/board/${type}/${board_id}`,
+    type: "PUT",
+    dataType: "JSON",
+    data: {
+      password: $("#passwordCheck input").val()
+    },
+    success: response => {
+      if (response.status === 200) {
+        $("#passwordCheck input").val(response.password);
+        $('.modal-body form').submit();
+      }
+      else {
+        alert(response.message);
+      }
+    }
+  });
+}

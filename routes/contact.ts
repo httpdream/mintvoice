@@ -156,8 +156,12 @@ contactRouter.delete("/:id", (req, res, next) => {
 });
 
 contactRouter.put("/:id", (req, res, next) => {
-  const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
-  sql.exec(`
+  const exist = req.body.name && req.body.phone && req.body.title && req.body.content;
+  let password = req.body.password;
+  if (!exist) {
+    password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
+  }
+  return sql.exec(`
   SELECT *
   FROM contact
   WHERE id = ?
@@ -165,26 +169,60 @@ contactRouter.put("/:id", (req, res, next) => {
   `, [req.params.id, password])
   .then(rows => {
     if (rows.length === 0) {
-      throw new Error("Board Not Found or Not Matching Password");
+      throw new Error("비밀번호가 맞지 않습니다.");
     }
-    sql.exec(`
-    UPDATE contact
-    SET name = ?, phone = ? title = ?, content = ?
-    WHERE id = ?
-      AND password = ?
-    `, [req.body.name, req.body.phone, req.body.title, req.body.content, req.params.id, password]);
+    if (exist) {
+      return sql.exec(`
+      UPDATE contact
+      SET name = ?, phone = ?, title = ?, content = ?
+      WHERE id = ?
+        AND password = ?
+      `, [req.body.name, req.body.phone, req.body.title, req.body.content, req.params.id, password]);
+    }
   })
   .then(rows => {
-    res.json({
+    return res.json({
       status: 200,
+      password: password,
       message: "success"
     });
   })
   .catch(err => {
-    res.json({
+    return res.json({
       status: 500,
       message: err.message
     });
+  });
+});
+
+contactRouter.post("/edit/:id", (req, res, next) => {
+  return sql.exec(`
+  SELECT *
+  FROM contact
+  WHERE id = ?
+    AND password = ?
+  `, [req.params.id, req.body.password])
+  .then(rows => {
+    if (rows.length === 0) {
+      return res.send("비밀번호가 맞지 않습니다.");
+    }
+    
+    if (req.session.language && req.session.language === "en") {
+      return res.render("../workspace/edit_contact_eng.ejs", {
+        id: req.params.id,
+        type: "contact",
+        password: req.body.password,
+        board: rows[0]
+      });
+    }
+    else {
+      return res.render("../workspace/edit_contact.ejs", {
+        id: req.params.id,
+        type: "contact",
+        password: req.body.password,
+        board: rows[0]
+      });
+    }
   });
 });
 
