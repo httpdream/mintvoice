@@ -14,7 +14,12 @@ contactRouter.get("/", (req, res, next) => {
 });
 
 contactRouter.get("/write", (req, res, next) => {
-  return res.render("../workspace/write_contact.html");
+  if (req.session.language && req.session.language === "en") {
+    return res.render("../workspace/write_contact_eng.html");
+  }
+  else {
+    return res.render("../workspace/write_contact.html");
+  }
 });
 
 contactRouter.get("/list", (req, res, next) => {
