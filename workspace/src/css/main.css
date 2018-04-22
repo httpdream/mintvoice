@@ -351,16 +351,16 @@ background:rgba(0,0,0,.1);
 color:rgba(0,0,0,.1);
 }
 
-#countering>div>div>.bold{
+#countering>div{
   color:white;
+  padding: 0px;
+  margin: 0px;
 }
 
 #userImage{
   align:center;
 }
-#headerbar{
-  margin-top:1%;
-}
+
 
 body > .container-fluid{
   padding-left: 0%;
@@ -369,7 +369,10 @@ body > .container-fluid{
 
 #mainImage{
   padding:0px;
-  margin-top:1%;
+  height:100vh;
+  width: 100vw;
+  background: url("/images/index_main.png") no-repeat center center fixed;
+  background-size: cover;
 }
 
 #mainNav{
@@ -389,13 +392,6 @@ body > .container-fluid{
 
 #navBox>div:first-child{
   border-right:1px solid black;
-}
-
-
-#countering{
-  padding:3% 0% 3% 0%;
-  margin:0px;
-  background-color: rgb(48,56,66);
 }
 
 #mainBox{
@@ -575,9 +571,7 @@ body > .container-fluid{
     margin-top:5px;
     margin-bottom: 5px;
   }
-  #countering{
-    padding:5px 0px 5px 0px;
-  }
+
   #npAction{
     display:none;
   }
