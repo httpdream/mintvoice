@@ -23,11 +23,12 @@ contactRouter.get("/list", (req, res, next) => {
 
   sql.exec(`SELECT *
   FROM contact
+  WHERE deleted_at IS NULL
   ORDER BY id DESC
   LIMIT ${offset}, ${limit}
   `)
   .then(rows => {
-    return sql.exec("SELECT count(*) as c FROM contact")
+    return sql.exec("SELECT count(*) as c FROM contact WHERE deleted_at IS NULL")
     .then(count => {
       res.json({
         status: 200,
@@ -47,7 +48,8 @@ contactRouter.get("/list", (req, res, next) => {
 contactRouter.get("/:id", (req, res, next) => {
   sql.exec(`SELECT *
   FROM contact
-  WHERE id = ?`, [req.params.id])
+  WHERE id = ?
+  `, [req.params.id])
   .then(rows => {
     if (req.session.language && req.session.language === "en") {
       return res.render("../workspace/writingView_eng.ejs", {
@@ -67,7 +69,8 @@ contactRouter.get("/:id", (req, res, next) => {
 contactRouter.get("/view/:id", (req, res, next) => {
   sql.exec(`SELECT *
   FROM contact
-  WHERE id = ?`, [req.params.id])
+  WHERE id = ?
+    AND deleted_at IS NULL`, [req.params.id])
   .then(rows => {
     res.json({
       status: 200,
@@ -121,7 +124,7 @@ contactRouter.post("/", (req, res, next) => {
 
 contactRouter.delete("/:id", (req, res, next) => {
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
-  sql.exec(`
+  return sql.exec(`
   SELECT *
   FROM contact
   WHERE id = ?
@@ -129,11 +132,12 @@ contactRouter.delete("/:id", (req, res, next) => {
   `, [req.params.id, password])
   .then(rows => {
     if (rows.length === 0) {
-      throw new Error("Board Not Found or Not Matching Password");
+      throw new Error("비밀번호가 맞지 않습니다.");
     }
     sql.exec(`
-    DELETE contact
-    WHERE id = ?
+    UPDATE contact
+    SET deleted_at = NOW()
+      WHERE id = ?
       AND password = ?
     `, [req.params.id, password]);
   })
