@@ -148,6 +148,7 @@ jQuery(function ($) {
     $('#searchButton').click(element => {
         let data = $('#searchForm').serialize() + "&" + $('#feelsForm').serialize();
         audio = data;
+        current_page = 1;
         getVoices(data);
     });
 });
