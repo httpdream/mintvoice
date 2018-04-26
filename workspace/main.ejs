@@ -84,34 +84,20 @@
       </header> -->
 
       <!-- 메인 이미지 -->
-      <div class="row" id="mainImage">
-        <div class="col-md-12">
-          <!-- Counter -->
-          <div class="col-md-12" id="countering">
-            <div class="row row-eq-height">
-              성우: <span id="sourceUser"></span> 보이스갯수: <span id="sourceCount"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- 메인 네비게이션. Notice, Contact 이동 -->
-      <nav class="row" id="mainNav">
-        <div class="col-md-12 col-xs-12">
-          <div class="row" id="navBox">
-            <div class="col-md-6 col-xs-6 text-center h2">
-              MintVoice의 새 소식을 전해 드립니다!
-              <br /><br/>
-              <a href="/board/notice"><button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">NOTICE</button></a>
-            </div>
-            <div class="col-md-6 col-xs-6 text-center h2">
-              녹음 작업이나 스튜디오 대여를 원하시나요?
-              <br/><br/>
-              <a href="/board/contact"><button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">CONTACT US</button></a>
-            </div>
-          </div>
+      <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">NOTICE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONTACT</a>
+            </li>
+          </ul>
         </div>
       </nav>
 

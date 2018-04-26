@@ -367,32 +367,6 @@ body > .container-fluid{
   padding-right:0%;
 }
 
-#mainImage{
-  padding:0px;
-  height:100vh;
-  width: 100vw;
-  background: url("/images/index_main.png") no-repeat center center fixed;
-  background-size: cover;
-}
-
-#mainNav{
-  padding:0%;
-  margin:0px;
-}
-
-#mainNav>div{
-  padding:0px;
-}
-
-#navBox{
-  padding:3% 0% 3% 0%;
-  border-bottom: 1px solid black;
-  margin:0px;
-}
-
-#navBox>div:first-child{
-  border-right:1px solid black;
-}
 
 #mainBox{
   padding:3% 0% 2% 0%;
@@ -508,9 +482,6 @@ body > .container-fluid{
 @media screen and (max-width: 767px) {
   #searchButtonWrap{
     padding-left: 0px;
-  }
-  #navBox>div{
-    font-size:14px;
   }
   .btn{
     font-size:10px;
