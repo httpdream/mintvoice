@@ -64,49 +64,46 @@
     <!-- 메인 컨테이너 -->
     <div class="container-fluid">
 
-      <!-- 상단바 -->
-      <!-- <header class="row row-eq-height vertical-align" id="headerbar">
-        <div class="col-md-1 col-xs-1">
-
-        </div>
-        <div class=" col-md-1 col-md-offset-10 col-xs-offset-10 col-xs-1">
-          <div class="dropdown pull-right">
-            <button class="btn btnWeight dropdown-toggle btn-primary outline" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-      LANGUAGE
-      <span class="caret"></span>
-    </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/ko">한국어</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/en">English</a></li>
-            </ul>
-          </div>
-        </div>
-      </header> -->
-
       <!-- 메인 이미지 -->
-      <nav class="row row-eq-height align-middle" id="navBar">
-        <div class="col-md-3" id="navTitle">
-          MintVoice
-        </div>
-        <div class="col-md-1-5 col-md-offset-6 text-center">
-          <a class="link_class" href="#">
-            <div class="text-middle" style="height:100%">CONTACT
+      <nav class="row row-eq-height" id="mainImage">
+        <div class="col-md-12 col-xs-12">
+          <div class="row-row-eq-height">
+            <div class="col-md-12 col-xs-12" id="navBar">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">MintVoice</a>
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/board/notice">NOTICE</a></li>
+                      <li><a href="/board/contact">CONTACT</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LANGUAGE <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/lang/ko">한국어</a></li>
+                          <li><a href="/lang/en">English</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             </div>
-          </a>
-        </div>
-        <div class="col-md-1-5 text-center">
-          <a class="link_class text-middle" href="#">CONTACT</a>
-        </div>
-        <div class="col-md-1-5">
-          <div class="dropdown pull-right">
-            <button class="btn btnWeight dropdown-toggle btn-primary outline" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-      LANGUAGE
-      <span class="caret"></span>
-    </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/ko">한국어</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/en">English</a></li>
-            </ul>
+            <div class="col-md-12 col-xs-12" id="textBar">
+              목소리를 찾고 계신가요? <br /><br /> <span id="sourceUser"></span>명의 성우가 <span id="sourceCount"></span>개의 목소리를 등록했습니다.
+              <br /> 원하는 목소리를 지금 검색해보세요.
+              <br /><br />
+              <a class="js-scroll-trigger" href="#filterBox" id="findVoice">목소리 찾기</a>
+            </div>
           </div>
         </div>
       </nav>
@@ -264,6 +261,8 @@
     </script>
     <script src="src/js/index.js" type="text/babel"></script>
     <script src="src/js/checknum.js" type="text/babel"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="src/js/scrolling-nav.js" type="text/babel"></script>
     <script src="src/js/audio.js" type="text/babel"></script>
     <script src="src/js/mainpagination.js" type="text/babel"></script>
 </body>

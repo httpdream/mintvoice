@@ -1,20 +1,73 @@
 @import url(n'https://fonts.googleapis.com/css?family=Nanum+Gothic');
 @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
 
-
+html{
+  height:100%;
+}
 body {
     font-family: "Spoqa Han Sans", 'Nanum Gothic', 'Sans-serif' !important;
     font-weight: 300;
     overflow-x:hidden;
+    height:100%;
+}
+
+.container-fluid{
+    height:100%;
+}
+
+#mainImage{
+  background-image: url('../../images/test_image.png');
+  height:100%;
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 #navBar{
-  font-size:2rem;
+  width:100%;
+  height:30%;
+  padding:0% 10% 0% 10%;
 }
 
-#navBar a{
+.navbar-default{
+  background-color:inherit;
+  border:none;
+}
+
+.navbar-default .navbar-nav>li>a{
+  color:grey;
+  font-size:24px;
+  font-weight:500;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+  color:white;
+}
+.navbar-default .navbar-brand{
+  color:white;
+  font-size:24px;
+  font-weight: 500;
+}
+.navbar-header,#navbarCollapse{
+  margin-top:2%;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  color:white;
+  background-color:inherit;
+}
+#textBar{
+  width:100%;
+  height:70%;
+  padding:0% 10% 0% 10%;
+  font-size:50px;
+  color:white;
+}
+#findVoice{
   text-decoration: none;
-  color:black;
+  outline: 2px solid white;
+  outline-offset: 5px;
+}
+#mainImage>div,#mainImage>div>div{
+  height:100%;
 }
 
 .text-middle{
@@ -238,7 +291,6 @@ width:670px;
 .column.add-bottom{
   width:100%;
 }
-#mainwrap {}
 
 #audiowrap,
 #plwrap {

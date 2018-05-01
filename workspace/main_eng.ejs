@@ -6,12 +6,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MintVoice - 성우 데이터베이스">
+  <meta property="og:title" content="MintVoice - Voice Database">
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="src/lib/jquery/jquery-3.3.1.min.js"></script>
   <script src="src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.rawgit.com/inorganik/countUp.js/master/dist/countUp.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js" type="text/babel"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.js" type="text/babel"></script>
   <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="src/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.css">
@@ -63,75 +64,45 @@
     <!-- 메인 컨테이너 -->
     <div class="container-fluid">
 
-      <!-- 상단바 -->
-      <header class="row row-eq-height vertical-align" id="headerbar">
-        <div class="col-md-1 col-xs-1">
-
-        </div>
-        <div class=" col-md-1 col-md-offset-10 col-xs-offset-10 col-xs-1">
-          <div class="dropdown pull-right">
-            <button class="btn btnWeight dropdown-toggle btn-primary outline" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-      LANGUAGE
-      <span class="caret"></span>
-    </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/ko">한국어</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/lang/en">English</a></li>
-            </ul>
-          </div>
-        </div>
-      </header>
-
       <!-- 메인 이미지 -->
-      <div class="row" id="mainImage">
-        <div class="col-md-12">
-          <img src="images/index_main.png" class="img-responsive" alt="Responsive image">
-        </div>
-      </div>
-
-      <!-- Counter -->
-      <section class="row" id="countering">
-        <div class="col-md-12">
-          <div class="row row-eq-height">
-            <div class="text-center h3 bold col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
-              <img src="images/users-icon.png" class="img-responsive center-block" alt="Responsive image" />
-            </div>
-            <div class="text-center h3 bold col-md-3 col-xs-3">
-              <img src="images/datas-icon.png" class="img-responsive center-block" alt="Responsive image" />
-            </div>
-          </div>
-          <div class="row row-eq-height">
-            <div class="text-center h1 bold col-md-3 col-md-offset-3 col-xs-3 col-xs-offset-3">
-              <span id="sourceUser"></span>
-            </div>
-            <div class="text-center h1 bold col-md-3 col-xs-3">
-              <span id="sourceCount"></span>
-            </div>
-          </div>
-          <div class="row row-eq-height">
-            <div class="text-center h3 bold col-md-3 col-md-offset-3 col-xs-4 col-xs-offset-2">
-              VoiceActor
-            </div>
-            <div class="text-center h3 bold col-md-3 col-xs-4">
-              Voice
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 메인 네비게이션. Notice, Contact 이동 -->
-      <nav class="row" id="mainNav">
+      <nav class="row row-eq-height" id="mainImage">
         <div class="col-md-12 col-xs-12">
-          <div class="row" id="navBox">
-            <div class="col-md-6 col-xs-6 text-center h2">
-              The Fresh news about Mintvoice
-              <br /><br/>
-              <a href="/board/notice"><button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">NOTICE</button></a>
+          <div class="row-row-eq-height">
+            <div class="col-md-12 col-xs-12" id="navBar">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">MintVoice</a>
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/board/notice">NOTICE</a></li>
+                      <li><a href="/board/contact">CONTACT</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LANGUAGE <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/lang/ko">한국어</a></li>
+                          <li><a href="/lang/en">English</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             </div>
-            <div class="col-md-6 col-xs-6 text-center h2">
-              Rent a studio or record
-              <br/><br/>
-              <a href="/board/contact"><button class="btn btn-primary outline btnWeight" type="button" id="noticeButton">CONTACT US</button></a>
+            <div class="col-md-12 col-xs-12" id="textBar">
+              Are you looking for a voice? <br /><br /> <span id="sourceUser"></span> VoiceActor <span id="sourceCount"></span> posted Voice.
+              <br /> Search for your desired voice now.
+              <br /><br />
+              <a class="js-scroll-trigger" href="#filterBox" id="findVoice">Let's Start</a>
             </div>
           </div>
         </div>
@@ -288,9 +259,10 @@
     <script>
       var language = "<%= language %>";
     </script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="src/js/index.js" type="text/babel"></script>
     <script src="src/js/checknum.js" type="text/babel"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="src/js/scrolling-nav.js" type="text/babel"></script>
     <script src="src/js/audio.js" type="text/babel"></script>
     <script src="src/js/mainpagination.js" type="text/babel"></script>
 
