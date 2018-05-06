@@ -70,5 +70,3 @@ $(document).ready(function(){
     });
   });
 });
-
-console.log("fghjk");

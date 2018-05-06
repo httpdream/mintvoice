@@ -61,10 +61,7 @@ function nextBoard(){
 }
 
 function mobileSize(){
-  console.log(responseTitle);
-  console.log("view.js ready!");
   if ($(window).width() <= 767){
-    console.log("width size ready!");
     $("thead tr th").remove();
     $("thead tr").append(
       "<th colspan=\"5\">"+ responseTitle +"</th><th colspan=\"1\">" + responseName + "</th>"

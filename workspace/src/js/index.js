@@ -4,9 +4,6 @@ $(document).ready(function() {
     type: "POST",
     dataType: "JSON",
     success: response => {
-      console.log(response);
-      console.log(response.idcount);
-      console.log(response.namecount);
       let countOptions = {
         useEasing: true,
         useGrouping: true,

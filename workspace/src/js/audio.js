@@ -154,7 +154,6 @@ jQuery(function ($) {
 });
 
 function translateList(voice){
-    console.log(voice);
     let result="";
     let category = voice.filename.substring(voice.filename.indexOf("[") + 1, voice.filename.indexOf("]"));
     let gender = voice.filename.substring(voice.filename.indexOf("]")+2, voice.filename.indexOf("]")+3);
