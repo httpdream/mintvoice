@@ -104,9 +104,6 @@ auditionRouter.post("/", (req, res, next) => {
   if (!req.body.password || req.body.password.length === 0) {
     throw new Error("비밀번호를 넣어주세요");
   }
-  if (!req.body.phone || req.body.phone.length === 0) {
-    throw new Error("연락처를 넣어주세요");
-  }
   if (!req.body.title || req.body.title.length === 0) {
     throw new Error("제목을 넣어주세요");
   }
@@ -116,10 +113,10 @@ auditionRouter.post("/", (req, res, next) => {
 
   const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
   return sql.exec(`
-  INSERT INTO audition (name, password, title, content, phone)
+  INSERT INTO audition (name, password, title, content)
   VALUES
-    (?, ?, ?, ?, ?)
-  `, [req.body.name, password, req.body.title, req.body.content, req.body.phone])
+    (?, ?, ?, ?)
+  `, [req.body.name, password, req.body.title, req.body.content])
   .then(rows => {
     return res.json({
       status: 200,
@@ -168,7 +165,7 @@ auditionRouter.delete("/:id", (req, res, next) => {
 });
 
 auditionRouter.put("/:id", (req, res, next) => {
-  const exist = req.body.name && req.body.phone && req.body.title && req.body.content;
+  const exist = req.body.name && req.body.title && req.body.content;
   let password = req.body.password;
   if (!exist) {
     password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
@@ -186,10 +183,10 @@ auditionRouter.put("/:id", (req, res, next) => {
     if (exist) {
       return sql.exec(`
       UPDATE audition
-      SET name = ?, phone = ?, title = ?, content = ?
+      SET name = ?, title = ?, content = ?
       WHERE id = ?
         AND password = ?
-      `, [req.body.name, req.body.phone, req.body.title, req.body.content, req.params.id, password]);
+      `, [req.body.name, req.body.title, req.body.content, req.params.id, password]);
     }
   })
   .then(rows => {
