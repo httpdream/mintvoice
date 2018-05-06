@@ -80,7 +80,8 @@ $('#passwordCheck').on('show.bs.modal', function (event) {
   let lang = button.data('lang');
   let modal = $(this);
   if(recipient == "delete"){
-    modal.find('.modal-footer .btn-info').click(removeBoard);
+    modal.find('.modal-content form').unbind("submit");
+    modal.find('.modal-content form').submit(removeBoard);
     if(lang == "eng"){
       modal.find('.modal-body input').attr("placeholder", "Are you sure you want to delete it?");
     }
@@ -89,7 +90,8 @@ $('#passwordCheck').on('show.bs.modal', function (event) {
     }
   }
   else{
-    modal.find('.modal-footer .btn-info').click(editBoard);
+    modal.find('.modal-content form').unbind("submit");
+    modal.find('.modal-content form').submit(editBoard);
     if(lang == "eng"){
       modal.find('.modal-body input').attr("placeholder", "Enter Password");
     }
@@ -99,7 +101,8 @@ $('#passwordCheck').on('show.bs.modal', function (event) {
   }
 });
 
-function removeBoard() {
+function removeBoard(event) {
+  event.preventDefault();
   $.ajax({
     url: `/board/${type}/${board_id}`,
     type: "DELETE",
@@ -119,7 +122,8 @@ function removeBoard() {
   });
 }
 
-function editBoard() {
+function editBoard(event) {
+  event.preventDefault();
   $.ajax({
     url: `/board/${type}/${board_id}`,
     type: "PUT",
@@ -130,7 +134,7 @@ function editBoard() {
     success: response => {
       if (response.status === 200) {
         $("#passwordCheck input").val(response.password);
-        $('.modal-body form').submit();
+        event.currentTarget.submit();
       }
       else {
         alert(response.message);
