@@ -39,8 +39,6 @@ indexRouter.get("/", (req, res, next) => {
         language: req.session.language
       });
     }
-
-
   })
   .catch(err => {
     res.json({
@@ -79,6 +77,10 @@ indexRouter.post("/count", (req, res, next) => {
       message: err.message
     });
   });
+});
+
+indexRouter.get("/contact", (req, res) => {
+  return res.render("../workspace/contact.html");
 });
 
 indexRouter.get("/lang/:language", function (req, res) {
