@@ -77,7 +77,6 @@ voiceRouter.get("/upload", (req, res, next) => {
 voiceRouter.get("/search", (req, res, next) => {
   let query = "where voice.id > 0 ";
   if (Object.keys(req.query).length > 2) {
-    console.log(req.query);
     if (typeof req.query.category !== "object" && req.query.category !== "") {
       req.query.category = [req.query.category];
       query += `AND category in (${req.query.category.join()})`;
@@ -96,15 +95,16 @@ voiceRouter.get("/search", (req, res, next) => {
       query += `AND octave in (${req.query.octave.join()})`;
     }
     if (typeof req.query.feels !== "object" && req.query.feels !== undefined) {
-      console.log(req.query.feels)
       req.query.feels = [req.query.feels];
       let feels = req.query.feels.map(feel => `"${feel}"`);
       query += `AND feels REGEXP '${feels.join("|")}'`;
     }
+    if (typeof req.query.keyword === "string" && req.query.keyword.length > 0) {
+      query += `AND original_filename LIKE "%${req.query.keyword}%"`;
+    }
   }
   req.query.offset = +req.query.offset || 0;
   req.query.limit = +req.query.limit || 10;
-  console.log("hi", query);
 
   sql.exec(`
   select voice.*, tag_voice.*
