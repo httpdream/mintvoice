@@ -28,7 +28,7 @@ $(document).ready(function(){
     params = `?offset=${(page - 1) * 10}&limit=10`;
   }
   $.ajax({
-    url: "/board/contact/list" + params,
+    url: "/board/audition/list" + params,
     type: "GET",
     dataType: "JSON",
     success: response => {
@@ -36,7 +36,7 @@ $(document).ready(function(){
       response.items.forEach(function(item, index){
         createDate = item.created_at.substring(5,10);
         $("#tableMain").append(
-          "<tr><td><a href=\"/board/contact/" + item.id + "\">" + item.title + "</a></td><td>" + item.name + "</td><td>" + createDate + "</td><td>" + item.view + "</td></tr>"
+          "<tr><td><a href=\"/board/audition/" + item.id + "\">" + item.title + "</a></td><td>" + item.name + "</td><td>" + createDate + "</td><td>" + item.view + "</td></tr>"
         );
       });
     }

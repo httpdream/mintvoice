@@ -1,6 +1,6 @@
 $(() => {
     $("#submit").click(() => {
-      let data = $("#write_contact").serializeArray();
+      let data = $("#write_audition").serializeArray();
       data = data.concat({
         name: "content",
         value: CKEDITOR.instances.editor.getData()
