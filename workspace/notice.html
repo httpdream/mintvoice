@@ -16,7 +16,33 @@
 </head>
 
 <body>
+  <div class="modal fade" tabindex="-1" role="dialog" id="passwordCheck">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">관리자 비밀번호를 입력해주세요.</h4>
+        </div>
+        <form method="POST" action="/board/notice/write">
+          <div class="modal-body">
+              <input type="password" name="password" class="form-control" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+            <button type="submit" class="btn btn-info">입력</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    
   <div class="container-fluid">
+
+    <section class="row" id="writeButtonWrap">
+      <div class="col-md-2 col-md-offset-10 col-xs-4 col-xs-offset-8">
+        <a href="#" data-toggle="modal" data-target="#passwordCheck"><button type="button" class="btn btn-block btnWeight" id="writeButton">글 작성</button></a>
+      </div>
+    </section>
 
     <!-- 메인  -->
     <section class="row row-eq-height vertical-align marginTop" id="mainTable">

@@ -13,7 +13,11 @@ noticeRouter.get("/", (req, res, next) => {
   }
 });
 
-noticeRouter.get("/write", (req, res, next) => {
+noticeRouter.post("/write", (req, res, next) => {
+  let password = crypto.createHash("sha256").update(`mint-jangjin-mintvoice`).digest("hex");
+  if (req.body.password !== password) {
+    return res.send("비밀번호가 맞지 않습니다.");
+  }
   if (req.session.language && req.session.language === "en") {
     return res.render("../workspace/write_notice_eng.html");
   }
@@ -114,7 +118,7 @@ noticeRouter.post("/", (req, res, next) => {
     throw new Error("내용을 넣어주세요");
   }
 
-  const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
+  const password = crypto.createHash("sha256").update(`mint-jangjin-mintvoice`).digest("hex");
   return sql.exec(`
   INSERT INTO notice (name, password, title, content, phone)
   VALUES
@@ -135,7 +139,7 @@ noticeRouter.post("/", (req, res, next) => {
 });
 
 noticeRouter.delete("/:id", (req, res, next) => {
-  const password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
+  let password = crypto.createHash("sha256").update(`mint-jangjin-mintvoice`).digest("hex");
   return sql.exec(`
   SELECT *
   FROM notice
@@ -207,7 +211,24 @@ noticeRouter.put("/:id", (req, res, next) => {
   });
 });
 
+noticeRouter.post("/write/check", (req, res, next) => {
+  let password = req.body.password;
+  if (password === "mintvoice") {
+    password = crypto.createHash("sha256").update(`mint-jangjin-${req.body.password}`).digest("hex");
+    return res.json({
+      status: 200,
+      password: password,
+      message: "success"
+    });
+  }
+  return res.json({
+    status: 500,
+    message: "비밀번호가 맞지 않습니다."
+  });
+});
+
 noticeRouter.post("/edit/:id", (req, res, next) => {
+  let password = crypto.createHash("sha256").update(`mint-jangjin-mintvoice`).digest("hex");
   return sql.exec(`
   SELECT *
   FROM notice
@@ -218,7 +239,7 @@ noticeRouter.post("/edit/:id", (req, res, next) => {
     if (rows.length === 0) {
       return res.send("비밀번호가 맞지 않습니다.");
     }
-    
+
     if (req.session.language && req.session.language === "en") {
       return res.render("../workspace/edit_notice_eng.ejs", {
         id: req.params.id,

@@ -30,7 +30,6 @@ function preBoard(){
     type: "GET",
     dataType: "JSON",
     success: response => {
-      console.log(response.item);
       if(!response.item.title){
         $("#viewPre").html("&and;&nbsp;&nbsp;다음 글이 없습니다.");
       }
@@ -49,7 +48,6 @@ function nextBoard(){
     type: "GET",
     dataType: "JSON",
     success: response => {
-      console.log(response.item);
       if(!response.item.title){
         $("#viewNext").html("&or;&nbsp;&nbsp;이전 글이 없습니다.");
       }

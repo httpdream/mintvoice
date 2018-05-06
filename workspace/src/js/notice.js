@@ -41,4 +41,34 @@ $(document).ready(function(){
       });
     }
   });
+
+  $('#passwordCheck').on('show.bs.modal', function (event) {
+    let button = $(event.relatedTarget);
+    let recipient = button.data('whatever');
+    let lang = button.data('lang');
+    let modal = $(this);
+    modal.find('.modal-content form').unbind("submit");
+    modal.find('.modal-content form').submit(event => {
+      event.preventDefault();
+      $.ajax({
+        url: `/board/notice/write/check`,
+        type: "POST",
+        dataType: "JSON",
+        data: {
+          password: $("#passwordCheck input").val()
+        },
+        success: response => {
+          if (response.status === 200) {
+            $("#passwordCheck input").val(response.password);
+            event.currentTarget.submit();
+          }
+          else {
+            alert(response.message);
+          }
+        }
+      })
+    });
+  });
 });
+
+console.log("fghjk");
