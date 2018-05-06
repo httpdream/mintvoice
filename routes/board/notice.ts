@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { sql } from "../libs/db";
+import { sql } from "../../libs/db";
 import * as crypto from "crypto";
 
 const noticeRouter = Router();

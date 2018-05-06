@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import { sql } from "../libs/db";
-import boardRouter from "./board";
+import boardRouter from "./board/";
 import voiceRouter from "./voice";
 
 const indexRouter = Router();
