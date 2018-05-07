@@ -25,6 +25,8 @@ body {
   height:100%;
   background-repeat:no-repeat;
   background-size:cover;
+  display:table;
+  width:100%;
 }
 
 .navbar-default{
@@ -51,7 +53,13 @@ body {
   color:black;
   background-color:inherit;
 }
-
+.vertical-align-content{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 #textBar{
   width:100%;
   height:100%;
@@ -59,11 +67,8 @@ body {
   font-size:50px;
   color:black;
   font-weight: 700;
-}
-
-#textWrapper{
-  display:inline-block;
   vertical-align: middle;
+  display:table-cell;
 }
 
 #textBar .smallfont{
