@@ -76,8 +76,15 @@ body {
   font-weight:500;
 }
 
-#mainImage>div,#mainImage>div>div{
+#mainImage>div{
   height:100%;
+}
+#mainImage>div>div:first-child{
+  height:90%;
+}
+#mainImage>div>div:last-child{
+  height:10%;
+  text-align: center;
 }
 .btn-voice{
   background-color:rgb(114,203,177);
@@ -89,7 +96,12 @@ body {
 .btn-voice.active, .btn-voice.focus, .btn-voice:active, .btn-voice:focus, .btn-voice:hover, .open>.dropdown-toggle.btn-voice{
   background-color:rgb(58, 175, 129);
 }
-
+#mainFooter{
+  width:100%;
+  height:100%;
+  padding:0% 10% 0% 10%;
+  background-color:black;
+}
 .text-middle{
   vertical-align: middle;
 }
