@@ -112,21 +112,27 @@
         <section class="row row-eq-height" id="mainBox">
           <div class="col-md-12 col-xs-12" id="filterBox">
             <div class="row vertical-align">
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3 margin4">
+              <div class="col-md-2 col-xs-2 h3 margin4">
                 분야
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
+              <div class="col-md-2 col-xs-2 h3">
                 성별
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
+              <div class="col-md-2 col-xs-2 h3">
                 나이대
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-2 col-xs-offset-1 h3">
+              <div class="col-md-2 col-xs-2 h3">
                 음역대
+              </div>
+              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h3 margin4">
+                느낌 선택
+              </div>
+              <div class="col-md-2 col-xs-2 h3">
+                언어
               </div>
             </div>
             <div class="row row-eq-height" id="checkboxContent">
-              <div class="col-md-2 col-md-offset-1 col-xs-3 margin4">
+              <div class="col-md-2 col-xs-3 margin4">
                 <select class="form-control" name="category">
                     <option value="" id="select_none">선택안함</option>
                     <% tags.category.forEach(function (tag) { %>
@@ -134,7 +140,7 @@
                     <% }) %>
                 </select>
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-3">
+              <div class="col-md-2 col-xs-3">
                 <select class="form-control" name="gender">
                     <option value="" id="select_none">선택안함</option>
                     <% tags.gender.forEach(function (tag) { %>
@@ -142,7 +148,7 @@
                     <% }) %>
                 </select>
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-3">
+              <div class="col-md-2 col-xs-3">
                 <select class="form-control" name="age">
                     <option value="" id="select_none">선택안함</option>
                     <% tags.age.forEach(function (tag) { %>
@@ -150,7 +156,7 @@
                     <% }) %>
                 </select>
               </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-3">
+              <div class="col-md-2 col-xs-3">
                 <select class="form-control" name="octave">
                     <option value="" id="select_none">선택안함</option>
                     <% tags.octave.forEach(function (tag) { %>
@@ -158,22 +164,26 @@
                     <% }) %>
                 </select>
               </div>
-            </div>
-            <div class="row vertical-align row-eq-height">
-              <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h3 margin4">
-                느낌 선택
-              </div>
-              <div class="col-md-2 col-md-offset-1 col-xs-3 col-xs-offset-2 h3">
-                통합 검색
-              </div>
-            </div>
-            <div class="row row-eq-height">
               <div class="col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 h4 margin4" id="showListWrap">
                 <button type="button" class="btn btn-primary outline" data-toggle="modal" data-target="#feels">
                  Show List<span class="badge" id="selectNumber">0</span>
               </button>
               </div>
-              <div class="col md-2 col-md-offset-1 col-xs-3 col-xs-offset-2" id="textListWrap">
+              <div class="col-md-2 col-xs-3">
+                <select class="form-control" name="language">
+                  <option value="" id="select_none">선택안함</option>
+                  <option value="0" id="english">영어</option>
+                  <option value="1" id="korean">한국어</option>
+                </select>
+              </div>
+            </div>
+            <div class="row vertical-align row-eq-height">
+              <div class="col-md-2 col-md-offset-2 col-xs-3 margin4 h3 col-xs-offset-2">
+                통합 검색
+              </div>
+            </div>
+            <div class="row row-eq-height">
+              <div class="col md-2 col-md-offset-2 col-xs-3 margin4 col-xs-offset-2" id="textListWrap">
                 <div id="textWrap">
                   <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요.">
                 </div>
