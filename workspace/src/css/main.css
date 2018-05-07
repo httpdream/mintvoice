@@ -189,6 +189,18 @@ label{
 	box-shadow: none;
 }
 
+#feelsButton{
+  width:100%;
+}
+
+#checkboxContent select{
+  height: 100%;
+}
+
+#textWrap>input{
+  height:48px;
+}
+
 /* Hiding the checkbox, but allowing it to be focused */
 .badgebox
 {
