@@ -1,1 +1,77 @@
-I'm contact
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>MintVoice</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MintVoice - 성우 데이터베이스">
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="src/lib/jquery/jquery-3.3.1.min.js"></script>
+  <script src="src/lib/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="src/lib/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="src/css/contact.css">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          <a class="navbar-brand" href="/">MintVoice</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/board/notice">NOTICE</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+            <li><a href="/board/audition">AUDITION</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LANGUAGE <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/lang/ko">한국어</a></li>
+                <li><a href="/lang/en">English</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row row-eq-height" id="wrapMap">
+      <div class="col-md-12" id="wrapIframe">
+        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC617FxO1mWEohS9bwpPRNtNePto0dxxAA&q=Mint+Media+Group&zoom=19" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <div class="row row-eq-height" id="wrapInfo">
+      <div id="tel">
+        <span class="boldfont">TEL</span> +82-2-579-1640
+      </div>
+      <div id="email">
+        <span class="boldfont">E-Mail</span> mint@mintmedia.co.kr
+      </div>
+      <div id="address">
+        <span class="boldfont">Address</span> 서울시 서초구 바우뫼로 216 (양재동 84-1) 화인빌딩 B1
+      </div>
+      <div id="represent">
+        <span class="boldfont">대표</span> 이학래
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+html{
+  height:100%;
+}
+body {
+    font-family: "Nanum Gothic", "Spoqa Han Sans", 'Sans-serif' !important;
+    font-weight: 300;
+    overflow-x:hidden;
+    height:100%;
+}
+
+.container-fluid{
+    height:100%;
+}
+.navbar{
+  margin-top:20px;
+  padding: 0% 10% 0% 10%;
+}
+.navbar-default{
+  background-color:inherit;
+  border:none;
+}
+
+.navbar-default .navbar-nav>li>a{
+  color:grey;
+  font-size:24px;
+  font-weight:500;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+  color:black;
+}
+.navbar-default .navbar-brand{
+  color:black;
+  font-size:24px;
+  font-weight: 500;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  color:black;
+  background-color:inherit;
+}
+.vertical-align-content{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#wrapMap{
+  height:50%;
+  padding:0% 10% 0% 10%;
+}
+#wrapIframe{
+  height:100%;
+}
+#wrapInfo{
+  padding:1% 11% 0% 11%;
+}
+#wrapInfo>div{
+  text-align:right;
+  font-size:20px;
+}
+.boldfont{
+  font-weight: 700;
+}
