@@ -63,46 +63,47 @@
 
     <!-- 메인 컨테이너 -->
     <div class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MintVoice</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/board/notice">NOTICE</a></li>
+              <li><a href="/board/audition">AUDITION</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LANGUAGE <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="/lang/ko">한국어</a></li>
+                  <li><a href="/lang/en">English</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
       <!-- 메인 이미지 -->
       <nav class="row row-eq-height" id="mainImage">
         <div class="col-md-12 col-xs-12">
           <div class="row-row-eq-height">
-            <div class="col-md-12 col-xs-12" id="navBar">
-              <nav class="navbar navbar-default">
-                <div class="container-fluid">
-
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">MintVoice</a>
-                  </div>
-
-                  <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><a href="/board/notice">NOTICE</a></li>
-                      <li><a href="/board/audition">AUDITION</a></li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LANGUAGE <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="/lang/ko">한국어</a></li>
-                          <li><a href="/lang/en">English</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-            </div>
             <div class="col-md-12 col-xs-12" id="textBar">
+              <span id="textWrapper">
               <span class="smallfont">성우 보이스를 찾고 계신가요?</span> <br /><br /> <span id="sourceUser"></span>명의 성우<span class="smallfont">가</span><br /><span id="sourceCount"></span>개의 보이스<span class="smallfont">를 등록했습니다.</span>
               <br /><br /> <span class="smallfont">원하는 목소리를 지금 검색해보세요.</span>
               <br /><br />
               <a class="js-scroll-trigger" href="#filterBox" id="findVoice">Voice Search</a>
+              </span>
             </div>
           </div>
         </div>
