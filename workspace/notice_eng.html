@@ -17,9 +17,40 @@
 
 <body>
   <div class="container-fluid">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          <a class="navbar-brand" href="/">MintVoice</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/board/notice">NOTICE</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+            <li><a href="/board/audition">AUDITION</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LANGUAGE <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/lang/ko">한국어</a></li>
+                <li><a href="/lang/en">English</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- 메인  -->
-    <section class="row row-eq-height vertical-align marginTop" id="mainTable">
+    <section class="row row-eq-height vertical-align" id="mainTable">
       <table class="table table-hover tableNotice">
         <thead class="h3">
           <tr>
@@ -74,7 +105,7 @@
 
     <!-- Main Container End -->
   </div>
-  
+
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="/src/js/notice.js" type="text/babel"></script>
   <script src="/src/js/boardpagination.js" type="text/babel"></script>
