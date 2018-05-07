@@ -75,13 +75,19 @@ body {
   font-size:35px;
   font-weight:500;
 }
-#findVoice{
-  text-decoration: none;
-  outline: 2px solid black;
-  outline-offset: 5px;
-}
+
 #mainImage>div,#mainImage>div>div{
   height:100%;
+}
+.btn-voice{
+  background-color:rgb(114,203,177);
+  color:black !important;
+  padding:30px 100px !important;
+  font-size:30px;
+  font-weight: 700;
+}
+.btn-voice.active, .btn-voice.focus, .btn-voice:active, .btn-voice:focus, .btn-voice:hover, .open>.dropdown-toggle.btn-voice{
+  background-color:rgb(58, 175, 129);
 }
 
 .text-middle{
