@@ -98,6 +98,14 @@ voiceRouter.get("/search", (req, res, next) => {
     if (typeof req.query.keyword === "string" && req.query.keyword.length > 0) {
       query += `AND original_filename LIKE "%${req.query.keyword}%"`;
     }
+    // korean
+    if (typeof req.query.language !== "object" && req.query.language === "1") {
+      query += `AND name REGEXP "[가-힣]"`;
+    }
+    // english
+    else if (typeof req.query.language !== "object" && req.query.language === "0") {
+      query += `AND name REGEXP "[a-z | A-Z]"`;
+    }
   }
   req.query.offset = +req.query.offset || 0;
   req.query.limit = +req.query.limit || 10;
