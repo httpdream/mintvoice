@@ -78,21 +78,17 @@ voiceRouter.get("/search", (req, res, next) => {
   let query = "where voice.id > 0 ";
   if (Object.keys(req.query).length > 2) {
     if (typeof req.query.category !== "object" && req.query.category !== "") {
-      req.query.category = [req.query.category];
-      query += `AND category in (${req.query.category.join()})`;
+      query += `AND category in (${req.query.category})`;
     }
 
     if (typeof req.query.gender !== "object" && req.query.gender !== "") {
-      req.query.gender = [req.query.gender];
-      query += `AND gender in (${req.query.gender.join()})`;
+      query += `AND gender in (${req.query.gender})`;
     }
     if (typeof req.query.age !== "object" && req.query.age !== "") {
-      req.query.age = [req.query.age];
-      query += `AND age in (${req.query.age.join()})`;
+      query += `AND age in (${req.query.age})`;
     }
     if (typeof req.query.octave !== "object" && req.query.octave !== "") {
-      req.query.octave = [req.query.octave];
-      query += `AND octave in (${req.query.octave.join()})`;
+      query += `AND octave in (${req.query.octave})`;
     }
     if (typeof req.query.feels !== "object" && req.query.feels !== undefined) {
       req.query.feels = [req.query.feels];
