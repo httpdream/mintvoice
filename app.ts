@@ -13,6 +13,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
 app.engine("html", require("ejs").renderFile);
 app.use(express.static("workspace"));
+app.use("/global", express.static("global"));
 app.use("/voice", express.static("uploads"));
 
 app.use(cookieParser());
