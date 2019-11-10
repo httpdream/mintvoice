@@ -12,7 +12,7 @@ indexRouter.get("/", (req, res, next) => {
   FROM tag`)
   .then (rows => {
     if (rows.length === 0) {
-      return res.render("../workspace/main.html");
+      return res.render("../workspace/main.ejs");
     }
 
     let tags = {
@@ -29,7 +29,7 @@ indexRouter.get("/", (req, res, next) => {
 
     if (req.session.language && req.session.language === "en") {
       return res.render("../workspace/main_eng.ejs", {
-        tags: tags,
+        tags: [tags],
         language: req.session.language
       });
     }

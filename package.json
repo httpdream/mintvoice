@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src -d workspace/src/js",
     "start": "NODE_ENV=development nodemon bin/mint.ts",
-    "start:win": "nodemon bin/mint.ts"
+    "start:win": "nodemon bin/mint.ts",
+    "loop": "nodemon loop.ts"
   },
   "keywords": [
     "gql"

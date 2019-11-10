@@ -31,26 +31,7 @@
         <div class="modal-body">
           <div class="container-fluid">
             <form id="feelsForm">
-              <% tags.feels.forEach(function (tag, index) { %>
-                <% if (index % 10 == 0) { %>
-                  <div class="row">
-                    <% } %>
-
-                      <% if (tag.name.trim().length > 2) { %>
-                        <div class="checkbox-inline col-md-1-5 col-xs-1-5">
-                          <% } else { %>
-                            <div class="checkbox-inline col-md-1 col-xs-1">
-                              <% } %>
-
-                                <input type="checkbox" name="feels" value="<%=
-                                tag.id %>" id=" <%= tag.key %>" class="modalCheckBox">
-                                <label for="<%= tag.key %>"><%= tag.name.trim() %></label>
-                            </div>
-                            <% if (index % 10 == 9 || tags.feels.length-1 == index) { %>
-                        </div>
-                        <br />
-                        <% } %>
-                          <% }) %>
+              
             </form>
             </div>
           </div>
@@ -149,33 +130,21 @@
               <div class="col-md-2 col-xs-3">
                 <select class="form-control" name="category">
                     <option value="" id="select_none">선택안함</option>
-                    <% tags.category.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
-                    <% }) %>
                 </select>
               </div>
               <div class="col-md-2 col-xs-3">
                 <select class="form-control" name="gender">
                     <option value="" id="select_none">선택안함</option>
-                    <% tags.gender.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
-                    <% }) %>
                 </select>
               </div>
               <div class="col-md-2 col-xs-3">
                 <select class="form-control" name="age">
                     <option value="" id="select_none">선택안함</option>
-                    <% tags.age.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
-                    <% }) %>
                 </select>
               </div>
               <div class="col-md-2 col-xs-3">
                 <select class="form-control" name="octave">
                     <option value="" id="select_none">선택안함</option>
-                    <% tags.octave.forEach(function (tag) { %>
-                    <option value="<%= tag.id %>" id="select_<%= tag.key %>"><%= tag.name %></option>
-                    <% }) %>
                 </select>
               </div>
               <div class="col-md-2 col-xs-3">
@@ -274,7 +243,6 @@
     </div>
 
     <script>
-      var language = "<%= language %>";
     </script>
     <script src="src/js/index.js" type="text/babel"></script>
     <script src="src/js/checknum.js" type="text/babel"></script>
