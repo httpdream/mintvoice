@@ -19,7 +19,7 @@
     "@types/request": "^2.47.0",
     "@types/request-promise": "^4.1.41",
     "body-parser": "^1.18.2",
-    "config": "^1.30.0",
+    "config": "^3.3.8",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "countup.js": "^1.9.3",
